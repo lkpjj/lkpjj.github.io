@@ -580,7 +580,7 @@ a {
   transition: transform 0.3s ease-in;
 }
 #header .header-nav .social {
-  margin-right: 15px;
+  margin-right: 10px;
   margin-top: 10px;
   text-align: center;
 }
@@ -595,9 +595,9 @@ a {
   *display: inline;
   text-indent: -9999px;
   margin: 0 8px 15px 8px;
-  opacity: 0.7;
-  width: 28px;
-  height: 28px;
+  opacity: 0.85;
+  width: 30px;
+  height: 30px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -717,6 +717,108 @@ a {
 }
 #disqus_thread {
   padding: 0 40px;
+}
+.search {
+  width: 68%;
+  height: 18px;
+  margin-top: 1px;
+  padding: 0;
+  font-family: inherit;
+  border: 2px solid transparent;
+  border-bottom: 2px solid #d3d3d3;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  opacity: 0.2;
+  background: none;
+}
+.search:hover {
+  border: 2px solid #d3d3d3;
+  opacity: 1;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+#scroll {
+  right: 0;
+}
+.scroll {
+  z-index: 999;
+  position: fixed;
+  top: 61.8%;
+  text-align: center;
+  line-height: 42px;
+}
+.scroll a {
+  display: block;
+  width: 29px;
+  height: 42px;
+  font-size: 28px;
+  background: rgba(215,216,215,0.4);
+}
+.scroll a .fa {
+  color: rgba(255,255,255,0.8);
+}
+.scroll a:hover {
+  background: rgba(147,181,224,0.3) !important;
+}
+.scroll a:hover .fa {
+  color: #fff;
+}
+.scroll a:not(:last-child) {
+  border-bottom: 1px solid #fff;
+}
+.hide-labels {
+  position: fixed;
+  left: 378px;
+  top: 30px;
+  padding: 1px;
+  border: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #666;
+  background: none;
+  opacity: 0.32;
+  -webkit-appearance: none;
+}
+.hide-labels:hover {
+  color: #88acdb;
+  opacity: 1;
+}
+post-nav-button {
+  left: left-col-width;
+  top: 61.8%;
+}
+post-nav-button a {
+  border-bottom-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+post-nav-button a .fa-times {
+  display: none;
+}
+.post-list {
+  display: none;
+  text-align: left;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  list-style: decimal;
+}
+.post-list li {
+  margin: 0.4em 0 0.1em 0.7em;
+}
+.post-list li a {
+  color: #808080;
+}
+.post-list li a:hover {
+color
+  text-decoration: none;
+}
+.post-list li:hover a {
+  color: #88acdb;
 }
 .archives-wrap {
   position: relative;
