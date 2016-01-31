@@ -242,6 +242,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+		<!-- Table of Contents -->
+        
         <h3 id="name_u7684_u4F5C_u7528"><a href="#name_u7684_u4F5C_u7528" class="headerlink" title="name的作用"></a><strong>name</strong>的作用</h3><p>之前看到一些python的程序中总会有这么一句：<strong>if <strong>name</strong> == “<strong>main</strong>:”</strong><br>一直比较奇怪为什么加这么一句，查了一下才知道，原来这个东西是为了区别你运行的这个程序是直接运行的程序本身还是通过import 来导入之后运行的，可能这么说比较不清楚，还是直接看个程序比较明了：</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#/usr/bin/python&#10;class Test:&#10;def __init__(self):pass&#10;def f(self):print(&#39;Hello World&#39;)&#10;&#10;if __name__ == &#39;__main__&#39;:&#10;t=Test()&#10;t.f()</span><br></pre></td></tr></table></figure>

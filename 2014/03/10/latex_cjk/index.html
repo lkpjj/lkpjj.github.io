@@ -241,6 +241,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+		<!-- Table of Contents -->
+        
         <p><code>LaTeX</code>是功能强大的排版工具，在XeTeX[1]、CTeX[2]等软件的努力下，在Linux中使用其排版中文其实很简单。（而XeLaTeX语法与LaTeX相同，还提供了些增强功能，多数LaTeX文档不经修改就能直接用XeLaTeX编译。）本文介绍使用XeTeX在Linux中排版中文的几种简便方法。</p>
 <p>  首先要安装好XeTeX软件，比较方便的方法是安装Texlive 2009或以上版本。Ubuntu、Fedora、Archlinux等流行发行版都在软件仓库中包括了Texlive，如在Ubuntu、Fedora中可安装软件包 texlive-xetex ，在Archlinux中建议安装texlive-most。如果发行版未提供Texlive或提供的版本太旧，也可自行到Texlive网站上下载。[3]（TeX Live在世界各地的镜像很多，选择合适的镜像下载速度会很快的。）</p>
 <p>接着要准备字体。这一步是可选的，但Linux中的中文字体多数不太适合用于排版文档，建议复制Windows中的字体或Adobe的字体。注意XeTeX可以直接使用系统中的字体，只要把需要字体复制到指定位置就行，无需自己生成字体文件。比如复制Windows中的宋体、黑体等字体：<br><a id="more"></a></p>

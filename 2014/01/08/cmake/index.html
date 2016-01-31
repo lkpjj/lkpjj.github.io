@@ -242,6 +242,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+		<!-- Table of Contents -->
+        
+            <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u80CC_u666F_u77E5_u8BC6"><span class="toc-number">1.</span> <span class="toc-text">背景知识</span></a></li></ol>
+            </div>
+        
         <h2 id="u80CC_u666F_u77E5_u8BC6"><a href="#u80CC_u666F_u77E5_u8BC6" class="headerlink" title="背景知识"></a>背景知识</h2><p>cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可用性)，在KDE开发者使用了近10年autotools之后，他们终于决定为KDE4选择一个新的工程构建工具，其根本原因用KDE开发者的话来“ ” 说就是：只有少数几个 编译专家 能够掌握KDE现在的构建体系(admin/Makefile.common)，在经历了unsermake, scons以及cmake的选型和尝试之后，KDE4决定使用cmake作为自己的构建系统。在迁移过程中，进展异常的顺利，并获得了cmake开发者的支持。所以，目前的KDE4开发版本已经完全使用cmake来进行构建。像kdesvn,rosegarden等项目也开始使用cmake，这也注定了cmake必然会成为一个主流的构建体系。</p>
 <a id="more"></a>
 <p>##特点<br>cmake的特点主要有：</p>

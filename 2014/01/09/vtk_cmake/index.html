@@ -242,6 +242,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+		<!-- Table of Contents -->
+        
         <h3 id="u5199_u4E00_u4E2A_u7B80_u5355_u7684CMakeLists-txt_u811A_u672C_u6587_u4EF6"><a href="#u5199_u4E00_u4E2A_u7B80_u5355_u7684CMakeLists-txt_u811A_u672C_u6587_u4EF6" class="headerlink" title="写一个简单的CMakeLists.txt脚本文件"></a>写一个简单的CMakeLists.txt脚本文件</h3><p>为了测试是否成功安装了VTK，我们可以建立一个简单的VTK工程进行试验。本书里提到的所有示例都是用CMake进行管理，因此需要先写一个CMakeLists.txt文件。我们先在目录里建立一个vtktest.cpp文件，同时写一个CMakeLists.txt脚本文件，CMakeLists.txt的具体内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION2.8)&#10;project(TestVTK)&#10;find_package(VTK REQUIRED)&#10;include($&#123;VTK_USE_FILE&#125;)&#10;add_executable(TestVTK  TestVTKInstall.cpp)&#10;target_link_libraries($&#123;PROJECT_NAME&#125; vtkRendering vtkCommon)</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>接着在目录下新建一个cpp文件，名字名为TestVTKInstall.cpp，输入内容为：</p>
