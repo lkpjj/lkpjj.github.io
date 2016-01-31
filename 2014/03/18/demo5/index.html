@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>指针与数组(memo5) | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通过一些例子介绍了指针、指针与引用的区别以及指针与数组关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针与数组(memo5)">
+<meta property="og:url" content="http://liangkai.me/2014/03/18/demo5/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="通过一些例子介绍了指针、指针与引用的区别以及指针与数组关系">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="指针与数组(memo5)">
+<meta name="twitter:description" content="通过一些例子介绍了指针、指针与引用的区别以及指针与数组关系">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-demo5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/03/18/demo5/" class="article-date">
+  	<time datetime="2014-03-18T12:52:42.000Z" itemprop="datePublished">2014-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      指针与数组(memo5)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指针/">指针</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u6307_u9488_u548C_u5F15_u7528_u7684_u533A_u522B"><a href="#u6307_u9488_u548C_u5F15_u7528_u7684_u533A_u522B" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h3><ol>
+<li>非空区别<br>在任何情况下都不能使用指向空值的引用，即引用必须初始化，必须指向某些对象;当声明一个不指向任何对象的变量时最好使用指针;</li>
+<li>合法性区别<br>在使用引用之前不需要测试它的合法性，相反，指针则应该总是被测试，防止为空;</li>
+<li>可修改的区别<br>指针可以被重新赋值，但引用必须且一直指向在初始化时初始化的对象;<a id="more"></a></li>
+</ol>
+<ul>
+<li><code>code</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;&#10;int main()&#10;&#123;&#10;  int *p;&#10;  *p=5;&#10;&#10;  cout&#60;&#60;*p&#60;&#60;endl;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果开始不注意的话，会以为得到正确的输出结果，实际在编译运行的时候会导致core dump错误，这是因为我们在没有给指针初始化，即指针p并没有指向实际的地址，这样赋的值不知道放到哪里去，因此导致产生了段错误;</p>
+<h3 id="u6307_u9488_u4F7F_u7528"><a href="#u6307_u9488_u4F7F_u7528" class="headerlink" title="指针使用"></a>指针使用</h3><ul>
+<li><code>code</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;&#10;char* GetMemory(void)&#10;&#123;&#10;  char p[]=&#34;hello world&#34;;&#10;  return p;&#10;&#125;&#10;&#10;int main()&#10;&#123;&#10;  char *str=NULL;&#10;  str=GetMemory();&#10;  cout&#60;&#60;str&#60;&#60;endl;&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我机器上的输出结果为<code>�� {w</code> 原因是因为函数返回的指针指向栈内存,在返回之后，函数调用结束，因此指针已经被释放，所以str指针的内容不可知;</p>
+<h3 id="u4E0D_u540C_u7684_u6307_u9488"><a href="#u4E0D_u540C_u7684_u6307_u9488" class="headerlink" title="不同的指针"></a>不同的指针</h3><ol>
+<li>函数指针<br>void (*f)();虽然()的优先级是高于*的，但是由于括号的存在所以f首先是一个指针，接下来执行( )，表明f指向一个函数，这个函数不返回任何值。因此f是一个指向不接受任何参数的且没有返回值的函数的指针，简称函数指针;</li>
+<li>指针函数<br>int* f();f首先与括号结合，所以f是一个函数，不接受任何参数，返回值是一个int型的指针;</li>
+<li>const指针<br>int * const p : p是指向int型的指针，但指针本身为const型，即指针的地址不会变，指向内容可以改变，即(*p)++是可以的，但p++不允许</li>
+<li>指向const的指针<br>const int *p;指针本身的地址可以改变，但是指针指向的变量为const int类型，即所指向的变量不能改变;等价与int const *p,因此(*p)++是不允许的，但是p++是可以的</li>
+<li>指向const的const指针<br>const int* const p;指针本身不能改变，同时它所指向的变量也不能发生改变，(*p)++和p++都是不允许的</li>
+<li>this指针  <ul>
+<li>this指针只能在成员函数中使用 全局函数、静态函数都不能使用this</li>
+<li>this 生命周期 this指针在成员函数开始前构造，并在成员的结束后清除</li>
+</ul>
+</li>
+<li>int(*(*F)(int,int))(int)剖析<br>由于括号的存在，首先F是一个指针*F，由于括号的优先级高于*，于是先于后边的结合，所以F是一个函数指针，该函数带有两个int型的参数，再与前边的*结合，说明该函数返回一个指针，这个指针指向的是一个带有int型参数且返回int型数据的函数</li>
+<li><p>迷途指针<br>c中的野指针，c++的迷途指针都是不是NULL的指针，也不是指向常量的指针，而是指向“垃圾”内存的指针;</p>
+<ul>
+<li>指针变量没有被初始化。任何指针变量刚被创建时不会自动成为NULL指针，它的缺省值是随机的，它会乱指一气。所以，指针变量在创建的同时应当被初始化，要么将指针设置为NULL，要么让它指向合法的内存。</li>
+<li><p>当我们没有将指针重新赋值就再试图再次使用该指针，引起的结果是不可预料的，因此我们在将指针删除之后就不要再使用它，虽然这个指针仍然指向原来的内存区域，但是编译器已经把该内存重新分配给了其他的数据，再次使用很有可能导致你的程序崩溃。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include   &#60;iostream&#62;&#10;typedef unsigned short int USHORT;&#10;using namespace std;&#10;void main()&#10;&#123;&#10; USHORT *pInt = new USHORT;&#10; *pInt=10;&#10; cout&#60;&#60;&#34;pInt&#25351;&#21521;&#30340;&#20869;&#23384;&#22320;&#22336;&#20026;:&#34;&#60;&#60;pInt&#60;&#60;endl;&#10; cout&#60;&#60;&#34;pInt&#25351;&#21521;&#20869;&#23384;&#20013;&#23384;&#20648;&#30340;&#20540;&#20026;: &#34;&#60;&#60;*pInt&#60;&#60;endl;&#10; delete pInt;&#10; pInt=NULL;&#10; long *pLong = new long;&#10; *pLong=90000;&#10; cout&#60;&#60;&#34;pLong&#25351;&#21521;&#30340;&#20869;&#23384;&#22320;&#22336;&#20026;:&#34;&#60;&#60;pLong&#60;&#60;endl;&#10; cout&#60;&#60;&#34;pLong&#25351;&#21521;&#20869;&#23384;&#20013;&#23384;&#20648;&#30340;&#20540;&#20026;: &#34;&#60;&#60;*pLong&#60;&#60;endl;&#10; *pInt=20;      //&#20877;&#27425;&#20351;&#29992;pInt!&#10; cout&#60;&#60;&#34;pInt&#25351;&#21521;&#30340;&#20869;&#23384;&#22320;&#22336;&#20026;:&#34;&#60;&#60;pInt&#60;&#60;endl;&#10; cout&#60;&#60;&#34;pInt&#25351;&#21521;&#20869;&#23384;&#20013;&#23384;&#20648;&#30340;&#20540;&#20026;: &#34;&#60;&#60;*pInt&#60;&#60;endl;&#10; delete   pLong;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>result</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pInt&#25351;&#21521;&#30340;&#20869;&#23384;&#22320;&#22336;&#20026;:0x16a4010&#10;pInt&#25351;&#21521;&#20869;&#23384;&#20013;&#23384;&#20648;&#30340;&#20540;&#20026;: 10&#10;pLong&#25351;&#21521;&#30340;&#20869;&#23384;&#22320;&#22336;&#20026;:0x16a4010&#10;pLong&#25351;&#21521;&#20869;&#23384;&#20013;&#23384;&#20648;&#30340;&#20540;&#20026;: 90000&#10;&#27573;&#38169;&#35823; (core dumped)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>由输出的结果我们可以看到，pInt和pLong指向的内存是一样的，因为已经先删除了pInt，编译器又将该段内存重新分配给了pLong，当我们再次使用pInt时就导致了段错误。也许你会有疑问说不是已经有了这句<strong>pInt=NULL</strong>重新赋值了，其实这样并没有在重新分配内存。假如你真的希望能再重新使用该指针的话可以使用<code>** pInt=(USHORT\*)malloc(sizeof(USHORT));**</code>这句来重新分配内存就可以了，输出就正常了。</p>
+<h3 id="u6307_u9488_u4E0E_u6570_u7EC4"><a href="#u6307_u9488_u4E0E_u6570_u7EC4" class="headerlink" title="指针与数组"></a>指针与数组</h3><ul>
+<li><p><code>指向指针的指针</code><br>指针可以指向基本类型，也可以指向复合类型，因此也可以指向另外一个指针变量，称为指向指针的指针。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i;&#10;int *p = &#38;i;&#10;int **pp = &#38;p;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>数组指针</code><br>数组中的每个元素可以是基本类型，也可以复合类型，因此也可以是指针类型。例如定义一个数组a由10个元素组成，每个元素都是int *指针：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int* a[10];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>指向数组的指针</code><br>指针可以指向复合类型，因此必然可以指向数组类型;以下定义一个指向数组的指针：<br><code>int (*p)[];</code><br>解释方法与函数指针一样，[]的优先级高于*，但由于括号的存在，p首先是一个指针，然后说明是一个数组，数组中数据类型为int型，所以p是一个指向int型数组的指针；</p>
+<ul>
+<li><strong>使用</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a[10];&#10;int (*p)[10]= &#38;a;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>a是一个数组，在&amp;a这个表达式中，数组名做左值，取整个数组的首地址赋给指针p。注意，&amp;a[0]表示数组a的首元素的首地址，而&amp;a表示数组a的首地址，显然这两个地址的数值相同，但这两个表达式的类型是两种不同的指针类型，前者的类型是int *，而后者的类型是int (*)[10]。</p>
+<ul>
+<li><code>指针与二维数组</code><br>由于我是做图像处理的，因此难免要用到二维数组，所以个人觉得二维数组跟指针的关系很有必要弄清楚;<ul>
+<li><strong>使用</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a[5][10];&#10;int (*pa)[10] = &#38;a[0];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>这时p[0]的值与a[0]的值是一样的，取的都是同一个元素，因为此时a[0]本身也是一个指针，此时里面存储的是10个int型元素，即a[0]是由10个int组成的数组，而不是基本类型，这样我们可以把p当做一个二维数组来使用，pa[1][2]和a[1][2]取的也是同一个元素，而且pa比a用起来更灵活，数组名(<em>数组名本身即为一个指针</em>)不支持赋值、自增等运算，而指针可以支持，p++使p跳过二维数组的一行（40个字节），指向a[1]的首地址。</p>
+<ul>
+<li><p><code>指针与三维数组</code><br>我们直接通过一个例子来说明，要求用不同的方法输出三维数组中的字符<em>r</em></p>
+<ul>
+<li><p><code>method1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;int main(int argc,char * argv[])&#10;&#123;&#10; char a=&#123; &#123; &#123;&#39;a&#39;,&#39;b&#39;&#125;,&#123;&#39;c&#39;,&#39;d&#39;&#125;,&#123;&#39;e&#39;,&#39;f&#39;&#125; &#125;, &#10;          &#123; &#123;&#39;g&#39;, &#39;h&#39;&#125;,&#123;&#39;i&#39;, &#39;j&#39;&#125;, &#123;&#39;k&#39;, &#39;l&#39;&#125; &#125;, &#10;          &#123; &#123;&#39;m&#39;, &#39;n&#39;&#125;, &#123;&#39;o&#39;, &#39;p&#39;&#125;, &#123;&#39;q&#39;, &#39;r&#39;&#125; &#125;,&#10;          &#123; &#123;&#39;s&#39;, &#39;t&#39;&#125;, &#123;&#39;u&#39;, &#39;v&#39;&#125;, &#123;&#39;w&#39;, &#39;x&#39;&#125; &#125;&#10;        &#125;;&#10;&#10;  char (*pa)[2] = &#38;a[1][0];&#10;  char (*ppa)[3][2] = &#38;a[1];&#10;&#10;  cout&#60;&#60;pa&#60;&#60;endl;&#10;  cout&#60;&#60;ppa&#60;&#60;endl;&#10;&#10;  cout&#60;&#60;pa[5][1]&#60;&#60;endl;;&#10;  cout&#60;&#60;ppa[1][2][1]&#60;&#60;endl;&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>result</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x7fff07143de6&#10;0x7fff07143de6&#10;r&#10;r</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>这里因为拿ppa来说明，<code>char (*ppa)[3][2] = &amp;a[1];</code>将数组a第二行的首地址赋给ppa，所以ppa先指向第二行;因为ppa中的内容为指向像 <strong>{‘g’, ‘h’},{‘i’, ‘j’}, {‘k’, ‘l’}</strong>这样一行的指针，所以ppa[1]相当指针加1,所以ppa[1]指向第三行;ppa[1]中的内容也为指针，指向的是指向<strong>{‘m’,’n’}</strong>这样的元素的指针，ppa[1][2]相当于将指针向后移动2位，指向第三行的第二个元素，即<strong>{‘q’,’r’}</strong>;ppa[1][2]为指针，指向的是字符元素，所以p[1][2][1]又将指针向后移动一位，得到了字符r;<code>*pa可以写成pa[0]</code></p>
+<ul>
+<li><p><code>method2</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;int main(int argc,char * argv[])&#10;&#123;&#10; char a=&#123; &#123; &#123;&#39;a&#39;,&#39;b&#39;&#125;,&#123;&#39;c&#39;,&#39;d&#39;&#125;,&#123;&#39;e&#39;,&#39;f&#39;&#125; &#125;, &#10;          &#123; &#123;&#39;g&#39;, &#39;h&#39;&#125;,&#123;&#39;i&#39;, &#39;j&#39;&#125;, &#123;&#39;k&#39;, &#39;l&#39;&#125; &#125;, &#10;          &#123; &#123;&#39;m&#39;, &#39;n&#39;&#125;, &#123;&#39;o&#39;, &#39;p&#39;&#125;, &#123;&#39;q&#39;, &#39;r&#39;&#125; &#125;,&#10;          &#123; &#123;&#39;s&#39;, &#39;t&#39;&#125;, &#123;&#39;u&#39;, &#39;v&#39;&#125;, &#123;&#39;w&#39;, &#39;x&#39;&#125; &#125;&#10;        &#125;;&#10;&#10;  char (*pa)[2] = &#38;a[1][0];&#10;  char (*ppa)[3][2] = &#38;a[1];&#10;&#10;  cout&#60;&#60;pa&#60;&#60;endl;&#10;  cout&#60;&#60;ppa&#60;&#60;endl;&#10;&#10;  cout&#60;&#60;*(pa[5]+1)&#60;&#60;endl;;&#10;  cout&#60;&#60;(*(*(ppa+1)+2))[1]&#60;&#60;endl;&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>result</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x7fff07143de6&#10;0x7fff07143de6&#10;r&#10;r</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Tips</code><br>比较两种方法可以发现第一种较为好用，不论使用哪种方法，只要搞清楚指针所指向的是什么，就很容易弄清楚指针与数组的关系，通过指针我们可以定义更高维的数组，让我们在操作数组的时候很方便的得到自己想要结果;</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/03/19/recursion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          c++中的控制语句(memo6)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/03/17/demo4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">define、const、sizeof(memo4)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="demo5" data-title="指针与数组(memo5)" data-url="http://liangkai.me/2014/03/18/demo5/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>C++ Primer Plus(第五版) 读书笔记 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="繁琐的一些需要记录的知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ Primer Plus(第五版) 读书笔记">
+<meta property="og:url" content="http://liangkai.me/2014/08/09/c++_store/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="繁琐的一些需要记录的知识点">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ Primer Plus(第五版) 读书笔记">
+<meta name="twitter:description" content="繁琐的一些需要记录的知识点">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-c++_store" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/09/c++_store/" class="article-date">
+  	<time datetime="2014-08-09T14:44:10.000Z" itemprop="datePublished">2014-08-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ Primer Plus(第五版) 读书笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##c++中三种内存管理方式##<br>根据用于分配内存的方法，c++有三种管理数据内存的方式：自动存储、静态存储和动态存储(有时叫做自由存储空间或者堆);</p>
+<p>###自动存储###<br>在函数内部定义的常规变量使用自动存储空间，被称为自动变量。实际上，自动变量是一个局部变量，其作用域为包含它的代码块(包含在花括号内的一段代码)。</p>
+<p>###静态存储###<br>静态存储是整个程序执行期间都存在的存储方式，使变量称为静态存储有两种方式：一种是在函数外面定义它;另一种是在函数声明变量时使用关键字<em>static</em>。</p>
+<p>###动态存储###<br>new和delete提供了一种比自动变量和静态变量更加灵活的方法。它们管理一个内存池，与另外两种存储方式相比，动态存储可以使程序员对程序如何使用内存有更大的控制权。</p>
+<a id="more"></a>
+<p>##变量##</p>
+<p>###寄存器变量###<br>c++支持使用<strong>register</strong>关键字来声明局部变量。寄存器变量是另一种形式的自动变量，因此其存储持续性为自动，作用域为局部，关键字<strong>register</strong>提醒编译器，用户希望它使用 CPU 寄存器，而不是堆栈来处理特定的变量，从而提供对变量的快速访问。因为CPU访问寄存器的速度比访问堆栈中内存快。<br><code>register int count_fast;</code><br>如果变量被存储在寄存器中，则没有内存地址，因此不能将地址操作符用于寄存器变量。</p>
+<h3 id="u53D8_u91CF_u521D_u59CB_u5316"><a href="#u53D8_u91CF_u521D_u59CB_u5316" class="headerlink" title="变量初始化"></a>变量初始化</h3><p>对于局部变量而言，它们的作用域为对应的程序块，如果没有显示的初始化局部变量则局部的值为随机值;<br>对于全局变量，与自动变量(局部变量)相比,它们的寿命更长，编译器将分配固定的内存块来存储所有的静态变量，这些变量在整个程序执行期间一直存在，另外，如果没有显示地初始化静态变量，编译器就将把它们初始化为0。</p>
+<ol>
+<li>在默认情况下，静态数组和结构将每个元素或成员的所有位都设置为0。</li>
+<li>只能使用常量表达式来初始化静态变量。</li>
+</ol>
+<h3 id="5_u79CD_u53D8_u91CF_u5B58_u50A8_u65B9_u5F0F"><a href="#5_u79CD_u53D8_u91CF_u5B58_u50A8_u65B9_u5F0F" class="headerlink" title="5种变量存储方式"></a>5种变量存储方式</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">存储描述</th>
+<th style="text-align:center">持续性</th>
+<th style="text-align:center">作用域</th>
+<th style="text-align:center">链接性</th>
+<th style="text-align:left">如何声明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">自动</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:left">在代码块中，关键字auto</td>
+</tr>
+<tr>
+<td style="text-align:left">寄存器</td>
+<td style="text-align:center">自动</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:left">在代码块中，关键字register</td>
+</tr>
+<tr>
+<td style="text-align:left">静态，无链接性</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">无</td>
+<td style="text-align:left">在代码块中，关键字static</td>
+</tr>
+<tr>
+<td style="text-align:left">静态，外部链接</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">文件</td>
+<td style="text-align:center">外部</td>
+<td style="text-align:left">在函数外面</td>
+</tr>
+<tr>
+<td style="text-align:left">静态，内部链接</td>
+<td style="text-align:center">静态</td>
+<td style="text-align:center">文件</td>
+<td style="text-align:center">内部</td>
+<td style="text-align:left">在函数外面，使用关键字static</td>
+</tr>
+</tbody>
+</table>
+<h3 id="u8BF4_u660E_u7B26_u548C_u9650_u5B9A_u7B26"><a href="#u8BF4_u660E_u7B26_u548C_u9650_u5B9A_u7B26" class="headerlink" title="说明符和限定符"></a>说明符和限定符</h3><ol>
+<li>auto 将变量声明为自动变量</li>
+<li>register 用于在声明中指示寄存器存储类型</li>
+<li>static 用于在作用域为整个文件的声明中时，表示内存链接性;被用于局部声明中，表示局部变量的存储持续性为静态的;</li>
+<li>extern 表明是引用声明，即声明引用在其它地方的变量</li>
+<li>mutable 可以用它来指出，即使结构(或类)变量为const,其某个成员也可以被修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struct data&#10;&#123;&#10;&#9;char name[30];&#10;&#9;mutable int accesses;&#10;&#9;...&#10;&#125;;&#10;&#10;const data veep=&#123;&#34;claybourne&#34;,0,...&#125;;&#10;strcpy(veep.name,&#34;Joye&#34;); //not allowed&#10;veep.accesses++;          //allowed</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="u7C7B_u76F8_u5173"><a href="#u7C7B_u76F8_u5173" class="headerlink" title="类相关"></a>类相关</h2><p>C++自动提供了下面这些成员函数：</p>
+<ol>
+<li>默认构造函数，如果没有定义</li>
+<li>复制构造函数</li>
+<li>赋值构造函数</li>
+<li>默认析构函数</li>
+<li>地址操作符</li>
+</ol>
+<h3 id="u9ED8_u8BA4_u6784_u9020_u51FD_u6570"><a href="#u9ED8_u8BA4_u6784_u9020_u51FD_u6570" class="headerlink" title="默认构造函数"></a>默认构造函数</h3><p>如果没有提供任何构造函数，c++将创建默认构造函数;如果定义了构造函数，c++将不会定义默认构造函数。</p>
+<h3 id="u590D_u5236_u6784_u9020_u51FD_u6570"><a href="#u590D_u5236_u6784_u9020_u51FD_u6570" class="headerlink" title="复制构造函数"></a>复制构造函数</h3><p>复制构造函数用于将一个对象复制到新创建的对象中，也就是说，它用于初始化过程中，而不是常规的赋值过程中，类的复制构造函数原型通常如下：<br><code>Class_name(corrst Class_name &amp;)</code><br>它接受一个指向类对象的常量引用作为参数。</p>
+<h4 id="u4F55_u65F6_u8C03_u7528_u590D_u5236_u6784_u9020_u51FD_u6570"><a href="#u4F55_u65F6_u8C03_u7528_u590D_u5236_u6784_u9020_u51FD_u6570" class="headerlink" title="何时调用复制构造函数"></a>何时调用复制构造函数</h4><p><strong>新建一个对象</strong>并将其初始化为同类现有对象时，复制构造函数都将被调用。最常见的情况是将新对象显示的初始化为现有对象,每当程序生成了对象副本时，编译器都将使用复制构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBad ditto(motto);&#10;StringBad metoo=motto;&#10;StringBad also=StringBad(motto);&#10;StringBad *pStringBad = new StringBad(motto);</span><br></pre></td></tr></table></figure></p>
+<h4 id="u590D_u5236_u6784_u9020_u51FD_u6570_u7684_u529F_u80FD"><a href="#u590D_u5236_u6784_u9020_u51FD_u6570_u7684_u529F_u80FD" class="headerlink" title="复制构造函数的功能"></a>复制构造函数的功能</h4><p>默认的复制构造函数逐个复制非静态成员(静态成员存储在静态存储区，不存储在对象内)，该种复制称为浅复制，复制的是成员的值。这里就会导致一个问题，当按值复制时，使用的是浅复制，因此当复制字符串时会导致只复制了指向字符串的指针，而没有真正复制字符串，这样就导致两个指针指向同一地址的情况，那么在析构时会导致重复删除同一指针，最终导致程序出错;解决该问题的办法即重新编写复制构造函数，使用深复制。</p>
+<h3 id="u8D4B_u503C_u6784_u9020_u51FD_u6570"><a href="#u8D4B_u503C_u6784_u9020_u51FD_u6570" class="headerlink" title="赋值构造函数"></a>赋值构造函数</h3><p>c++允许类对象赋值，这是通过自动为类重载赋值操作符实现的。原型如下：<br><code>Class_name &amp; Class_name::operator= (const Class_name &amp;)</code></p>
+<h4 id="u4F55_u65F6_u4F7F_u7528_u8D4B_u503C_u64CD_u4F5C_u7B26"><a href="#u4F55_u65F6_u4F7F_u7528_u8D4B_u503C_u64CD_u4F5C_u7B26" class="headerlink" title="何时使用赋值操作符"></a>何时使用赋值操作符</h4><p>将已有的对象赋给另一个对象时，将使用重载的赋值操作符;而初始化对象时，并不一定使用赋值操作符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBad metoo=knot;</span><br></pre></td></tr></table></figure></p>
+<p>这里metoo是一个新创建的对象，被初始化为knot的值，因此使用复制构造函数，不过，实现时也可能分为两步来处理：</p>
+<ol>
+<li>使用复制构造函数创建一个临时对象</li>
+<li>然后通过赋值将临时对象的值复制到新对象中，也就是说初始化总会调用到复制构造函数，而使用=操作符时也可能调用赋值操作符。</li>
+</ol>
+<h4 id="u8D4B_u503C_u64CD_u4F5C_u7B26_u7684_u529F_u80FD"><a href="#u8D4B_u503C_u64CD_u4F5C_u7B26_u7684_u529F_u80FD" class="headerlink" title="赋值操作符的功能"></a>赋值操作符的功能</h4><p>与复制构造函数相似，赋值操作符的隐私实现也对成员进行逐个复制，如果成员本身就是类对象，则程序将使用为这个类定义的赋值操作符来复制该成员，但静态数据成员不受影响(由于也属于浅复制，也存在如复制构造函数同样的问题)。</p>
+<h3 id="u5404_u79CD_u6280_u672F"><a href="#u5404_u79CD_u6280_u672F" class="headerlink" title="各种技术"></a>各种技术</h3><h4 id="u91CD_u8F7D_26lt_3B_26lt_3B_u64CD_u4F5C_u7B26"><a href="#u91CD_u8F7D_26lt_3B_26lt_3B_u64CD_u4F5C_u7B26" class="headerlink" title="重载&lt;&lt;操作符"></a>重载&lt;&lt;操作符</h4><p>要重新定义&lt;&lt;操作符，以便将它和cout一起用来显示对象的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ostream &#38; operator&#60;&#60;(ostream &#38; os,const c_name &#38;Obj)&#10;&#123;&#10;&#9;os&#60;&#60;...; //display object contents&#10;&#9;return os;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u8F6C_u6362_u51FD_u6570"><a href="#u8F6C_u6362_u51FD_u6570" class="headerlink" title="转换函数"></a>转换函数</h4><p>要将单个值转换为类类型，需要创建原型如下所示的类构造函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c_name(type_name value);</span><br></pre></td></tr></table></figure></p>
+<p>其中c_name为类名，type_name是需要转换的类型名称。</p>
+<p>要将类转换为其他类型，需要创建原型如下所示的类成员函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">operator type_name();</span><br></pre></td></tr></table></figure></p>
+<p>类型转换函数的作用是将一个类的对象转换成另一类型的数据。如果已声明了一个Complex类，可以在Complex类中这样定义类型转换函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">operator double( )&#10;&#9;&#123;&#10;        return real;&#10;    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数返回double型变量real的值。它的作用是将一个Complex类对象转换为一个double型数据，其值是Complex类中的数据成员real的值。请注意，函数名是operator double，这点是和运算符重载时的规律一致的（在定义运算符“+”的重载函数时，函数名是operator +）。<br>使用类型转换函数的简单例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;&#10;class Complex&#10;&#123;&#10;public:&#10;   Complex( )&#123;real=0;imag=0;&#125;&#10;   Complex(double r,double i)&#123;real=r;imag=i;&#125;&#10;   operator double() &#123;return imag;&#125; //&#31867;&#22411;&#36716;&#25442;&#20989;&#25968;&#10;private:&#10;   double real;&#10;   double imag;&#10;&#125;;&#10;&#10;int main( )&#10;&#123;&#10;   Complex c1(3,4),c2(5,-10),c3;&#10;   double d;&#10;   d=2.5+c1;//&#35201;&#27714;&#23558;&#19968;&#20010;double&#25968;&#25454;&#19982;Complex&#31867;&#25968;&#25454;&#30456;&#21152;&#10;   cout&#60;&#60;d&#60;&#60;endl;&#10;   return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u6784_u9020_u51FD_u6570_u4F7F_u7528new_u7684_u7C7B"><a href="#u6784_u9020_u51FD_u6570_u4F7F_u7528new_u7684_u7C7B" class="headerlink" title="构造函数使用new的类"></a>构造函数使用new的类</h4><p>如果类使用new操作符来分配类成员指定内存，在设计时应采取一些预防措施，应牢记以下规则：</p>
+<ol>
+<li>对于使用new分配的内存，都应在类的析构函数中使用delete来释放内存</li>
+<li>构造函数中要么使用new[]，要么使用new，而不能混用。如果构造函数使用的new[]，则析构函数应使用delete[],如果使用new,则析构函数应使用delete;</li>
+</ol>
+<h3 id="C++_u7C7B_u6784_u9020_u51FD_u6570_u521D_u59CB_u5316_u5217_u8868"><a href="#C++_u7C7B_u6784_u9020_u51FD_u6570_u521D_u59CB_u5316_u5217_u8868" class="headerlink" title="C++类构造函数初始化列表"></a>C++类构造函数初始化列表</h3><p>构造函数初始化列表以一个冒号开始，接着是以逗号分隔的数据成员列表，每个数据成员后面跟一个放在括号中的初始化式。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class CExample &#123;&#10;public:&#10;    int a;&#10;    float b;&#10;    //&#26500;&#36896;&#20989;&#25968;&#21021;&#22987;&#21270;&#21015;&#34920;&#10;    CExample(): a(0),b(8.8)&#10;    &#123;&#125;&#10;&#10;   //&#26500;&#36896;&#20989;&#25968;&#20869;&#37096;&#36171;&#20540;&#10;    CExample()&#10;    &#123;&#10;        a=0;&#10;        b=8.8;&#10;    &#125;&#10;&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="u521D_u59CB_u5316_u6570_u636E_u6210_u5458_u4E0E_u6570_u636E_u6210_u5458_u8D4B_u503C_u7684_u533A_u522B"><a href="#u521D_u59CB_u5316_u6570_u636E_u6210_u5458_u4E0E_u6570_u636E_u6210_u5458_u8D4B_u503C_u7684_u533A_u522B" class="headerlink" title="初始化数据成员与数据成员赋值的区别"></a>初始化数据成员与数据成员赋值的区别</h4><p>初始化数据成员与对数据成员赋值的含义是什么？有什么区别？<br>首先把数据成员按类型分类并分情况说明:  </p>
+<ol>
+<li>内置数据类型，复合类型（指针，引用）<br>在成员初始化列表和构造函数体内进行，在性能和结果上都是一样的</li>
+<li>用户定义类型（类类型）<br>结果上相同，但是性能上存在很大的差别。因为类类型的数据成员对象在进入函数体前已经构造完成，也就是说在成员初始化列表处进行构造对象的工作，调用构造函数，在进入函数体之后，进行的是对已经构造好的类对象的赋值，又调用个拷贝赋值操作符才能完成（如果并未提供，则使用编译器提供的默认按成员赋值行为）</li>
+</ol>
+<h4 id="u521D_u59CB_u5316_u987A_u5E8F"><a href="#u521D_u59CB_u5316_u987A_u5E8F" class="headerlink" title="初始化顺序"></a>初始化顺序</h4><p>C++初始化类成员时，是按照声明的顺序初始化的，而不是按照出现在初始化列表中的顺序</p>
+<h4 id="u6CE8_u610F_u4E8B_u9879"><a href="#u6CE8_u610F_u4E8B_u9879" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li>这种初始化格式只能用于构造函数</li>
+<li>必须用这种格式来初始化非静态const数据成员</li>
+<li>必须用这种格式来初始化引用数据成员</li>
+<li>不能将成员初始化列表句法用于构造函数之外的其他类方法</li>
+</ol>
+<h3 id="const__u6210_u5458_u51FD_u6570"><a href="#const__u6210_u5458_u51FD_u6570" class="headerlink" title="const 成员函数"></a>const 成员函数</h3><p>任何不会修改数据成员的函数都应该声明为const 类型。如果在编写const 成员函数时，不慎修改了数据成员，或者调用了其它非const 成员函数，编译器将指出错误，这无疑会提高程序的健壮性。以下程序中，类stack 的成员函数GetCount 仅用于计数，从逻辑上讲GetCount 应当为const 函数。编译器将指出GetCount 函数中的错误。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Stack&#10;&#123;&#10;public:&#10;&#9;void Push(int elem);&#10;&#9;int Pop(void);&#10;&#9;int GetCount(void) const; // const &#25104;&#21592;&#20989;&#25968;&#10;private:&#10;&#9;int m_num;&#10;&#9;int m_data[100];&#10;&#125;;&#10;int Stack::GetCount(void) const&#10;&#123;&#10;&#9;++m_num; // &#32534;&#35793;&#38169;&#35823;&#65292;&#20225;&#22270;&#20462;&#25913;&#25968;&#25454;&#25104;&#21592;m_num&#10;&#9;Pop(); // &#32534;&#35793;&#38169;&#35823;&#65292;&#20225;&#22270;&#35843;&#29992;&#38750;const &#20989;&#25968;&#10;&#9;return m_num;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u5173_u4E8Econst_u51FD_u6570_u7684_u51E0_u70B9_u89C4_u5219"><a href="#u5173_u4E8Econst_u51FD_u6570_u7684_u51E0_u70B9_u89C4_u5219" class="headerlink" title="关于const函数的几点规则"></a>关于const函数的几点规则</h4><ol>
+<li>const对象只能访问const成员函数,而非const对象可以访问任意的成员函数,包括const成员函数.</li>
+<li>const对象的成员是不可修改的,然而const对象通过指针维护的对象却是可以修改的.</li>
+<li>const成员函数不可以修改对象的数据,不管对象是否具有const性质.它在编译时,以是否修改成员数据为依据,进行检查.</li>
+<li>然而加上<strong>mutable</strong>修饰符的数据成员,对于任何情况下通过任何手段都可修改,自然此时的const成员函数是可以修改它的</li>
+</ol>
+<h3 id="u7C7B_u6A21_u677F"><a href="#u7C7B_u6A21_u677F" class="headerlink" title="类模板"></a>类模板</h3><h4 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template &#60;class T&#62;&#10;class Class_name&#10;&#123;&#10;private:&#10;&#9;...&#10;public:&#10;&#9;...&#10;&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="u51E0_u70B9_u8BF4_u660E"><a href="#u51E0_u70B9_u8BF4_u660E" class="headerlink" title="几点说明"></a>几点说明</h4><ol>
+<li>类模板的类型参数可以有一个或者多个，每个类型前都必须加class<br><code>template &lt;class T1,class T2&gt;</code></li>
+<li>使用类模板时也应注意其作用域，对于类内定义和类外定义的函数应注意区别。</li>
+</ol>
+<h4 id="u4F8B_u5B50"><a href="#u4F8B_u5B50" class="headerlink" title="例子"></a>例子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;&#10;using namespace std;&#10;&#10;template &#60;class T&#62; //&#23450;&#20041;&#27169;&#26495;&#10;class Compare&#10;&#123;&#10;private:&#10;  T x,y;&#10;public:&#10;  Compare(T a,T b);&#10;  T max();&#10;  T min();&#10;&#125;;&#10;&#10;template &#60;class T&#62;&#10;Compare&#60;T&#62;::Compare(T a,T b):x(a),y(b)&#10;&#123;&#10;  cout&#60;&#60;&#34;self define construct function.&#34;&#60;&#60;endl;&#10;&#125;&#10;&#10;template &#60;class T&#62;&#10;T Compare&#60;T&#62;::max()&#10;&#123;&#10;  return (x&#62;=y)?x:y;&#10;&#125;&#10;&#10;template &#60;class T&#62;&#10;T Compare&#60;T&#62;::min()&#10;&#123;&#10;  return (x&#60;y)?x:y;&#10;&#125;&#10;&#10;int main()&#10;&#123;&#10;  Compare&#60;double&#62; s(3.0,4.9);&#10;  cout&#60;&#60;s.max()&#60;&#60;endl;&#10;  cout&#60;&#60;s.min()&#60;&#60;endl;&#10;&#9;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="RTTI"><a href="#RTTI" class="headerlink" title="RTTI"></a>RTTI</h3><p>RTTI是运行阶段类型识别(Runtime Type Identification)的简称。c++有三个支持的RTTI元素：</p>
+<ol>
+<li>如果可能的话，dynamic_cast操作符使用一个指向基类的指针来生成一个指向派生类的指针</li>
+<li>typeid操作符返回一个指出对象的类型的值</li>
+<li>type_info结构存储了有关特定类型的信息。<br>只能将RTTI用于包含虚函数的类层次结构</li>
+</ol>
+<h4 id="dynamic_cast"><a href="#dynamic_cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h4><p>dynamic_cast操作符是最常用的RTTI组件，它不能回答指向的是哪个类对象，但能够回答是否可以安全地将对象的地址赋值给特定的类型的指针。</p>
+<h4 id="typeid"><a href="#typeid" class="headerlink" title="typeid"></a>typeid</h4><p>typeid操作符使得能够确定两个对象是否为同种类型，与sizeof有些像，可以接受两种参数：</p>
+<ol>
+<li>类名</li>
+<li>结果为对象的表达式<br>例如：<br>如果pg指向的是一个Magnificent对象，则表达式:<code>typeid(Magnificent) == typeid(*pg)</code>的结果将为bool值true，否则为false。</li>
+</ol>
+<h3 id="u7C7B_u578B_u8F6C_u6362_u7B26"><a href="#u7C7B_u578B_u8F6C_u6362_u7B26" class="headerlink" title="类型转换符"></a>类型转换符</h3><ol>
+<li>dynamic_cast</li>
+<li>const_cast</li>
+<li>static_cast</li>
+<li>reinterpret_cast</li>
+</ol>
+<h4 id="dynamic_cast-1"><a href="#dynamic_cast-1" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h4><p>dynamic_cast操作符将基类类型对象的引用或指针转换为同一继承层次中其他类型的引用或指针。假如High和Low是两个类，而ph和pl类型分别为High*和Low*,则仅当Low是High的可访问基类时，语句：<br><code>pl = dynamic_cast&lt;Low*&gt; ph;</code>才将一个High*指针赋给pl;</p>
+<h4 id="const_cast"><a href="#const_cast" class="headerlink" title="const_cast"></a>const_cast</h4><p>const_cast操作符用于执行只有一种用途的类型转换，即改变值为const或volatile,其句法为：<br><code>const_cast&lt;type_name&gt; (expression)</code></p>
+<ol>
+<li>常量指针被转化成非常量指针，并且仍然指向原来的对象；</li>
+<li>常量引用被转换成非常量引用，并且仍然指向原来的对象；常量对象被转换成非常量对象。</li>
+</ol>
+<h4 id="static_cast"><a href="#static_cast" class="headerlink" title="static_cast"></a>static_cast</h4><p>虽然const_cast是用来去除变量的const限定，但是static_cast却不是用来去除变量的static引用;通常使用 static_cast 转换数值数据类型，例如将枚举型转换为整型或将整型转换为浮点型，而且你能确定参与转换的数据类型。 static_cast 转换安全性不如 dynamic_cast 转换，因为 static_cast 不执行运行时类型检查，而 dynamic_cast 执行该检查。 对不明确的指针的 dynamic_cast 将失败，而 static_cast 的返回结果看似没有问题，这是危险的。 尽管 dynamic_cast 转换更加安全，但是 dynamic_cast 只适用于指针或引用，而且运行时类型检查也是一项开销。</p>
+<h4 id="reinterpret_cast"><a href="#reinterpret_cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h4><p>reinterpret_cast是为了映射到一个完全不同类型的意思，这个关键词在我们需要把类型映射回原有类型时用到它。我们映射到的类型仅仅是为了故弄玄虚和其他目的，这是所有映射中最危险的。(这句话是C++编程思想中的原话)<br>static_cast 和 reinterpret_cast 操作符修改了操作数类型。它们不是互逆的；<br>static_cast 在编译时使用类型信息执行转换，在转换执行必要的检测(诸如指针越界计算, 类型检查). 其操作数相对是安全的。<br>另一方面；reinterpret_cast是C++里的强制类型转换符,操作符修改了操作数类型,但仅仅是重新解释了给出的对象的比特模型而没有进行二进制转换。</p>
+<h3 id="auto_ptr"><a href="#auto_ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h3><p>auto_ptr智能指针，是一个模板类，用于管理动态内存的分配的用法。auto_ptr模板定义了类似指针的对象，可以将new获得的地址赋给这种对象。当auto_ptr过期时，其析构函数将使用delete来释放内存，因此，如果将new返回的地址赋给auto_ptr对象时，无须记住稍后释放内存，其析构函数可以实现自动释放，因此称为智能指针。<br><strong>智能对new分配的内存使用auto_ptr对象，而不要对由new[]分配的或通过声明变量分配的内存使用它</strong>。</p>
+<h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><p>STL是一种通用技术编程模式。</p>
+<h4 id="list__u548C_vector__u7684_u533A_u522B"><a href="#list__u548C_vector__u7684_u533A_u522B" class="headerlink" title="list 和 vector 的区别"></a>list 和 vector 的区别</h4><p>list 和 vector 的区别在于，list在链表中任意位置进行插入删除的时间都是固定的(vector模板提供了除结尾处外的现行时间的插入和删除，在结尾处，提供了固定时间的插入和删除);因此，vector强调的是通过随机访问进行快速的访问，而list强调的是元素的快速插入和删除操作。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/16/effective_c++/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective C++ 读书笔记(1-10)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/07/21/python_symbol_review/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python 中常见符号记载</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="c++_store" data-title="C++ Primer Plus(第五版) 读书笔记" data-url="http://liangkai.me/2014/08/09/c++_store/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>剑指offer 读书笔记 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="剑指offer读书笔记，记录一些要注意的知识点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer 读书笔记">
+<meta property="og:url" content="http://liangkai.me/2014/08/23/剑指offer/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="剑指offer读书笔记，记录一些要注意的知识点。">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer 读书笔记">
+<meta name="twitter:description" content="剑指offer读书笔记，记录一些要注意的知识点。">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-剑指offer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/23/剑指offer/" class="article-date">
+  	<time datetime="2014-08-23T13:42:36.000Z" itemprop="datePublished">2014-08-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      剑指offer 读书笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u57FA_u7840_u77E5_u8BC6"><a href="#u57FA_u7840_u77E5_u8BC6" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="u7A7A_u7C7B_u578B_u7684sizeof"><a href="#u7A7A_u7C7B_u578B_u7684sizeof" class="headerlink" title="空类型的sizeof"></a>空类型的sizeof</h4><ol>
+<li><span class="label label-danger">问</span>： 定义一个空类型，里面没有任何成员变量和成员函数，该类型求sizeof，得到结果是多少？<br><span class="label label-success">答</span>： 空类型的实例中不包含任何信息，本来应该是0,但当我们声明该类型的实例的时候，它必须在内存中占有一定的空间，否则无法使用这些实例，至于占用多少内存，由编译器决定，一般空类型的实例占用 <strong>1字节</strong>的空间。</li>
+<li><span class="label label-danger">问</span>： 在空类型中添加虚析构函数之后呢？<br><span class="label label-success">答</span>： c++编译器发现类型中存在虚函数时，就会生成虚函数表，并在该类型的每一个实例中添加一个指向虚函数表的指针，因此此时占用的空间大小应为一个指针占用的大小，在32位机器为 4字节，64位为 8字节。</li>
+</ol>
+<a id="more"></a>
+<h4 id="u8D4B_u503C_u8FD0_u7B97_u51FD_u6570_u5B9E_u73B0"><a href="#u8D4B_u503C_u8FD0_u7B97_u51FD_u6570_u5B9E_u73B0" class="headerlink" title="赋值运算函数实现"></a>赋值运算函数实现</h4><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class MyString&#10;&#123;&#10;private:&#10;&#9;char* m_pData;&#10;public:&#10;&#9;MyString(char* pData = NULL);&#10;&#9;~MyString();&#10;&#9;MyString(const MyString&#38; str);&#10;&#9;MyString&#38; operator=(const MyString&#38; str);&#10;&#125;;&#10;&#10;MyString&#38; operator=(const MyString&#38; str)&#10;&#123;&#10;&#9;if(&#38;str != this)  //&#39318;&#20808;&#21028;&#26029;&#20256;&#20837;&#30340;&#23545;&#35937;&#26159;&#21542;&#26159;&#33258;&#36523;&#65292;&#21482;&#26377;&#19981;&#26159;&#33258;&#36523;&#26102;&#25165;&#36827;&#34892;&#36171;&#20540;&#10;&#9;&#123;&#10;&#9;&#9;MyString temp(str); //&#25335;&#36125;&#26500;&#36896;&#19968;&#20010;&#20020;&#26102;&#23545;&#35937;&#10;&#9;&#9;char* pTemp = temp.m_pData; //&#23454;&#29616;&#20256;&#20837;&#23545;&#35937;&#21644;&#20020;&#26102;&#23545;&#35937;&#25968;&#25454;&#20132;&#25442;&#10;&#9;&#9;temp.m_pData = str.m_pData;&#10;&#9;&#9;str.m_pData= pTemp;&#10;&#9;&#125;//&#24403;&#31163;&#24320;&#20020;&#26102;&#21464;&#37327;/&#23545;&#35937;&#30340;&#20316;&#29992;&#22495;&#26102;&#65292;&#20020;&#26102;&#21464;&#37327;/&#23545;&#35937;temp&#20250;&#33258;&#21160;&#35843;&#29992;&#26512;&#26500;&#20989;&#25968;&#65292;&#37322;&#25918;&#21344;&#29992;&#30340;&#20869;&#23384;&#10;&#10;&#9;return *this;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u4EE5O_28n_29_u7684_u65F6_u95F4_u6548_u7387_u5B9E_u73B0_u6392_u5E8F"><a href="#u4EE5O_28n_29_u7684_u65F6_u95F4_u6548_u7387_u5B9E_u73B0_u6392_u5E8F" class="headerlink" title="以O(n)的时间效率实现排序"></a>以O(n)的时间效率实现排序</h4><span class="label label-danger">题目</span>：对一个公司的几万名员工的年龄排序<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;#include &#60;exception&#62;&#10;&#10;using namespace std;&#10;&#10;void display(int *pArray,int num);&#10;&#10;void sortAges(int ages[],int length)&#10;&#123;&#10;  &#10;  //&#21028;&#26029;&#20256;&#20837;&#30340;&#25968;&#32452;&#26159;&#21542;&#20026;&#31354;&#10;  if(ages == NULL || length&#60;=0)&#10;    return  ;&#10;&#10;  const int maxAge = 99;&#10;  int timesOfAge[maxAge+1];&#10;&#10;  //&#23450;&#20041;&#32479;&#35745;&#24180;&#40836;&#27425;&#25968;&#30340;&#25968;&#32452;&#65292;&#24182;&#19988;&#21021;&#22987;&#21270;&#10;  int i=0;&#10;  while(i&#60;=maxAge)&#10;  &#123;&#10;    timesOfAge[i] = 0;&#10;    ++i;&#10;  &#125;&#10;&#10;  // &#36941;&#21382;&#25968;&#32452;&#65292;&#23545;&#24180;&#40836;&#30340;&#27425;&#25968;&#36827;&#34892;&#32479;&#35745;&#10;  for( int j=0;j&#60;length;++j)&#10;  &#123;&#10;    int age = ages[j];&#10;    &#10;    if(age&#60;0 || age&#62;maxAge)&#10;      &#123;&#10;        cout&#60;&#60;&#34;age out of range.&#34;&#60;&#60;endl;&#10;        cout&#60;&#60;age&#60;&#60;endl;&#10;        return ;&#10;      &#125;&#10;&#10;    ++timesOfAge[age];&#10;  &#125;&#10;&#10;  int index = 0;&#10;  for(int m=0;m&#60;maxAge;++m)&#10;  &#123;&#10;    for(int k=0;k&#60;timesOfAge[m];++k)&#10;    &#123;&#10;      ages[index]=m;&#10;      ++index;&#10;    &#125;&#10;  &#125;&#10;&#125;&#10;&#10;void display(int *pArray,int num)&#10;&#123;&#10;  for(int i=0;i&#60;num;++i)&#10;    cout&#60;&#60;pArray[i]&#60;&#60;&#34; &#34;;&#10;  cout&#60;&#60;endl;&#10;&#125;&#10;&#10;int main()&#10;&#123;&#10;  int ages[] = &#123;1,1,4,5,6,6,6,6,14,1,15,16,14,16,20,30,70,90,70,80,88,88,64,6,1,3,5,10,18,99&#125;;&#10;  int num = sizeof(ages)/sizeof(int);&#10;  cout&#60;&#60;num&#60;&#60;endl;&#10;&#10;  //&#36890;&#36807;&#25351;&#38024;&#20256;&#36882;&#25968;&#32452;&#10;  sortAges(ages,num);&#10;  display(ages, num);&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>该程序实现了以常量大小的辅助空间，换来了O(n)的时间效率。</p>
+<h4 id="u4E8C_u8FDB_u5236_u4E2D1_u7684_u4E2A_u6570"><a href="#u4E8C_u8FDB_u5236_u4E2D1_u7684_u4E2A_u6570" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h4><span class="label label-danger">题目</span>： 对于给定的十进制数，求其二进制中的1的数目<br><span class="label label-info">分析</span>： 对于统计二进制中1的个数，最常使用的方法是采用位移的方法来统计，有两个思路：<br>1. 将要统计的目标右移，与flag=1进行与运算，统计个数<br>2. 将标志位flag=1左移，与目标数进行与运算，统计个数<br>对于第一种方法，则容易导致死循环问题，因为将负数右移必须保证符号位仍为1，而导致的问题就是将目标数最终变成<strong>0xFFFFFFFF</strong>,导致死循环。<br>对于此问题可采用第二种方法<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#35745;&#31639;&#36755;&#20837;&#25968;&#23383;&#30340;&#20108;&#36827;&#21046;&#34920;&#31034;&#20013;1&#30340;&#20010;&#25968;&#10;int calNumOfOne(int n)&#10;&#123;&#10;  int num = 0;&#10;  int flag = 1;&#10;  &#10;  //&#20026;&#38450;&#27490;&#21491;&#31227;n&#23548;&#33268;&#20986;&#29616;&#27515;&#24490;&#29615;&#65292;&#37319;&#29992;&#23558;flag&#24038;&#31227;&#10;  while(flag)&#10;  &#123;&#10;    //&#19982;&#36816;&#31639;&#10;    if(n &#38; flag)&#10;      ++num;&#10;    &#10;    flag = flag&#60;&#60;1;&#10;  &#125;&#10;&#10;  return num;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>对于该问题书中还给出了一个更新颖的解法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#35745;&#31639;&#36755;&#20837;&#25968;&#23383;&#30340;&#20108;&#36827;&#21046;&#34920;&#31034;&#20013;1&#30340;&#20010;&#25968;&#10;int calNumOfOne(int n)&#10;&#123;&#10;  int num = 0;&#10;  while(n)&#10;  &#123;&#10;    ++num;&#10;    n = (n-1) &#38; n;&#10;  &#125;&#10;  return num;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>与位移运算的还有其他类似题目：</p>
+<ol>
+<li>计算一个整数是否是2的次方(如果是则二进制表示中只有一个1)</li>
+</ol>
+<h3 id="u9AD8_u8D28_u91CF_u7684_u4EE3_u7801"><a href="#u9AD8_u8D28_u91CF_u7684_u4EE3_u7801" class="headerlink" title="高质量的代码"></a>高质量的代码</h3><h4 id="u94FE_u8868_u4E2D_u5012_u6570_u7B2Ck_u4E2A_u7ED3_u70B9"><a href="#u94FE_u8868_u4E2D_u5012_u6570_u7B2Ck_u4E2A_u7ED3_u70B9" class="headerlink" title="链表中倒数第k个结点"></a>链表中倒数第k个结点</h4><span class="label label-danger">题目</span>：输入一个链表中倒数第k个结点。<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Listnode* countDownK(Listnode* pHead,unsigned int k)&#10;&#123;&#10;  if(pHead == NULL || k == 0)&#10;    return NULL;&#10;&#10;  Listnode* first = pHead;&#10;  Listnode* second = NULL;&#10;&#10;  for(int i=0;i&#60;k-1;++i)&#10;  &#123;&#10;    if(pHead-&#62;m_next != NULL)&#10;      first = first-&#62;m_next;&#10;    else&#10;      return NULL;&#10;  &#125;&#10;&#10;  second = pHead;&#10;  while(first-&#62;m_next != NULL)&#10;  &#123;&#10;    first = first-&#62;m_next;&#10;    second = second-&#62;m_next;&#10;  &#125;&#10;&#10;  return second;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><span class="label label-warning">相关题目</span>： 求链表的中间结点，如果链表中结点总数为奇数，返回中间结点;如果结点是总数为奇数，返回中间结点;如果中间结点总数是偶数，返回中间两个结点的任意一个。</li>
+<li><span class="label label-warning">相关题目</span>： 判断一个单向链表是否形成了环形结构，定义两个指针，同时从链表的头结点出发，一个指针一次走一步，另一个指针一次走两部，如果走的快的指针追上走的慢的指针，那么链表中存在环形链表，如果走的块走到末尾都没有追上第一个指针，那么链表就不是环形链表。</li>
+</ol>
+<h4 id="u5B9E_u73B0_u5355_u94FE_u8868_u7684_u53CD_u8F6C"><a href="#u5B9E_u73B0_u5355_u94FE_u8868_u7684_u53CD_u8F6C" class="headerlink" title="实现单链表的反转"></a>实现单链表的反转</h4><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ListNode* reverseList(ListNode* pHead)&#10;&#123;&#10;  //&#29992;&#20110;&#20445;&#23384;&#24403;&#21069;&#32467;&#28857;&#30340;&#21069;&#19968;&#20010;&#32467;&#28857;&#10;  ListNode* pPrev = NULL;&#10;  //&#20445;&#23384;&#24403;&#21069;&#32467;&#28857;&#10;  ListNode* pNode = pHead;&#10;  //&#36820;&#22238;&#21453;&#36716;&#38142;&#34920;&#32467;&#28857;&#30340;&#22836;&#32467;&#28857;&#10;  ListNode* pReverseHead = NULL;&#10;&#10;  while(pNode != NULL)&#10;  &#123;&#10;    //&#20445;&#23384;&#24403;&#21069;&#32467;&#28857;&#30340;&#19979;&#19968;&#20010;&#32467;&#28857;&#10;    ListNode* pNext = pNode-&#62;m_next;&#10;&#10;    //&#24403;&#19979;&#19968;&#20010;&#32467;&#28857;&#19981;&#23384;&#22312;&#26102;&#65292;&#35828;&#26126;&#21040;&#36798;&#23614;&#32467;&#28857;&#10;    if(pNext == NULL)&#10;      pReverseHead = pNode;&#10;&#10;    //&#23454;&#29616;&#21453;&#36716;&#10;    pNode-&#62;m_next = pPrev;&#10;&#10;    //&#31227;&#21160;&#32467;&#28857;&#10;    pPrev = pNode;&#10;    pNode = pNext;&#10;  &#125;&#10;&#10;  return pReverseHead;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u5408_u5E76_u4E24_u4E2A_u5355_u94FE_u8868"><a href="#u5408_u5E76_u4E24_u4E2A_u5355_u94FE_u8868" class="headerlink" title="合并两个单链表"></a>合并两个单链表</h4><p>对于链表的合并可以采用循环或者递归两种方法，下例采用递归方法：<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struct ListNode &#10;&#123;&#10;  int m_data;&#10;  ListNode* m_next;&#10;&#125;;&#10;&#10;ListNode* merge(ListNode* pFirst,ListNode* pSecond)&#10;&#123;&#10;  if(pFirst == NULL)&#10;    return pSecond;&#10;  else if(pSecond == NULL)&#10;    return pFirst;&#10;&#10;  ListNode* pMergeHead = NULL;&#10;  if(pFirst-&#62;m_data &#60; pSecond-&#62;m_data)&#10;  &#123;&#10;    pMergeHead = pFirst;&#10;    pMergeHead-&#62;m_next = merge(pFirst-&#62;m_next,pSecond);&#10;  &#125;&#10;  else&#10;  &#123;&#10;    pMergeHead = pSecond;&#10;    pMergeHead-&#62;m_next = merge(pSecond,pSecond-&#62;m_next );&#10;  &#125;&#10;&#10;  return pMergeHead;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u4E8C_u53C9_u6811_u7684_u955C_u50CF_u5B9E_u73B0"><a href="#u4E8C_u53C9_u6811_u7684_u955C_u50CF_u5B9E_u73B0" class="headerlink" title="二叉树的镜像实现"></a>二叉树的镜像实现</h4><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void mirrorTree(BinaryTreeNode* pNode)&#10;&#123;&#10;  //&#25490;&#38500;&#26681;&#33410;&#28857;&#21644;&#21494;&#23376;&#32467;&#28857;&#10;  if(pNode == NULL || (pNode-&#62;m_left == NULL &#38;&#38; pNode-&#62;m_right == NULL))&#10;    return;&#10;&#10;  //&#20132;&#25442;&#35813;&#32467;&#28857;&#30340;&#20004;&#20010;&#23401;&#23376;&#32467;&#28857;&#10;  BinaryTreeNode* temp = pNode-&#62;m_left;&#10;  pNode-&#62;m_left = pNode-&#62;m_right;&#10;  pNode-&#62;m_right = temp;&#10;&#10;  //&#21521;&#19979;&#36882;&#24402;&#23376;&#33410;&#28857;&#10;  if(pNode-&#62;m_left)&#10;    mirrorTree(pNode-&#62;m_left);&#10;&#10;  if(pNode-&#62;m_right)&#10;    mirrorTree(pNode-&#62;m_right);&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u4ECE_u4E0A_u5F80_u4E0B_u6253_u5370_u4E8C_u53C9_u6811"><a href="#u4ECE_u4E0A_u5F80_u4E0B_u6253_u5370_u4E8C_u53C9_u6811" class="headerlink" title="从上往下打印二叉树"></a>从上往下打印二叉树</h4><p>对于二叉树的打印可以采用队列作为辅助，每次在将队列出队的时候，将其子结点添加到队尾。<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void printTree(BinaryTreeNode* pNode)&#10;&#123;&#10;  if(pNode == NULL)&#10;    return;&#10;&#10;  std&#65306;:deque&#60;BinaryTreeNode*&#62; tempDeque;&#10;  tempDeque.push_back(pNode);&#10;&#10;  while(tempDeque.size())&#10;  &#123;&#10;    //&#33719;&#21462;&#38431;&#21015;&#30340;&#31532;&#19968;&#20010;&#20803;&#32032;&#10;    BinaryTreeNode* pTop = tempDeque.front();&#10;    &#10;    //&#23558;&#38431;&#21015;&#31532;&#19968;&#20010;&#20803;&#32032;&#20986;&#38431;&#10;    tempDeque.pop_front();&#10;    cout&#60;&#60;pTop-&#62;m_data;&#10;    &#10;    if(pTop-&#62;m_left)&#10;      tempDeque.push_back(pTop-&#62;m_left);&#10;&#10;    if(pNode-&#62;m_right)&#10;      tempDeque.push_back(pTop-&#62;m_right);&#10;  &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="u4E8C_u53C9_u6811_u6811_u4E0E_u53CC_u5411_u94FE_u8868"><a href="#u4E8C_u53C9_u6811_u6811_u4E0E_u53CC_u5411_u94FE_u8868" class="headerlink" title="二叉树树与双向链表"></a>二叉树树与双向链表</h4><span class="label label-danger">题目</span>：将一个二叉树转换为双向链表<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struct BinaryTree&#10;&#123;&#10;  int m_data;&#10;  BinaryTree* m_left;&#10;  BinaryTree* m_right;&#10;&#125;;&#10;&#10;//&#23450;&#20041;pLast&#20026;&#19968;&#20010;&#25351;&#21521;BinaryTree&#31867;&#22411;&#25351;&#38024;&#30340;&#25351;&#38024;&#65292;&#35753;&#20854;&#22987;&#32456;&#25351;&#21521;&#24050;&#32463;&#23436;&#25104;&#30340;&#21452;&#21521;&#38142;&#34920;&#30340;&#26368;&#21518;&#19968;&#20010;&#32467;&#28857;&#10;void convert(BinaryTree* pNode,BinaryTree** pLast)&#10;&#123;&#10;  if(pNode == NULL)&#10;    return;&#10;&#10;  //&#22788;&#29702;&#24038;&#23376;&#25968;&#10;  BinaryTree* pCurrent = pNode;//&#24403;&#21069;&#32467;&#28857;&#10;  if(pCurrent-&#62;m_left != NULL)&#10;    convert(pCurrent-&#62;m_left,pLast);&#10;  &#10;  //&#22788;&#29702;&#26681;&#32467;&#28857;&#10;  pCurrent-&#62;m_left = *pLast;//&#23558;&#24403;&#21069;&#32467;&#28857;&#25351;&#21521;pLast&#25152;&#25351;&#21521;&#30340;&#32467;&#28857;&#10;  if(pLast != NULL)//&#24403;pLast&#25351;&#21521;&#30340;&#32467;&#28857;&#19981;&#26159;&#38750;&#31354;&#30340;&#26102;&#20505;&#65292;&#38656;&#35201;&#23558;pLast&#25351;&#21521;&#30340;&#32467;&#28857;&#30340;&#21491;&#25351;&#38024;&#25351;&#21521;pCurrent&#10;    (*pLast)-&#62;m_right = pCurrent;&#10;&#10;  //&#24403;&#26681;&#33410;&#28857;&#38142;&#25509;&#20043;&#21518;&#65292;&#35201;&#23558;&#24403;&#21069;&#32467;&#28857;&#21518;&#31227;&#10;  *pLast = pCurrent;&#10;&#10;  if(pCurrent-&#62;m_right != NULL)&#10;    convert(pCurrent-&#62;m_right,pLast);&#10;&#10;&#125;&#10;&#10;/////////&#26356;&#23481;&#26131;&#35760;&#30340;&#26041;&#27861;&#10;BinaryTree* pHead = NULL;//&#29992;&#20110;&#25351;&#21521;&#22836;&#32467;&#28857;&#10;BinaryTree* pIndex= NULL;//&#25351;&#21521;&#21452;&#21521;&#38142;&#34920;&#30340;&#26368;&#21518;&#19968;&#20010;&#32467;&#28857;&#10;void convertToDoubleList(BinaryTree* pCurrent)&#10;&#123;&#10;  pCurrent-&#62;m_left=pIndex;//&#20351;&#24403;&#21069;&#32467;&#28857;&#30340;&#24038;&#25351;&#38024;&#25351;&#21521;&#21452;&#21521;&#38142;&#34920;&#30340;&#26368;&#21518;&#19968;&#20010;&#32467;&#28857;&#10;  if(NULL == pIndex)//&#33509;&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;&#19981;&#23384;&#22312;&#65292;&#35828;&#26126;&#27492;&#26102;&#21452;&#21521;&#38142;&#34920;&#23578;&#26410;&#24314;&#31435;&#65292;&#22240;&#27492;&#23558;&#24403;&#21069;&#32467;&#28857;&#35774;&#23450;&#20026;&#21452;&#21521;&#38142;&#34920;&#30340;&#22836;&#32467;&#28857;&#10;    pHead=pCurrent;&#10;  else//&#20351;&#21452;&#21521;&#38142;&#34920;&#30340;&#26368;&#21518;&#19968;&#20010;&#32467;&#28857;&#30340;&#21491;&#32467;&#28857;&#25351;&#21521;&#24403;&#21069;&#32467;&#28857;&#10;    pIndex-&#62;m_right = pCurrent;&#10;&#10;  pIndex=pCurrent;//&#23558;&#24403;&#21069;&#32467;&#28857;&#35774;&#20026;&#21452;&#21521;&#38142;&#34920;&#30340;&#26368;&#21518;&#19968;&#20010;&#32467;&#28857;&#10;&#125;&#10;void inOrderBSTree(BinaryTree* pTree)&#10;&#123;&#10;  if(NULL == pTree)&#10;    return;&#10;  &#10;  //&#36882;&#24402;&#24038;&#23376;&#26641;&#10;  inOrderBSTree(pTree-&#62;m_left);&#10;  convertToDoubleList(pTree);&#10;  inOrderBSTree(pTree-&#62;m_right);&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u6570_u7EC4_u4E2D_u51FA_u73B0_u6B21_u6570_u8D85_u8FC7_u4E00_u534A_u7684_u6570_u5B57"><a href="#u6570_u7EC4_u4E2D_u51FA_u73B0_u6B21_u6570_u8D85_u8FC7_u4E00_u534A_u7684_u6570_u5B57" class="headerlink" title="数组中出现次数超过一半的数字"></a>数组中出现次数超过一半的数字</h4><span class="label label-danger">题目</span>： 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。(上次面试的时候就被问到了这个问题，应该早点看的……)。<br><span class="label label-info">分析</span>：<br>1. O(nlogn)的解法：<br>将该数组快速排序，那么排序后的数组的中间位置的数字就是想要的结果。<br>2. O(n)的解法：<br>我们可以在遍历数组的时候定义两个变量，一个用于保存数组中的数字，另一个用于保存次数;当下一个数字和当前保存的数字不同时，我们将次数减一;如果下一个出现的数字和当前保存的数字相同时，则将次数加一;当保存的次数为零时更新当前保存的数字，同时将次数赋值为一。由于我们要求的数字出现的次数比其他所有数字之和加起来都要多，因此最后的结果中保存的数字肯定就是我们要求的数字。<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int findNum(int array[],unsigned int length)&#10;&#123;&#10;  if(array == NULL)&#10;    return -1;&#10;&#10;  int num = array[0];&#10;  int times = 1;&#10;  &#10;  for(int i=1;i&#60;length;++i)&#10;  &#123;&#10;    if(array[i] == num &#38;&#38; times != 0)&#10;    &#123;&#10;      ++times;&#10;    &#125;&#10;    &#10;    if(array[i] != num &#38;&#38; times != 0)&#10;      --times;&#10;&#10;    if(times == 0)&#10;    &#123;&#10;      num = array[i];&#10;      times = 1;&#10;    &#125;&#10;  &#125;&#10;  cout&#60;&#60;&#34;times: &#34;&#60;&#60;times&#60;&#60;endl;&#10;&#10;  return num;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u8FDE_u7EED_u5B50_u6570_u7EC4_u7684_u6700_u5927_u548C"><a href="#u8FDE_u7EED_u5B50_u6570_u7EC4_u7684_u6700_u5927_u548C" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h4><span class="label label-danger">题目</span>：要求输出数组的子数组的和的最大值，要求时间复杂度为O(n)。<br>例如：输入数组<code>{1,-2,3,10,-4,7,2,-5}</code>和的最大子数组应为{3,10,-4,7,2}，和为18。<br><span class="label label-info">分析</span>：我们使用两个变量来辅助计算，一个用于保存累加到当前元素的和，另一个用于保存此时的最大和;当我们累加时，如果当前的累加和大于保存的最大和，则更新最大和;当当前的累加和小于等于零时，我们则抛弃之前那些已经累加的数字，而从下一个元素重新开始计算累加和，因为如果之前的累加和小于等于0,那么对于后边的累加只会造成减小的效果，所以这样理解之后可以判断出关键的条件就是：<em>只要当前的累加和大于0,那么就可以继续将后续的元素与之相加，再与保存的最大值做比较</em>，具体实现如下：<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int calSum(int* array,int length)&#10;&#123;&#10;  if(array == NULL || length &#60;=0)&#10;    return -1;&#10;&#10;  int sum = 0;&#10;  int lastSum = -999999999;&#10;  for(int i=0;i&#60;length;++i)&#10;  &#123;&#10;    if(sum&#60;=0)&#10;    &#123;&#10;      sum = array[i];&#10;    &#125;&#10;    else&#10;    &#123;&#10;      sum += array[i];&#10;    &#125;&#10;&#10;    if(sum&#62;lastSum)&#10;      lastSum = sum;&#10;  &#125;&#10;&#10;  return lastSum;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u6570_u7EC4_u4E2D_u53EA_u51FA_u73B0_u4E00_u6B21_u7684_u6570_u5B57"><a href="#u6570_u7EC4_u4E2D_u53EA_u51FA_u73B0_u4E00_u6B21_u7684_u6570_u5B57" class="headerlink" title="数组中只出现一次的数字"></a>数组中只出现一次的数字</h4><span class="label label-danger">题目</span>： 一个整形数组里除了两个数字之外，其他数字都出现两次，请找出这个只出现一次的数字，要求时间复杂度为O(n)，空间复杂度O(1)。<br><span class="label label-info">分析</span>： 通过分析题目的特点可以知道，除了一个数字以外，其他数字出现的次数都是两次，我们可以用<strong>异或</strong>来计算，以此异或数组中的所有数字，因为当两个数字相同时，它们异或的结果为0,那么当所有的异或之后最终的结果就是那个只出现一次的数字。<br>再分析题目，发现有两个出现一次的数字，那么我们可以试着将它们分为两个部分，每个部分包含一个只出现一次的数字，然后再使用以上思路即可。<br><span class="label label-info">分析2</span>：依然从头依次异或数组，最终得到的结果就是两个只出现一次数字的异或结果，由于其他数字出现两次，所以最终保留的是这两个只出现一次的数字，由于这两个数字肯定不一样，那么总异或的结果中至少有一位为1,我们可以找出第一个1的位置，记为第n位，然后我们依据数组中每个数字的第n位是否为1将数组分为两部分.<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void findNumsAppearOnce(int data[],int length,int* num1,int* num2)&#10;&#123;&#10;  if(data == NULL || length&#60;2)&#10;    return;&#10;&#10;  int result = 0;&#10;  for(int i=0;i&#60;length;++i)&#10;    result ^=data[i];&#10;&#10;  unsigned int indexOf1 = findFirstBit(result);&#10;  &#10;  *num1=0;&#10;  *num2=0;&#10;&#10;  for (int j=0;j&#60;length;++j)&#10;  &#123;&#10;    if(isBit1(data[j],indexOf1))&#10;    &#123;&#10;      *num1 ^=data[j];&#10;    &#125;&#10;    else&#10;      *num2 ^= data[j];&#10;  &#125;&#10;&#125;&#10;//&#25214;&#20986;&#24322;&#25110;&#32467;&#26524;&#20013;&#31532;&#19968;&#20010;1&#30340;&#20301;&#32622;&#10;unsigned int findFirstBit(int num)&#10;&#123;&#10;  int indexBit = 0;&#10;  if(num&#60;0)&#10;    return 0;&#10;  while((num &#38; 1) == 0 &#38;&#38; indexBit &#60; 8*sizeof(int))&#10;  &#123;&#10;    num = num &#62;&#62;1;&#10;    ++indexBit;&#10;  &#125;&#10;&#10;  return indexBit;  &#10;&#125;&#10;//&#21028;&#26029;&#25968;&#32452;&#20013;&#30340;&#31532;indexBit&#20301;&#26159;&#21542;&#20026;1&#10;bool isBit1(int num,unsigned int indexBit)&#10;&#123;&#10;  num = num&#62;&#62;indexBit;&#10;  return (num &#38; 1);&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>具体详细解释可以参考剑指offer的228页。</p>
+<h4 id="u548C_u4E3As_u7684_u4E24_u4E2A_u6570_u5B57"><a href="#u548C_u4E3As_u7684_u4E24_u4E2A_u6570_u5B57" class="headerlink" title="和为s的两个数字"></a>和为s的两个数字</h4><span class="label label-danger">题目</span>： 输入一个递增排序的数组和一个数字s，在数组中查找两个数使得它们的和正好是s。如果有多对，输出任意一对即可。<br><span class="label label-info">分析</span>： 常规的方法可能是遍历实现，这样的话时间复杂度则为O(n)。另一种较为高效的方法是使用两个指针，分别指向头尾，计算两个的和，如果大于要求的s，那么就让第二个指针前移，若要求的结果小于s，则将前边的指针往后移.<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void find(int array[],int length,int sum)&#10;&#123;&#10;  int* begin = &#38;array[0];&#10;  int* end = &#38;array[length-1];&#10;  &#10;  // int sum = (*begin) + (*end);&#10;  while(begin != end)&#10;  &#123;&#10;    int num1 = *begin;&#10;    int num2 = *end;&#10;    if(num1+num2 == sum)&#10;    &#123;&#10;      cout&#60;&#60;num1&#60;&#60;&#34;,&#34;&#60;&#60;num2&#60;&#60;endl;&#10;      break;&#10;    &#125;&#10;    else if(num1+num2&#62;sum)&#10;      end--;&#10;    else&#10;      begin++;&#10;  &#125;&#10;  if(begin == end)&#10;    cout&#60;&#60;&#34;can&#39;t find&#34;&#60;&#60;endl;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="n_u4E2A_u9AB0_u5B50_u7684_u70B9_u6570"><a href="#n_u4E2A_u9AB0_u5B50_u7684_u70B9_u6570" class="headerlink" title="n个骰子的点数"></a>n个骰子的点数</h4><span class="label label-danger">题目</span>：把n个骰子扔在地上，所有骰子朝上一面的点数之和为S。输入n，打印出S的所有可能的值出现的概率。<br><span class="label label-info">分析</span>：玩过麻将的都知道，骰子一共6个面，每个面上都有一个点数，对应的数字是1到 6之间的一个数字。所以，n个骰子的点数和的最小值为n，最大值为6n。因此，一个直观的思路就是定义一个长度为6n-n的数组，和为S的点数出现的次数保存到数组第S-n个元素里。另外，我们还知道n个骰子的所有点数的排列数6^n。一旦我们统计出每一点数出现的次数之后，因此只要把每一点数出现的次数除以n^6，就得到了对应的概率。<br><br>我们可以考虑用两个数组来存储骰子点数每一总数出现的次数。在一次循环中，第一个数组中的第n个数字表示骰子和为n出现的次数。那么在下一循环中，我们加上一个新的骰子。那么此时和为n的骰子出现的次数，应该等于上一次循环中骰子点数和为n-1、n-2、n-3、n-4、n-5与n-6的总和。所以我们把另一个数组的第n个数字设为前一个数组对应的第n-1、n-2、n-3、n-4、n-5与n-6之和。<br><em>有k-1个骰子时，再增加一个骰子，这个骰子的点数只可能为1、2、3、4、5或6。那k个骰子得到点数和为n的情况有：<br>(k-1,n-1)：第k个骰子投了点数1<br>(k-1,n-2)：第k个骰子投了点数2<br>(k-1,n-3)：第k个骰子投了点数3<br>….<br>(k-1,n-6)：第k个骰子投了点数6<br>在k-1个骰子的基础上，再增加一个骰子出现点数和为n的结果只有这6种情况！<br>所以：f(k,n)=f(k-1,n-1)+f(k-1,n-2)+f(k-1,n-3)+f(k-1,n-4)+f(k-1,n-5)+f(k-1,n-6)<br>初始化：有1个骰子，f(1,1)=f(1,2)=f(1,3)=f(1,4)=f(1,5)=f(1,6)=1。 
+</em><br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// ====================&#26041;&#27861;&#20108;====================&#10;void PrintProbability_Solution2(int number)&#10;&#123;&#10;  if(number &#60; 1)&#10;    return;&#10;&#10;  int* pProbabilities[2];&#10;  pProbabilities[0] = new int[g_maxValue * number + 1];&#10;  pProbabilities[1] = new int[g_maxValue * number + 1];&#10;  for(int i = 0; i &#60; g_maxValue * number + 1; ++i)&#10;  &#123;&#10;    pProbabilities[0][i] = 0;&#10;    pProbabilities[1][i] = 0;&#10;  &#125;&#10; &#10;  int flag = 0;&#10;  for (int i = 1; i &#60;= g_maxValue; ++i) &#10;    pProbabilities[flag][i] = 1; &#10;  &#10;  for (int k = 2; k &#60;= number; ++k) &#10;  &#123;&#10;    for(int i = 0; i &#60; k; ++i)&#10;      pProbabilities[1 - flag][i] = 0;&#10;&#10;    for (int i = k; i &#60;= g_maxValue * k; ++i) &#10;    &#123;&#10;      pProbabilities[1 - flag][i] = 0;&#10;      for(int j = 1; j &#60;= i &#38;&#38; j &#60;= g_maxValue; ++j) &#10;        pProbabilities[1 - flag][i] += pProbabilities[flag][i - j];&#10;    &#125;&#10; &#10;    flag = 1 - flag;&#10;  &#125;&#10; &#10;  double total = pow((double)g_maxValue, number);&#10;  for(int i = number; i &#60;= g_maxValue * number; ++i)&#10;  &#123;&#10;    double ratio = (double)pProbabilities[flag][i] / total;&#10;    printf(&#34;%d: %e\n&#34;, i, ratio);&#10;  &#125;&#10; &#10;  delete[] pProbabilities[0];&#10;  delete[] pProbabilities[1];&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u5706_u5708_u4E2D_u6700_u540E_u5269_u4E0B_u7684_u6570_u5B57"><a href="#u5706_u5708_u4E2D_u6700_u540E_u5269_u4E0B_u7684_u6570_u5B57" class="headerlink" title="圆圈中最后剩下的数字"></a>圆圈中最后剩下的数字</h4><span class="label label-danger">题目</span>： 0,1,……n这n个数字排成一个圆圈，每次从0开始将第m个数字出队，求最终剩下的数字。<br><span class="label label-info">分析</span>： 分析题目可以知道该题目就是经典的约瑟夫环问题，我们可以采用一个环形链表来模拟圆圈，每次将链表的第m个结点删除，最终得出结果。<br><span class="label label-success">实现</span>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#20174;0&#21040;n&#30340;&#29615;&#20013;&#21024;&#38500;&#31532;m&#20010;&#30452;&#21040;&#21097;&#20313;&#26368;&#21518;&#19968;&#20010;&#10;int lastRemain(unsigned int n,unsigned int m)&#10;&#123;&#10;  if(n&#60;1 || m&#60;1)&#10;    return -1;&#10;&#10;  std::list&#60;int&#62; numbers;&#10;  for(int i=0;i&#60;=n;++i)&#10;    numbers.push_back(i);&#10;&#10;  list&#60;int&#62;::iterator current = numbers.begin();&#10;  while(numbers.size()&#62;1)&#10;  &#123;&#10;    int i=1;&#10;    while(i&#60;m)&#10;    &#123;&#10;      ++i;&#10;      ++current;&#10;      if(current == numbers.end())&#10;        current = numbers.begin();&#10;    &#125;&#10;&#10;    //&#20445;&#23384;&#19979;&#19968;&#20010;&#20301;&#32622;&#65292;&#20197;&#20415;&#20174;&#19979;&#20010;&#20301;&#32622;&#24320;&#22987;&#32487;&#32493;&#21024;&#38500;&#31532;m&#20010;&#10;    list&#60;int&#62;::iterator next = ++current;&#10;    if(next == numbers.end())&#10;      next = numbers.begin();&#10;&#10;    --current;&#10;    numbers.erase(current);&#10;    current=next;&#10;    &#10;  &#125;&#10;  return (*current);&#10;&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/09/02/纸上谈兵读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          纸上谈兵读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/19/effective_c++_31_40/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective C++ 读书笔记(31-40)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="剑指offer" data-title="剑指offer 读书笔记" data-url="http://liangkai.me/2014/08/23/剑指offer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

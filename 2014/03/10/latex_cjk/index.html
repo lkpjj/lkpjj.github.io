@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>latex中使用中文 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="LaTeX是功能强大的排版工具，在XeTeX[1]、CTeX[2]等软件的努力下，在Linux中使用其排版中文其实很简单。（而XeLaTeX语法与LaTeX相同，还提供了些增强功能，多数LaTeX文档不经修改就能直接用XeLaTeX编译。）本文介绍使用XeTeX在Linux中排版中文的几种简便方法。
+  首先要安装好XeTeX软件，比较方便的方法是安装Texlive 2009或以上版本。Ubunt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="latex中使用中文">
+<meta property="og:url" content="http://liangkai.me/2014/03/10/latex_cjk/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="LaTeX是功能强大的排版工具，在XeTeX[1]、CTeX[2]等软件的努力下，在Linux中使用其排版中文其实很简单。（而XeLaTeX语法与LaTeX相同，还提供了些增强功能，多数LaTeX文档不经修改就能直接用XeLaTeX编译。）本文介绍使用XeTeX在Linux中排版中文的几种简便方法。
+  首先要安装好XeTeX软件，比较方便的方法是安装Texlive 2009或以上版本。Ubunt">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="latex中使用中文">
+<meta name="twitter:description" content="LaTeX是功能强大的排版工具，在XeTeX[1]、CTeX[2]等软件的努力下，在Linux中使用其排版中文其实很简单。（而XeLaTeX语法与LaTeX相同，还提供了些增强功能，多数LaTeX文档不经修改就能直接用XeLaTeX编译。）本文介绍使用XeTeX在Linux中排版中文的几种简便方法。
+  首先要安装好XeTeX软件，比较方便的方法是安装Texlive 2009或以上版本。Ubunt">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-latex_cjk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/03/10/latex_cjk/" class="article-date">
+  	<time datetime="2014-03-09T19:45:23.000Z" itemprop="datePublished">2014-03-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      latex中使用中文
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/latex/">latex</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>LaTeX</code>是功能强大的排版工具，在XeTeX[1]、CTeX[2]等软件的努力下，在Linux中使用其排版中文其实很简单。（而XeLaTeX语法与LaTeX相同，还提供了些增强功能，多数LaTeX文档不经修改就能直接用XeLaTeX编译。）本文介绍使用XeTeX在Linux中排版中文的几种简便方法。</p>
+<p>  首先要安装好XeTeX软件，比较方便的方法是安装Texlive 2009或以上版本。Ubuntu、Fedora、Archlinux等流行发行版都在软件仓库中包括了Texlive，如在Ubuntu、Fedora中可安装软件包 texlive-xetex ，在Archlinux中建议安装texlive-most。如果发行版未提供Texlive或提供的版本太旧，也可自行到Texlive网站上下载。[3]（TeX Live在世界各地的镜像很多，选择合适的镜像下载速度会很快的。）</p>
+<p>接着要准备字体。这一步是可选的，但Linux中的中文字体多数不太适合用于排版文档，建议复制Windows中的字体或Adobe的字体。注意XeTeX可以直接使用系统中的字体，只要把需要字体复制到指定位置就行，无需自己生成字体文件。比如复制Windows中的宋体、黑体等字体：<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/share/fonts/win&#10;sudo cp /media/Win&#31995;&#32479;&#30424;&#25346;&#36733;&#28857;/Windows/Fonts/&#123;SIM,sim&#125;* /usr/share/fonts/win/</span><br></pre></td></tr></table></figure>
+<p>因为复制文件时是以root身份进行的， 复制到目标文件夹下的字体文件其读取的权限设置可能有问题。建议如下设定：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /usr/share/fonts/win/*</span><br></pre></td></tr></table></figure>
+<p>接着,需要更新字体缓存：<br><code>fc-cache</code></p>
+<p>为了使整个系统下的用户的字体列缓存都更新，建议使用root权限执行:</p>
+<p><code>sudo fc-cache -f -s -v</code></p>
+<p>使用fc-list查看可用的字体：<br><code>fc-list</code></p>
+<p>或者只查看中文的字体<br><code>fc-list ：lang=zh</code></p>
+<p>如果能看到想要的中文字体，就可以了。至此，准备工作已经结束。</p>
+<p>###使用xeCJK排版中文<br>CTeX在XeLaTeX环境下实际是用xeCJK处理中文的，如果不想用CTeX这么复杂的包，也可以使用xeCJK处理中文。</p>
+<p>\documentclass[11pt]{article}<br>\usepackage[BoldFont,SlantFont,CJKsetspaces,CJKchecksingle]{xeCJK}<br>\setCJKmainfont[BoldFont=SimHei]{SimSun}<br>\setCJKmonofont{SimSun}% 设置缺省中文字体<br>\parindent 2em   %段首缩进</p>
+<p>\begin{document}<br>\section{举例}<br>\begin{verbatim}<br>标点。<br>\end{verbatim}</p>
+<p>汉字Chinese数学$x=y$空格<br>\end{document}</p>
+<p>使用xeCJK直接处理中文时，字体的选择较自由些。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/03/14/wavelet-enhancement/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          matlab中小波分解介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/02/28/opencv_memory/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">opencv中的内存释放</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="latex_cjk" data-title="latex中使用中文" data-url="http://liangkai.me/2014/03/10/latex_cjk/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

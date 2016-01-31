@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective C++ 读书笔记(11-20) | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Effective C++中的一些记录点而已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ 读书笔记(11-20)">
+<meta property="og:url" content="http://liangkai.me/2014/08/18/effective_c++_11_20/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="Effective C++中的一些记录点而已">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ 读书笔记(11-20)">
+<meta name="twitter:description" content="Effective C++中的一些记录点而已">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-effective_c++_11_20" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/18/effective_c++_11_20/" class="article-date">
+  	<time datetime="2014-08-17T20:34:58.000Z" itemprop="datePublished">2014-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective C++ 读书笔记(11-20)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective-C/">Effective C++</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="11-__u5728operator_3D__u4E2D_u5904_u7406_u201D_u81EA_u6211_u8D4B_u503C_u201D"><a href="#11-__u5728operator_3D__u4E2D_u5904_u7406_u201D_u81EA_u6211_u8D4B_u503C_u201D" class="headerlink" title="11. 在operator= 中处理”自我赋值”"></a>11. 在operator= 中处理”自我赋值”</h3><p>本条款讨论了几种编写复制构造函数的正确方法。给出的结论是：确保当对象自我赋值时operator= 有良好行为。其中技术包括比较”来源对象”和”目标对象”的地址、精心周到的语句顺序、以及 copy-and-swap。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Bitmap &#123; ... &#125;;&#10;class Widget&#10;&#123;&#10;&#9;...&#10;private:&#10;&#9;Bitmap* pb;  //&#25351;&#38024;&#65292;&#25351;&#21521;&#19968;&#20010;&#20174;heap&#20998;&#37197;&#32780;&#24471;&#30340;&#23545;&#35937;&#10;&#125;;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>复制构造函数的一种编写方式(证同测试)如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Widget&#38; Widget::operator=(const Widget&#38; rhs)&#10;&#123;&#10;&#9;if (this == &#38;rhs) return *this; //&#21028;&#26029;&#26159;&#21542;&#20026;&#21516;&#19968;&#20010;&#23545;&#35937;&#65292;&#22914;&#26524;&#26159;&#33258;&#25105;&#22797;&#21046;&#65292;&#30452;&#25509;&#36820;&#22238;&#10;&#10;&#9;delete pb; //&#20572;&#29992;&#24403;&#21069;&#30340;bitmap&#10;&#9;pb = new Bitmap(*rhs.pb); //&#20351;&#29992;rhs&#30340;bitmap&#30340;&#21103;&#26412;(&#22797;&#20214;)&#10;&#10;&#9;return *this;  //&#36820;&#22238;&#25805;&#20316;&#31526;&#24341;&#29992;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>该方式存在一个问题:当new Bitmap失败时(如内存不足或Bitmap的copy构造函数抛出异常)，那么Widget最终会持有一个指向一块被删除的Bitmap。</p>
+<ol>
+<li>让operator= 具备”异常安全性”往往自动获得”自我赋值安全”的回报。因此愈来愈多人对”自我赋值”的处理态度是倾向不去管它，把焦点放在实现”异常安全性” (exception safety) 上，即：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">widget&#38; Widget::operator=(const Widget&#38; rhs)&#10;&#123;&#10;&#9;Bitmap* pOrig = pb;  //&#35760;&#20303;&#21407;&#20808;&#30340; pb&#10;&#9;&#10;&#9;pb = new Bitmap(*rhs.pb);//&#20196;pb&#25351;&#21521;*pb&#30340;&#19968;&#20010;&#22797;&#20214;&#10;&#10;&#9;delete pOrig; //&#22914;&#26524;new Bitmap&#27809;&#26377;&#24322;&#24120;&#65292;&#21017;&#21024;&#38500;&#21407;&#26469;&#30340; pb&#10;&#10;&#9;return *this;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果”new Bitmap” 抛出异常， pb (及其栖身的那个Widget) 保持原状。即使没有证同测试(identity test) ，这段代码还是能够处理自我赋值，但这种方法效率比较低。</p>
+<ol>
+<li>另外一种比较高效的方法是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Widget &#123;&#10;&#9;&#8230;&#8230;&#10;&#9;void swap(Widget&#38; rhs); //&#20132;&#25442;*this &#21644;rhs &#30340;&#25968;&#25454;:&#35814;&#35265;&#26465;&#27454;29&#10;&#9;&#8230;&#8230;&#10;&#125;;&#10; &#10;Widget&#38; Widget::operator=(Widget rhs) //rhs&#26159;&#34987;&#20256;&#23545;&#35937;&#30340;&#19968;&#20221;&#22797;&#20214;(&#21103;&#26412;),&#27880;&#24847;&#36825;&#37324;&#26159;pass by value.&#10;&#123;&#10;&#9;swap(rhs); //&#23558;*this &#30340;&#25968;&#25454;&#21644;&#22797;&#20214;/&#21103;&#26412;&#30340;&#25968;&#25454;&#20114;&#25442;&#10;&#10;&#9;return *this;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>确保当前对象自我赋值时 operator=有良好的行为。</li>
+<li>确定任何函数如果操作一个以上的对象，而其中多个对象是同一个对象时，其行为仍然正确。</li>
+</ol>
+<h3 id="12-__u5236_u5BF9_u8C61_u65F6_u52FF_u5FD8_u5176_u6BCF_u4E00_u4E2A_u6210_u5206"><a href="#12-__u5236_u5BF9_u8C61_u65F6_u52FF_u5FD8_u5176_u6BCF_u4E00_u4E2A_u6210_u5206" class="headerlink" title="12. 制对象时勿忘其每一个成分"></a>12. 制对象时勿忘其每一个成分</h3><p>本条款阐释了复制对象时容易犯的一些错误，给出的教训是：</p>
+<ol>
+<li>Copying 函数应该确保复制”对象内的所有成员变量”及”所有base class 成分”。</li>
+<li>不要尝试以某个copying 函数实现另一个copying 函数。应该将共同机能放进第三个函数中，并由两个coping 函数共同调。换句话说，如果你发现你的copy 构造函数和copy assignment 操作符有相近的代码，消除重复代码的做法是，建立一个新的成员函数给两者调用。这样的函数往往是private 而且常被命名为init。</li>
+</ol>
+<h2 id="u8D44_u6E90_u7BA1_u7406"><a href="#u8D44_u6E90_u7BA1_u7406" class="headerlink" title="资源管理"></a>资源管理</h2><p>所谓资源就是，一旦用了它，将来必须还给系统。C++程序中最常使用的资源就是动态内存分配，但这只是众多管理的资源之一。其他常见的资源还包括文件描述器、互斥锁、图形界面中的字型和笔刷、数据库连接、以及网络sockets。无论哪种资源，当你使用它时，必须记得还给系统。</p>
+<h3 id="13-__u4EE5_u5BF9_u8C61_u7BA1_u7406_u8D44_u6E90"><a href="#13-__u4EE5_u5BF9_u8C61_u7BA1_u7406_u8D44_u6E90" class="headerlink" title="13. 以对象管理资源"></a>13. 以对象管理资源</h3><p>两个常被使用的RAII(“资源取得时机便是初始化时机” (Resource Acquisition Is Initialization; RAII)) classes 分别是tr1::shared_ptr和auto_ptr。前者通常是较佳选择，因为其copy行为比较直观。若选择auto_ptr，复制动作会使它（被复制物）null。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void f()&#10;&#123;&#10;&#9;std::auto_ptr&#60;Investment&#62; pInv(createInvestment());&#9;//&#35843;&#29992;factory&#20989;&#25968;&#10;&#9;//&#19968;&#22914;&#20197;&#24448;&#22320;&#20351;&#29992;pInv&#10;&#9;...&#10;&#9;//&#32463;&#30001;auto_ptr&#30340;&#26512;&#26500;&#20989;&#25968;&#33258;&#21160;&#21024;&#38500;pInv&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void f()&#10;&#123;&#10;&#9;...&#10;&#9;std::tr1::shared_ptr&#60;Investment&#62;&#10;&#9;pInv(createInvestment()); //&#35843;&#29992;factory&#20989;&#25968;&#10;&#9;//&#20351;&#29992;pInv&#19968;&#22914;&#20197;&#24448;&#10;&#9;...&#10;&#9;//&#32463;&#30001;shared_ptr&#30340;&#26512;&#26500;&#20989;&#25968;&#33258;&#21160;&#21024;&#38500;pInv&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="auto_ptr"><a href="#auto_ptr" class="headerlink" title="auto_ptr"></a>auto_ptr</h4><ol>
+<li>auto_ptr不能共享所有权，即不要让两个auto_ptr指向同一个对象。</li>
+<li>auto_ptr不能指向数组，因为auto_ptr指向数组时在析构的时候只是调用了delete，而数组在析构的时候应该调用delete[]。</li>
+<li>auto_ptr只是一种简单的智能指针，如有特殊需求，需要使用其他智能指针，比如share_ptr。</li>
+<li>auto_ptr不能作为容器对象，STL容器中的元素经常要支持拷贝、赋值等操作，那么在这个过程中auto_ptr会传递所有权，那么source 和 sink元素之间就不等价了。</li>
+</ol>
+<h4 id="shared_ptr"><a href="#shared_ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h4><p>前面讲到的auto_ptr有个很大的缺陷就是所有权的转移问题，一个对象的内存块只能被一个智能指针对象所拥有，但当我们希望分享那个内存块的时候，C++ 11标准中有了shared_ptr这样的智能指针，所以shared_ptr类型的指针可以作为STL容器的元素。</p>
+<ol>
+<li>引用了shared_count 计算器，用来表示当前有多少个智能指针对象共享一个内存块。</li>
+<li>析构函数中不是直接释放指针对应的内存块，如果shared_count大于1则不释放内存，只是将引用计算器减1,当计数等于1时释放内存。</li>
+<li>复制构造函数与赋值操作符只是提供了一般意义上的复制功能，并且将引用计数加1。<br><code>shared_ptr&lt;Class_name&gt; prtOne = new(Class_name的对象)</code></li>
+</ol>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>为防止资源泄漏，请使用RAII(“资源取得时机便是初始化时机” (Resource Acquisition Is Initialization; RAII))对象，它们在构造函数中获得资源并在析构函数中释放资源。</li>
+<li>两个常被使用的RAII classes 分别是trl::shared_ptr 和auto_ptr。前者通常是较佳选择，因为其copy行为比较直观。若选择auto_ptr，复制动作会使它(被复制物)指向null。</li>
+</ol>
+<h3 id="14-__u5728_u8D44_u6E90_u7BA1_u7406_u7C7B_u4E2D_u5C0F_u5FC3copying_u884C_u4E3A"><a href="#14-__u5728_u8D44_u6E90_u7BA1_u7406_u7C7B_u4E2D_u5C0F_u5FC3copying_u884C_u4E3A" class="headerlink" title="14. 在资源管理类中小心copying行为"></a>14. 在资源管理类中小心copying行为</h3><p>资源在构造期间获得，在析构期间释放。描述了auto_ptr和trl::shared_ptr如何将这个观念表现在heap-based资源上。然后并非所有资源都是heap-based。既然如此，有可能偶尔你会发现，你需要建立自己的资源管理类。</p>
+<p>例如，假设我们处理类型为Mutex的互斥器对象(mutex objects)，共有lock和unlock两函数可用：<br><code>void lock(Mutex *pm); //锁定pm所指的互斥器</code><br><code>void unlock(Mutex *pm); //将互斥器解除锁定</code></p>
+<p>为确保绝不会将一个被锁定的Mutex解锁，你可能会建立一个class来管理，在构造时锁定，析构时解锁。这很好，但如果Lock对象呗复制，会发生什么事？<br><code>Lock m11(&amp;m);      //锁定m</code><br><code>Lock m12(m11);    //将m11复制到m12身上。这会发生什么事？</code></p>
+<ol>
+<li>禁止复制。通常不合适。条款6告诉你怎么做： class Lock:private Uncopyable{ }//禁止复制</li>
+<li><p>对底层资源祭出“引用计数法”。幸运的是trl::shared_ptr允许制定所谓的“删除器”，那是一个函数或者函数对象，当引用次数为0时便被调用。删除器对trl::shared_ptr构造函数而言是可有可无的第二参数，所以代码看起来像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Lock&#123;  &#10;public:  &#10;    explicit Lock(Mutex *pm):mutexPtr(pm, unlock)&#123;    //&#20197;unlock&#20316;&#20026;&#21024;&#38500;&#22120;  &#10;    lock(mutexPtr.get());  &#10;&#125;  &#10;private:  &#10;    std::trl::shared_ptr&#60;Mutex&#62; mutexPtr;    //&#20351;&#29992;shared_ptr&#26367;&#25442; pointer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制底部资源。某些标准字符串类型“指向heap内存”之指针构成（那块内存被用来存放字符串的组成字符）。这种字符串对象内涵一个指针指向一块heap内存。当这样一个字符串对象被复制，不论指针或其所指内存都会被制作出一个附件。这样的字符串展现深度复制行为。</p>
+</li>
+<li>转移底部资源的拥有权。资源的拥有权从被复制物转移到目标物。这时auto_ptr奉行的复制意义。</li>
+</ol>
+<h4 id="Tips-2"><a href="#Tips-2" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>复制RAII对象必须一并复制它所管理的资源，所以资源的copying行为决定RAII对象的copying行为。</li>
+<li>普遍而常见的RAII class copying行为时：抑制copying、实行引用计数法。不过其他行为也都可能被实现。</li>
+</ol>
+<h3 id="15-__u5728_u8D44_u6E90_u7BA1_u7406_u7C7B_u4E2D_u63D0_u4F9B_u5BF9_u539F_u59CB_u8D44_u6E90_u7684_u8BBF_u95EE"><a href="#15-__u5728_u8D44_u6E90_u7BA1_u7406_u7C7B_u4E2D_u63D0_u4F9B_u5BF9_u539F_u59CB_u8D44_u6E90_u7684_u8BBF_u95EE" class="headerlink" title="15. 在资源管理类中提供对原始资源的访问"></a>15. 在资源管理类中提供对原始资源的访问</h3><ol>
+<li>APIs往往要求访问原始资源，所以每一个RAII class应该提供一个“取得其所管理之资源”的办法。</li>
+<li>对原始资源的访问可能经由显示转换（定义个get函数）或隐式转换。一般而言显示转换比较安全，但隐式转换对客户比较方便。</li>
+</ol>
+<h3 id="16-__u6210_u5BF9_u4F7F_u7528new_u548Cdelete_u65F6_u8981_u91C7_u53D6_u76F8_u540C_u5F62_u5F0F"><a href="#16-__u6210_u5BF9_u4F7F_u7528new_u548Cdelete_u65F6_u8981_u91C7_u53D6_u76F8_u540C_u5F62_u5F0F" class="headerlink" title="16. 成对使用new和delete时要采取相同形式"></a>16. 成对使用new和delete时要采取相同形式</h3><p>即将被删除的那个指针，所指的是单一对象或对象数组？这是个必不可缺的问题，因为单一对象的内存布局一般而言不同于数组的内存布局。更明确的说，数组所用的内存通常还包括“数组大小”的记录，以便delete知道需要调用多少次析构函数。</p>
+<p>唯一能够让delete知道内存中是否存在一个“数组大小记录”的办法就是：有你来告诉它。<br>如果对new使用 delete[]，结果未定义。delete会读取若干内存把它解释成“数组大小”，然后开始多次调用析构函数。如果对 new[]使用delete也是未定义。会在“数组大小”处开始调用析构函数。<br>这个规则对于喜欢用typedef的人也很重要，因为它意味typedef的作者必须说清楚，当程序员以new创建该种typedef类型对象时，该以哪一种delete形式删除之。考虑下面这个typedef：<br>typedef string AddressLines[4];//每个人的地址有4行。</p>
+<h4 id="Tips-3"><a href="#Tips-3" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>如果你在new表达式中使用[]，必须在相应的delete表达式中也使用[]。如果你在new表达式中不使用[]，一定不要在相应的delete表达式中使用[]。</li>
+</ol>
+<h3 id="17-__u4EE5_u72EC_u7ACB_u8BED_u53E5_u5C06newed__u5BF9_u8C61_u7F6E_u5165_u667A_u80FD_u6307_u9488"><a href="#17-__u4EE5_u72EC_u7ACB_u8BED_u53E5_u5C06newed__u5BF9_u8C61_u7F6E_u5165_u667A_u80FD_u6307_u9488" class="headerlink" title="17. 以独立语句将newed 对象置入智能指针"></a>17. 以独立语句将newed 对象置入智能指针</h3><p>本条款指出了一个使用智能指针时常犯的错误，避免该错误可以这样做：<br>以独立语句将newed 对象存储于(置入)智能指针内。如果不这样做，一旦异常被抛出，有可能导致难以察觉的资源泄漏。举例：<br><code>processWidget(std::trl::shared ptr&lt;Widget&gt; (new Widget) , priority());</code><br>在调用processWidget之前，编译器必须创建代码，做以下三件事：</p>
+<ol>
+<li>调用priority</li>
+<li>执行”new Widget”</li>
+<li>调用trl: : shared_ptr 构造函数<br>不同的C++ 编译器执行这三条语句的顺序不一样，但对priority的调用可以排在第一或第二或第三执行。如果编译器选择以第二顺位执行且priority函数抛出了异常，则新创建的对象Widget将导致内存泄漏，解决方法如下：<br><code>std::trl::shared_ptr&lt;Widget&gt; pw(new Widget); //在独立语句内以智能指针存储Widget对象</code><br><code>processWidget(pw, priority()); //这个调用肯定不存在内存泄漏</code></li>
+</ol>
+<h4 id="Tips-4"><a href="#Tips-4" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>以独立语句将newed对象存储于智能指针内。如果不这样做，一旦异常被抛出，有可能导致难以觉察的资源泄漏。</li>
+</ol>
+<h2 id="u8BBE_u8BA1_u4E0E_u58F0_u660E_uFF08Designs_and_Declarations_uFF09"><a href="#u8BBE_u8BA1_u4E0E_u58F0_u660E_uFF08Designs_and_Declarations_uFF09" class="headerlink" title="设计与声明（Designs and Declarations）"></a>设计与声明（Designs and Declarations）</h2><h3 id="18-__u8BA9_u63A5_u53E3_u5BB9_u6613_u88AB_u6B63_u786E_u4F7F_u7528_uFF0C_u4E0D_u6613_u88AB_u8BEF_u7528"><a href="#18-__u8BA9_u63A5_u53E3_u5BB9_u6613_u88AB_u6B63_u786E_u4F7F_u7528_uFF0C_u4E0D_u6613_u88AB_u8BEF_u7528" class="headerlink" title="18. 让接口容易被正确使用，不易被误用"></a>18. 让接口容易被正确使用，不易被误用</h3><p>“接口”这个术语在不同的场景中表示的含义也有一些微妙的区别，条款18中的接口的定义和条款34中对于接口的定义是不一样的，前者侧重描述一个函数方法的参数与返回值的设计，而后者则侧重于由多个函数方法封装后的整体。<br>条款18的目标就是要告诉我们如何去设计一个函数——除去函数内部逻辑部分以外——输入参数、输出参数、函数名(一个函数其实就是由这三部分+访问权限+函数逻辑构成)，最后这个条款得到的结论就是：</p>
+<ol>
+<li>函数名：保持函数名的一致性，也就是说具有相同功能的函数最好命名是一致的，这样设计的理由就是让别人(包括自己)用起来不会因为命名混乱而错误使用。</li>
+<li>输入参数：语义清晰、尽可能保证参数不会被错误调用、保证传入参数的效率。做到这点并不容易，如要求语义清晰，我们可以使用精确的命名，让调用者可以直接明白参数的含义，也可以利用const关键字标识传输参数是否会被修改；此外要保证参数不会被错误调用，比如如果输入的整数是特定的几个值，就可以利用枚举实现；要保证传输参数的效率，那就是最好采用引用的方式，这样可以避免1次的构造和析构操作。此外还有很多，比如采用默认参数，告诉调用者某些参数是可选的；</li>
+<li>返回值：返回值也很重要，如果希望返回一个函数内部生成的对象，那就要想办法避免用户忘记释放内存而造成内存泄露，一种比较好的方法就是利用shared_ptr指针。</li>
+</ol>
+<h3 id="19-__u8BBE_u8BA1class_u72B9_u5982_u8BBE_u8BA1type"><a href="#19-__u8BBE_u8BA1class_u72B9_u5982_u8BBE_u8BA1type" class="headerlink" title="19. 设计class犹如设计type"></a>19. 设计class犹如设计type</h3><h3 id="20-__u7528_pass-by-reference-const__u66FF_u6362_pass-by-value"><a href="#20-__u7528_pass-by-reference-const__u66FF_u6362_pass-by-value" class="headerlink" title="20. 用 pass-by-reference-const 替换 pass-by-value"></a>20. 用 pass-by-reference-const 替换 pass-by-value</h3><p>对象传递有三种方式：值传递、引用传递(还有一种忘记叫什么，现在基本见不到)。这个条款就是告诉我们函数的传入参数以及返回值，都尽可能的使用引用传递的方式。而本条款主要是提倡使用引用传参的方式，至于原因我们可以通过下面的例子以及输出结果来说明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include&#60;iostream&#62;&#10;class Base&#10;&#123;&#10;public:&#10;    virtual void print(void) const &#123; std::cout&#60;&#60;&#34;Base::print()&#34;&#60;&#60;std::endl; &#125;&#10;&#125;;&#10;&#10;class Derived : public Base&#10;&#123;&#10;  public:&#10;    virtual void print(void) const &#123; std::cout&#60;&#60;&#34;Derived::print()&#34;&#60;&#60;std::endl; &#125;&#10;&#125;;&#10;&#10;void passByValue(Base obj)&#10;&#123;&#10;  obj.print();&#10;&#125;&#10;&#10;void passByReferenceToConst(const Base&#38; obj)&#10;&#123;&#10;  obj.print();&#10;&#125;&#10;&#10;int main(int argc, char **argv)&#10;&#123;&#10;  Derived derived;&#10;&#10;  passByValue(derived);&#10;  passByReferenceToConst(derived);&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Base::print()&#10;Derived::print()</span><br></pre></td></tr></table></figure></p>
+<p>由函数调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passByValue(derived);&#10;passByReferenceToConst(derived);</span><br></pre></td></tr></table></figure></p>
+<p>可知原函数原本希望的输入对象为Base类对象，我们通过两种方式传入了派生类的对象，然而第一种传值的方式导致对象的切割，而引用传参的方式则结果正常。个人的理解是因为由于virtual函数的声明，类有了多态的表现，对于引用传参则可以依据输入的对象调用对应的函数，而传值则导致问题的出现，由此可见应使用引用传参。</p>
+<h4 id="Tips-5"><a href="#Tips-5" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>对于内置对象(int、char、long、double等)，如果不希望在函数内部进行修改，那就直接使用值传递的方式，它的效率反而比引用传递的效率更好(更确切的说是在函数内部访问的时候效率更高)；如果希望在函数内部对其进行修改，那使用引用传递，但是不要加入const描述，这就是涉及形参和实参的区别了。</li>
+<li>对于类对象，使用引用传递的好处就是它传递的只是一个指针(在系统看来引用和指针就是一个东西，对程序员会存在一些语义上的区别)，这种方式避免了传入时调用类的拷贝构造函数，以及在函数返回时调用析构函数。至于加入const关键字是为了告诉外部人员，我内部不会对这个类对象实例进行任何修改。</li>
+<li>而且使用值传递的方式传递还有一点很重要的就是它可以避免“对象切割”问题，这个问题也很很好理解，就是因为函数向上转型导致了派生类中的内容被切割了。</li>
+<li>最后还有一个需要注意的就是，对于STL这样的容器而言，其还是使用值传递的方式，所以平时得知道自己每次调用容器到底执行了哪些操作了。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/19/effective_c++_21_30/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective C++ 读书笔记(21-30)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/16/effective_c++/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective C++ 读书笔记(1-10)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="effective_c++_11_20" data-title="Effective C++ 读书笔记(11-20)" data-url="http://liangkai.me/2014/08/18/effective_c++_11_20/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

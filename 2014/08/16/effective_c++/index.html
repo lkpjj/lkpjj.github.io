@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective C++ 读书笔记(1-10) | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Effective C++中的一些记录点而已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ 读书笔记(1-10)">
+<meta property="og:url" content="http://liangkai.me/2014/08/16/effective_c++/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="Effective C++中的一些记录点而已">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ 读书笔记(1-10)">
+<meta name="twitter:description" content="Effective C++中的一些记录点而已">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-effective_c++" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/16/effective_c++/" class="article-date">
+  	<time datetime="2014-08-16T10:52:05.000Z" itemprop="datePublished">2014-08-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective C++ 读书笔记(1-10)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective-C/">Effective C++</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u8BA9_u81EA_u5DF1_u4E60_u60EFC++"><a href="#u8BA9_u81EA_u5DF1_u4E60_u60EFC++" class="headerlink" title="让自己习惯C++"></a>让自己习惯C++</h2><h3 id="1-__u89C6c++_u4E3A_u4E00_u4E2A_u8BED_u8A00_u8054_u90A6"><a href="#1-__u89C6c++_u4E3A_u4E00_u4E2A_u8BED_u8A00_u8054_u90A6" class="headerlink" title="1. 视c++为一个语言联邦"></a>1. 视c++为一个语言联邦</h3><p>C++已经不是一门很单一的语言，而应该将之视为一个由相关语言组成的联邦。从语言形式上看，它是一个多重范型编程语言(multiparadigm programminglanguage) ，一个同时支持过程形式(procedural)、面向对象形式(object-oriented)、函数形式(functional) 、泛型形式(generic) 、元编程形式(metaprogramming )的语言，从语言种类上看，它由若干次语言组成，分别为：<br><a id="more"></a></p>
+<ol>
+<li>C。说到底C++仍然是以C为基础，区块(blocks) 、语句( statements) 、预处理器( preprocessor) 、内置数据类型(built-in data types) 、数组(arrays) 、指针(pointers) 等统统来自C。</li>
+<li>Object-Oriented C++。这部分就是 c with classes所诉求的：classes (包括构造函数和析构函数) ，封装( encapsulation) 、继承( inheritance) 、多态(polymorphism) 、virtual 函数(动态绑定) ……</li>
+<li>Template C++。这是C++ 的泛型编程(generic programming) 部分，也是大多数程序员经验最少的部分。Template 相关考虑与设计己经弥漫整个C++，实际上由于templates 威力强大，它们带来崭新的编程范型(programming paradigm) ，也就是所谓的templatemetaprogramming (TMP，模板元编程)</li>
+<li>STL。 STL 是个template 程序库，它是非常特殊的一个。它对容器(containers) 、迭代器(iterators) 、算法(algorithms) 以及函数对象(function objects) 的规约有极佳的紧密配合与协调。</li>
+</ol>
+<h3 id="2-__u5C3D_u91CF_u4EE5const_2C_enum_2C_inline_u66FF_u6362_23define"><a href="#2-__u5C3D_u91CF_u4EE5const_2C_enum_2C_inline_u66FF_u6362_23define" class="headerlink" title="2. 尽量以const, enum, inline替换#define"></a>2. 尽量以const, enum, inline替换#define</h3><p>该条款或许称为<strong>宁可以编译器替换预处理器</strong>。<br>#define ASPEECT_RATIO 1.653<br>记号ASPEECT_RATIO也许从未被编译器看见，也许在编译器开始处理源码之前它就被预处理器移走了，当运用此变量但获得一个编译错误信息时，可能会带来困惑，因为错误信息会提到1.653而不是ASPEECT_RATIO;<br>解决办法是以一个常量替换上述的洪(#define)<br>const double AspectRatio = 1.653</p>
+<p>假如我们像在编译期间需要一个常量值，例如下面所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class GamePlayer&#10;&#123;&#10;private:&#10;&#9;enum &#123;Num = 5&#125;;&#10;&#9;int scores[Num];&#10;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就可以定义数组，而不会出现问题；对于enum而言，行为更像#define而不是const，例如对enum和define取地址是不合法的，而对const却是可以的。</p>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>对于单纯常量，最好以const对象或enums替换#define</li>
+<li>对于形似函数的宏(macros),最好改用inline函数替换#define</li>
+</ol>
+<h3 id="3-__u5C3D_u53EF_u80FD_u4F7F_u7528_const"><a href="#3-__u5C3D_u53EF_u80FD_u4F7F_u7528_const" class="headerlink" title="3. 尽可能使用 const"></a>3. 尽可能使用 const</h3><p>关键字const可以修饰global或namespace作用域的常量，也可以修饰文件、函数或者区块作用域中被声明为static的对象，也可以用它修饰classes内部的static或者non-static成员变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char greeting[]=&#34;hello&#34;;&#10;char* p = greeting; //non-const pointer,const non-const data&#10;const char* p = greeting; //non-const pointer,const data;&#10;char* const p = greeting; //const pointer,non-const data&#10;const char* const p = greeting; //const pointer,const data&#10;```const &#35821;&#27861;&#34429;&#28982;&#21464;&#21270;&#22810;&#31471;&#65292;&#20294;&#24182;&#19981;&#26159;&#39640;&#28145;&#33707;&#27979;&#65292;&#22914;&#26524;&#20851;&#38190;&#23383;*const*&#20986;&#29616;&#22312;&#22411;&#21495;&#30340;&#24038;&#36793;&#65292;&#20415;&#26159;&#34987;&#25351;&#29289;&#26159;&#24120;&#10;;&#22914;&#26524;&#20986;&#29616;&#22312;&#26143;&#21495;&#21491;&#36793;&#65292;&#34920;&#31034;&#25351;&#38024;&#33258;&#36523;&#26159;&#24120;&#37327;;&#22914;&#26524;&#20986;&#29616;&#22312;&#20004;&#36793;&#65292;&#34920;&#20415;&#25351;&#29289;&#21644;&#25351;&#38024;&#20004;&#32773;&#37117;&#26159;&#24120;&#37327;&#12290;&#10;&#10;#### const &#25104;&#21592;&#20989;&#25968; ####&#10;&#23558;const&#23454;&#26045;&#20110;&#25104;&#21592;&#20989;&#25968;&#30340;&#30446;&#30340;&#26159;&#20026;&#20102;&#30830;&#35748;&#35813;&#25104;&#21592;&#20989;&#25968;&#21487;&#20316;&#29992;&#20110; const &#23545;&#35937;&#36523;&#19978;&#65292;&#20219;&#20309;&#19981;&#20250;&#20462;&#25913;&#25968;&#25454;&#25104;&#21592;&#30340;&#20989;&#25968;&#37117;&#24212;&#35813;&#22768;&#26126;&#20026;const &#31867;&#22411;&#12290;&#22914;&#26524;&#22312;&#32534;&#20889;const &#25104;&#21592;&#20989;&#25968;&#26102;&#65292;&#19981;&#24910;&#20462;&#25913;&#20102;&#25968;&#25454;&#25104;&#21592;&#65292;&#25110;&#32773;&#35843;&#29992;&#20102;&#20854;&#23427;&#38750;const &#25104;&#21592;&#20989;&#25968;&#65292;&#32534;&#35793;&#22120;&#23558;&#25351;&#20986;&#38169;&#35823;&#65292;&#36825;&#26080;&#30097;&#20250;&#25552;&#39640;&#31243;&#24207;&#30340;&#20581;&#22766;&#24615;&#12290;&#20197;&#19979;&#31243;&#24207;&#20013;&#65292;&#31867;stack &#30340;&#25104;&#21592;&#20989;&#25968;GetCount &#20165;&#29992;&#20110;&#35745;&#25968;&#65292;&#20174;&#36923;&#36753;&#19978;&#35762;GetCount &#24212;&#24403;&#20026;const &#20989;&#25968;&#12290;&#32534;&#35793;&#22120;&#23558;&#25351;&#20986;GetCount &#20989;&#25968;&#20013;&#30340;&#38169;&#35823;&#12290;</span><br></pre></td></tr></table></figure></p>
+<p>class Stack<br>{<br>public:<br>    void Push(int elem);<br>    int Pop(void);<br>    int GetCount(void) const; // const 成员函数<br>private:<br>    int m_num;<br>    int m_data[100];<br>};<br>int Stack::GetCount(void) const<br>{<br>    ++ m_num; // 编译错误，企图修改数据成员m_num<br>    Pop(); // 编译错误，企图调用非const 函数<br>    return m_num;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#25104;&#21592;&#20989;&#25968;&#30340;&#22768;&#26126;&#30475;&#36215;&#26469;&#24618;&#24618;&#30340;&#65306;const &#20851;&#38190;&#23383;&#21482;&#33021;&#25918;&#22312;&#20989;&#25968;&#22768;&#26126;&#30340;&#23614;&#37096;&#65292;&#22823;&#27010;&#26159;&#22240;&#20026;&#20854;&#23427;&#22320;&#26041;&#37117;&#24050;&#32463;&#34987;&#21344;&#29992;&#20102;&#12290;&#10;&#10;#### Tips ####&#10;1. &#23558;&#26576;&#20123;&#19996;&#35199;&#22768;&#26126;&#20026; const &#21487;&#24110;&#21161;&#32534;&#35793;&#22120;&#20390;&#27979;&#20986;&#38169;&#35823;&#29992;&#27861;&#12290;const &#21487;&#34987;&#26045;&#21152;&#20110;&#20219;&#20309;&#20316;&#29992;&#22495;&#20869;&#30340;&#23545;&#35937;&#12289;&#20989;&#25968;&#21442;&#25968;&#12289;&#20989;&#25968;&#36820;&#22238;&#31867;&#22411;&#12289;&#25104;&#21592;&#20989;&#25968;&#26412;&#20307;&#12290;&#10;2. &#32534;&#35793;&#22120;&#24378;&#21046;&#23454;&#26045; bitwise constness&#65292;&#20294;&#20320;&#32534;&#20889;&#31243;&#24207;&#26102;&#24212;&#35813;&#20351;&#29992;&#34;&#27010;&#24565;&#19978;&#30340;&#24120;&#37327;&#24615;&#34;&#12290;&#10;3. &#24403; const &#21644; non-const &#25104;&#21592;&#20989;&#25968;&#26377;&#30528;&#23454;&#36136;&#31561;&#20215;&#30340;&#23454;&#29616;&#26102;&#65292;&#20196; non-const &#29256;&#26412;&#35843;&#29992; const &#29256;&#26412;&#21487;&#36991;&#20813;&#20195;&#30721;&#37325;&#22797;&#12290;&#10;&#10;### 4. &#30830;&#23450;&#23545;&#35937;&#34987;&#20351;&#29992;&#21069;&#24050;&#20808;&#34987;&#21021;&#22987;&#21270; ###&#10;&#26412;&#26465;&#27454;&#21578;&#35819;&#31243;&#24207;&#21592;&#65292;&#22312;C++&#31243;&#24207;&#35774;&#35745;&#20013;&#65292;&#24212;&#35813;&#23545;&#25152;&#26377;&#23545;&#35937;&#21021;&#22987;&#21270;&#65292;&#20197;&#36991;&#20813;&#19981;&#24517;&#35201;&#30340;&#38169;&#35823;&#65292;&#21516;&#26102;&#65292;&#32473;&#20986;&#20102;&#39640;&#25928;&#21021;&#22987;&#21270;&#23545;&#35937;&#30340;&#26041;&#27861;&#21644;&#27491;&#30830;&#21021;&#22987;&#21270;&#23545;&#35937;&#30340;&#26041;&#27861;&#12290;&#10;1. &#21021;&#22987;&#21270;&#26500;&#36896;&#20989;&#25968;&#26368;&#22909;&#20351;&#29992;&#25104;&#21592;&#21021;&#20540;&#21015;(member initialization list) &#65292;&#32780;&#19981;&#35201;&#22312;&#26500;&#36896;&#20989;&#25968;&#26412;&#20307;&#20869;&#20351;&#29992;&#36171;&#20540;&#25805;&#20316;(assignment) &#12290;&#21021;&#20540;&#21015;&#20986;&#30340;&#25104;&#21592;&#21464;&#37327;&#65292;&#20854;&#25490;&#21015;&#27425;&#24207;&#24212;&#35813;&#21644;&#23427;&#20204;&#22312;class &#20013;&#30340;&#22768;&#26126;&#27425;&#24207;&#30456;&#21516;&#12290;&#32771;&#34385;&#19968;&#20010;&#29992;&#26469;&#34920;&#29616;&#36890;&#35759;&#31807;&#30340;class &#65292;&#20854;&#26500;&#36896;&#20989;&#25968;&#22914;&#19979;:</span><br></pre></td></tr></table></figure></p>
+<p>class PhoneNumber { … };</p>
+<p>class ABEntry { //ABEntry =“Address Book Entry”<br>public:<br>    ABEntry(const std::string&amp; name, const std::string&amp; address , const std::list<phonenumber>&amp; phones);<br>    private:<br>    std::string theName;<br>    std::string theAddress;<br>    std::list<phonenumber> thePhones;<br>    int numTimesConsulted;</phonenumber></phonenumber></p>
+<p>};</p>
+<p>ABEntry::ABEntry(const std: :string&amp; nane , const std: : string&amp; address,const std::list<phonenumber>&amp; phones);<br>    theName = narne; //这些都是赋值(assignments) ,<br>    theAddress = address; //不是始化(initializations)。<br>    thePhones = phones;<br>    numTimesConsulted = 0;<br>    int num TimesConsulted;</phonenumber></p>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#27491;&#30830;&#32780;&#21448;&#39640;&#25928;&#30340;&#21021;&#22987;&#21270;&#23545;&#35937;&#30340;&#26041;&#27861;&#26159;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>ABEntry: :ABEntry(const std: :string&amp; nane , const std: : string&amp; address,const std::list<phonenumber>&amp; phones)<br> : theName(name),<br> theAddress(address), //这些都是初始化<br> thePhones(phones),<br> numTimesConsulted(0)</phonenumber></p>
+<p>{} // 构造函数体是空的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#23545;&#20110;&#22823;&#22810;&#25968;&#31867;&#22411;&#32780;&#35328;&#65292;&#27604;&#36215;&#20808;&#35843;&#29992; default &#26500;&#36896;&#20989;&#25968;&#28982;&#21518;&#35843;&#29992; copy assignment &#25805;&#20316;&#31526;&#65292;&#21333;&#21482;&#35843;&#29992;&#19968;&#27425; copy &#26500;&#36896;&#20989;&#25968;&#26159;&#27604;&#36739;&#39640;&#25928;&#30340;&#65292;&#26377;&#26102;&#29978;&#33267;&#39640;&#25928;&#30340;&#22810;&#12290;&#10;C++ &#26377;&#30528;&#21313;&#20998;&#22266;&#23450;&#30340;&#8221;&#25104;&#21592;&#21021;&#22987;&#21270;&#27425;&#24207;&#8221;&#12290;&#27425;&#24207;&#24635;&#26159;&#30456;&#21516;&#65306; base class&#26089;&#20110;&#20854;derived classes &#34987;&#21021;&#22987;&#21270;&#65292;&#32780;class &#30340;&#25104;&#21592;&#21464;&#37327;&#24635;&#26159;&#20197;&#20854;&#22768;&#26126;&#27425;&#24207;&#34987;&#21021;&#22987;&#21270;&#12290;&#22238;&#22836;&#30475;&#30475;ABEntry. &#20854;theName &#25104;&#21592;&#27704;&#36828;&#26368;&#20808;&#34987;&#21021;&#22987;&#21270;&#65292;&#28982;&#21518;&#26159;theAddress&#65292;&#20877;&#26469;&#26159;thePhones&#65292;&#26368;&#21518;&#26159;numTimesConsulted&#12290;&#21363;&#20351;&#23427;&#20204;&#22312;&#25104;&#21592;&#21021;&#20540;&#21015;&#20013;&#20197;&#19981;&#21516;&#30340;&#27425;&#24207;&#20986;&#29616;(&#24456;&#19981;&#24184;&#37027;&#26159;&#21512;&#27861;&#30340;)&#65292;&#20063;&#19981;&#20250;&#26377;&#20219;&#20309;&#24433;&#21709;&#12290;&#10;2. C++ &#23545;&#8221;&#23450;&#20041;&#20110;&#19981;&#21516;&#32534;&#35793;&#21333;&#20803;&#20869;&#30340;non-local static &#23545;&#35937;&#8221;&#30340;&#21021;&#22987;&#21270;&#27425;&#24207;&#24182;&#26080;&#26126;&#30830;&#23450;&#20041;&#12290;&#20026;&#20813;&#38500;&#8221;&#36328;&#32534;&#35793;&#21333;&#20803;&#20043;&#21021;&#22987;&#21270;&#27425;&#24207;&#8221;&#38382;&#39064;&#65292;&#35831;&#20197;local static &#23545;&#35937;&#26367;&#25442;non-local static &#23545;&#35937;&#12290;</span><br></pre></td></tr></table></figure></p>
+<p>class FileSystem { … };</p>
+<p>FileSystem&amp; tfs() //代替tfs对象<br>{<br>  static FileSystem fs; // 以local static的方式定义和初始化object<br>  return fs; // 返回一个引用<br>}</p>
+<p>class Directory { … };<br>Directory::Directory( params )<br>{<br>  …<br>  std::size_t disks = tfs().numDisks();<br>  …<br>}</p>
+<p>Directory&amp; tempDir() // 代替tempDir对象，<br>{<br>  static Directory td;</p>
+<p>  return td;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;#### Tips ####&#10;1. &#20026;&#20869;&#32622;&#22411;&#23545;&#35937;&#36827;&#34892;&#25163;&#24037;&#21021;&#22987;&#21270;&#65292;&#22240;&#20026;C++&#19981;&#20445;&#35777;&#21021;&#22987;&#21270;&#23427;&#20204;&#10;2. &#26500;&#36896;&#20989;&#25968;&#26368;&#22909;&#20351;&#29992;&#25104;&#21592;&#21021;&#22987;&#21270;&#20540;&#65292;&#32780;&#19981;&#35201;&#22312;&#26500;&#36896;&#20989;&#25968;&#26412;&#20307;&#20869;&#20351;&#29992;&#36171;&#20540;&#25805;&#20316;&#12290;&#21021;&#20540;&#21015;&#21015;&#20986;&#30340;&#25104;&#21592;&#21464;&#37327;&#65292;&#20854;&#25490;&#21015;&#27425;&#24207;&#24212;&#35813;&#21644;&#23427;&#20204;&#22312; class &#20013;&#22768;&#26126;&#27425;&#24207;&#30456;&#21516;&#10;3. &#20026;&#20813;&#38500;&#34;&#36328;&#32534;&#35793;&#21333;&#20803;&#20043;&#21021;&#22987;&#21270;&#27425;&#24207;&#34;&#38382;&#39064;&#65292;&#35831;&#20197; local  static&#23545;&#35937;&#26367;&#25442; non-local static &#23545;&#35937;&#12290;&#10;&#10;## &#26500;&#36896;/&#26512;&#26500;/&#36171;&#20540;&#36816;&#31639; ##&#10;&#10;### 5. &#20102;&#35299;C++&#40664;&#40664;&#32534;&#20889;&#24182;&#35843;&#29992;&#21738;&#20123;&#20989;&#25968; ###&#10;&#26412;&#26465;&#27454;&#21578;&#35785;&#31243;&#24207;&#21592;&#65292;&#32534;&#35793;&#22120;&#33258;&#21160;&#20026;&#20320;&#20570;&#20102;&#21738;&#20123;&#20107;&#24773;&#12290;&#10;&#29992;&#25143;&#23450;&#20041;&#19968;&#20010;empty class (&#31354;&#31867;)&#65292;&#24403;C++ &#22788;&#29702;&#36807;&#23427;&#20043;&#21518;&#65292;&#22914;&#26524;&#20320;&#33258;&#24049;&#27809;&#22768;&#26126;&#65292;&#32534;&#35793;&#22120;&#23601;&#20250;&#20026;&#23427;&#22768;&#26126;(&#32534;&#35793;&#22120;&#29256;&#26412;&#30340;)&#19968;&#20010;copy &#26500;&#36896;&#20989;&#25968;&#12289;&#19968;&#20010;copy assignment&#25805;&#20316;&#31526;&#21644;&#19968;&#20010;&#26512;&#26500;&#20989;&#25968;&#12290;&#27492;&#22806;&#22914;&#26524;&#20320;&#27809;&#26377;&#22768;&#26126;&#20219;&#20309;&#26500;&#36896;&#20989;&#25968;&#65292;&#32534;&#35793;&#22120;&#20063;&#20250;&#20026;&#20320;&#22768;&#26126;&#19968;&#20010;default &#26500;&#36896;&#20989;&#25968;&#12290;&#25152;&#26377;&#36825;&#20123;&#20989;&#25968;&#37117;&#26159;public &#19988;inline &#12290;&#20030;&#20363;&#65292;&#22914;&#26524;&#20320;&#20889;&#19979;:`class Empty &#123; &#125;;`&#10;&#36825;&#23601;&#22909;&#20687;&#20320;&#20889;&#19979;&#36825;&#26679;&#30340;&#20195;&#30721;:</span><br></pre></td></tr></table></figure></p>
+<p>class Empty {<br>public:<br>    Empty() { … }<br>    Empty(const Empty&amp; rhs) { … }<br>    ~Empty( ) { … }<br>    Empty&amp; operator=(const Empty&amp; rhs) { … }<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;#### Tips ####&#10;1. &#32534;&#35793;&#22120;&#21487;&#20197;&#26263;&#33258;&#20026;class&#21019;&#24314;default&#26500;&#36896;&#20989;&#25968;&#12289;copy&#26500;&#36896;&#20989;&#25968;&#12289;copy assignment &#25805;&#20316;&#31526;&#65292;&#20197;&#21450;&#26512;&#26500;&#20989;&#25968;&#12290;&#10;2. &#21482;&#35201;&#20320;&#26174;&#24335;&#22320;&#23450;&#20041;&#20102;&#19968;&#20010;&#26500;&#36896;&#20989;&#25968;&#65288;&#19981;&#31649;&#26159;&#26377;&#21442;&#26500;&#36896;&#20989;&#25968;&#36824;&#26159;&#26080;&#21442;&#26500;&#36896;&#20989;&#25968;&#65289;&#65292;&#32534;&#35793;&#22120;&#23558;&#19981;&#20877;&#20026;&#20320;&#21019;&#24314;default&#26500;&#36896;&#20989;&#25968;&#12290;&#10;&#10;### 6. &#33509;&#19981;&#24819;&#20351;&#29992;&#32534;&#35793;&#22120;&#33258;&#21160;&#29983;&#25104;&#30340;&#20989;&#25968;&#65292;&#23601;&#35813;&#26126;&#30830;&#25298;&#32477; ###&#10;&#26412;&#26465;&#27454;&#21578;&#35785;&#31243;&#24207;&#21592;&#65292;&#22914;&#26524;&#26576;&#20123;&#23545;&#35937;&#26159;&#29420;&#19968;&#26080;&#20108;&#30340;&#65292;&#37027;&#20040;&#20320;&#23601;&#19981;&#24076;&#26395;&#23545;&#35937;&#34987;&#25335;&#36125;&#65292;&#20320;&#24212;&#35813;&#31105;&#29992;copy &#26500;&#36896;&#20989;&#25968;&#25110;copy assignment &#25805;&#20316;&#31526;&#65292;&#21487;&#36873;&#30340;&#26041;&#26696;&#26377;&#20004;&#31181;&#65306;&#10;1. &#23450;&#20041;&#19968;&#20010;&#20844;&#20849;&#22522;&#31867;&#65292;&#35753;&#25152;&#26377;&#29420;&#19968;&#26080;&#20108;&#30340;&#23545;&#35937;&#32487;&#25215;&#23427;&#65292;&#20855;&#20307;&#22914;&#19979;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>class Uncopyable {<br>    protected: //允许derived对象构造和析构<br>    Uncopyable () {}<br>    -Uncopyable(} { }<br>private:<br>    Uncopyable(const Uncopyable&amp;}; //但阻止copying<br>    Uncopyable&amp; operator=(const Uncopyable&amp;);</p>
+<p>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20026;&#38459;&#27490;HomeForSale&#23545;&#35937;&#34987;&#25335;&#36125;&#65292;&#21807;&#19968;&#38656;&#35201;&#20570;&#30340;&#23601;&#26159;&#32487;&#25215;Uncopyable:</span><br></pre></td></tr></table></figure></p>
+<p>class HomeForSale: private Uncopyable {<br>   …<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#36825;&#31181;&#26041;&#27861;&#24102;&#26469;&#30340;&#38382;&#39064;&#26159;&#65292;&#21487;&#33021;&#36896;&#25104;&#22810;&#37325;&#32487;&#25215;&#65292;&#36825;&#22238;&#23548;&#33268;&#24456;&#22810;&#40635;&#28902;&#12290;&#10;2. &#21019;&#24314;&#19968;&#20010;&#23439;&#65292;&#24182;&#23558;&#20043;&#25918;&#21040;&#27599;&#19968;&#20010;&#29420;&#19968;&#26080;&#20108;&#23545;&#35937;&#30340;private&#20013;&#65292;&#35813;&#23439;&#20026;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>// 禁止使用拷贝构造函数和 operator= 赋值操作的宏</p>
+<p>// 应该类的 private: 中使用</p>
+<p>#define DISALLOW_COPY_AND_ASSIGN(TypeName) </p>
+<p>TypeName(const TypeName&amp;);</p>
+<p>void operator=(const TypeName&amp;)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#36825;&#31181;&#26041;&#27861;&#27604;&#31532;&#19968;&#31181;&#26041;&#27861;&#22909;&#65292;google C++&#32534;&#31243;&#35268;&#33539;&#20013;&#25552;&#20513;&#20351;&#29992;&#35813;&#26041;&#27861;&#12290;&#10;&#10;#### Tips ####&#10;&#20026;&#20102;&#39539;&#22238;&#32534;&#35793;&#22120;(&#26263;&#33258;)&#25552;&#20379;&#30340;&#26426;&#33021;&#65292;&#21487;&#23558;&#30456;&#24212;&#30340;&#25104;&#21592;&#20989;&#25968;&#22768;&#26126;&#20026;private&#24182;&#19988;&#19981;&#20104;&#23454;&#29616;&#12290;&#20351;&#29992;&#20687;Uncopyable&#36825;&#26679;&#30340; base class &#20063;&#26159;&#19968;&#31181;&#20570;&#27861;&#12290;&#10;&#10;### 7. &#20026;&#22810;&#24577;&#22522;&#31867;&#22768;&#26126;virtual &#26512;&#26500;&#20989;&#25968; ###&#10;&#26512;&#26500;&#20989;&#25968;&#30340;&#36816;&#20316;&#26041;&#24335;&#26159;&#65292;&#26368;&#28145;&#23618;&#27966;&#29983;&#30340;&#37027;&#20010;class&#20854;&#26512;&#26500;&#20989;&#25968;&#26368;&#20808;&#34987;&#35843;&#29992;&#65292;&#28982;&#21518;&#26159;&#27599;&#20010;base class &#30340;&#26512;&#26500;&#20989;&#25968;&#34987;&#35843;&#29992;&#12290;&#10;&#10;#### Tips ####&#10;&#10;1. polymorphic (&#24102;&#22810;&#24577;&#24615;&#36136;&#30340;) base classes &#24212;&#35813;&#22768;&#26126;&#19968;&#20010;virtual &#26512;&#26500;&#20989;&#25968;&#12290;&#22914;&#26524; class &#24102;&#26377;&#20219;&#20309;virtual &#20989;&#25968;&#65292;&#23427;&#23601;&#24212;&#35813;&#25317;&#26377;&#19968;&#20010;virtual &#26512;&#26500;&#20989;&#25968;&#12290;&#36825;&#26679;&#65292;&#24403;&#29992;&#25143;delete&#22522;&#31867;&#25351;&#38024;&#26102;&#65292;&#20250;&#33258;&#21160;&#35843;&#29992;&#27966;&#29983;&#31867;&#30340;&#26512;&#26500;&#20989;&#25968;&#65288;&#32780;&#19981;&#26159;&#21482;&#35843;&#29992;&#22522;&#31867;&#30340;&#26512;&#26500;&#20989;&#25968;&#65289;&#12290;&#10;2. Classes &#30340;&#35774;&#35745;&#30446;&#30340;&#22914;&#26524;&#19981;&#26159;&#20316;&#20026;base classes &#20351;&#29992;&#65292;&#25110;&#19981;&#26159;&#20026;&#20102;&#20855;&#22791;&#22810;&#24577;&#24615;(polymorphically) &#65292;&#23601;&#19981;&#35813;&#22768;&#26126;virtual &#26512;&#26500;&#20989;&#25968;&#12290;&#36825;&#26159;&#22240;&#20026;&#65292;&#24403;&#29992;&#25143;&#23558;&#19968;&#20010;&#20989;&#25968;&#22768;&#26126;&#20026;virtual&#26102;&#65292;C++&#32534;&#35793;&#22120;&#20250;&#21019;&#24314;&#34394;&#20989;&#25968;&#34920;&#20197;&#23436;&#25104;&#21160;&#24577;&#32465;&#23450;&#21151;&#33021;&#65292;&#36825;&#23558;&#24102;&#26469;&#26102;&#38388;&#21644;&#31354;&#38388;&#19978;&#30340;&#33457;&#38144;&#12290;&#10;&#10;### 8. &#21035;&#35753;&#24322;&#24120;&#36867;&#31163;&#26512;&#26500;&#20989;&#25968; ###</span><br></pre></td></tr></table></figure>
+<p>class DBConnection<br>{<br>public:<br>    static DBConnection create();<br>    …<br>    void close();<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20026;&#20102;&#20445;&#35777;&#23458;&#25143;&#19981;&#24536;&#35760;&#22312;DBConncetion&#23545;&#35937;&#36523;&#19978;&#35843;&#29992;close()&#20989;&#25968;&#65292;&#19968;&#20010;&#21512;&#29702;&#30340;&#24819;&#27861;&#26159;&#21019;&#24314;&#19968;&#20010;&#29992;&#26469;&#31649;&#29702;DBConncetion&#36164;&#28304;&#30340;class&#65292;&#24182;&#22312;&#26512;&#26500;&#20989;&#25968;&#20013;&#35843;&#29992;close()&#65292;&#22914;&#19979;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>class DBConn<br>{<br>public:<br>    …<br>    ~DBConn()<br>    {<br>        db.close();<br>    }<br>private:<br>    DBConnection db;<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20294;&#36825;&#26679;&#20250;&#23384;&#22312;&#19968;&#20010;&#38382;&#39064;&#65292;&#20551;&#22914;&#35843;&#29992;close()&#26102;&#23548;&#33268;&#24322;&#24120;&#65292;DBConn&#30340;&#26512;&#26500;&#20989;&#25968;&#23545;&#20110;&#27599;&#20010;&#23545;&#35937;&#23601;&#20250;&#20256;&#25773;&#35813;&#24322;&#24120;&#65292;&#37027;&#20040;&#20063;&#23601;&#20250;&#20801;&#35768;&#24322;&#24120;&#31163;&#24320;&#36825;&#20010;&#26512;&#26500;&#20989;&#25968;&#12290;&#19968;&#20010;&#36739;&#20339;&#30340;&#31574;&#30053;&#26159;&#37325;&#26032;&#35774;&#35745; DBConn &#25509;&#21475;&#65292;&#20351;&#20854;&#23458;&#25143;&#26377;&#26426;&#20250;&#23545;&#20986;&#29616;&#30340;&#24322;&#24120;&#38382;&#39064;&#20570;&#20986;&#21453;&#24212;&#65292;&#20363;&#22914;&#21019;&#24314;&#33258;&#24049;&#30340;close()&#20989;&#25968;&#26469;&#23454;&#29616;&#12290;</span><br></pre></td></tr></table></figure></p>
+<p>class DBConn<br>{<br>public:<br>    …<br>    void close() //供客户使用的新函数<br>    {<br>    db.close();<br>    closed = true;<br>    }</p>
+<pre><code>~DBConn()
+{
+    if(!closed == true) //如果客户没有关闭连接，则closed为false，则在析构函数中关闭
+    {
+        try{
+            db.close();
+           }catch
+           {
+           制作运转记录，记下对close的调用失败
+           }
+    }
+}
+</code></pre><p>private:<br>    DBConnection db;<br>    bool closed;<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#36825;&#26679;&#23601;&#25226;&#35843;&#29992;close&#30340;&#36131;&#20219;&#20174;DBConn&#26512;&#26500;&#20989;&#25968;&#25163;&#19978;&#36716;&#31227;&#21040;DBConn&#23458;&#25143;&#25163;&#19978;(&#33258;&#23450;&#20041;close&#26469;&#23454;&#29616;&#35843;&#29992;DBConnection &#30340;close)&#65292;&#20294;&#25105;&#20204;&#22312;DBConn&#30340;&#26512;&#26500;&#20989;&#25968;&#20013;&#20173;&#28982;&#20869;&#21547;&#19968;&#20010;close&#65292;&#20316;&#20026;&#21452;&#20445;&#38505;&#12290;&#10;&#10;#### Tips ####&#10;1. &#26512;&#26500;&#20989;&#25968;&#32477;&#23545;&#19981;&#35201;&#21520;&#20986;&#24322;&#24120;&#12290;&#22914;&#26524;&#19968;&#20010;&#34987;&#26512;&#26500;&#20989;&#25968;&#35843;&#29992;&#30340;&#20989;&#25968;&#21487;&#33021;&#25243;&#20986;&#24322;&#24120;&#65292;&#26512;&#26500;&#20989;&#25968;&#24212;&#35813;&#25429;&#25417;&#20219;&#20309;&#24322;&#24120;&#65292;&#28982;&#21518;&#21534;&#19979;&#23427;&#20204;(&#19981;&#20256;&#25773;)&#25110;&#32467;&#26463;&#31243;&#24207;&#10;2. &#22914;&#26524;&#23458;&#25143;&#38656;&#35201;&#23545;&#26576;&#20010;&#25805;&#20316;&#20989;&#25968;&#36816;&#34892;&#26399;&#38388;&#25243;&#20986;&#30340;&#24322;&#24120;&#20570;&#20986;&#21453;&#24212;&#65292;&#37027;&#20040;class &#24212;&#35813;&#25552;&#20379;&#19968;&#20010;&#26222;&#36890;&#20989;&#25968;(&#32780;&#38750;&#22312;&#26512;&#26500;&#20989;&#25968;&#20013;)&#25191;&#34892;&#35813;&#25805;&#20316;&#12290;&#10;&#10;### 9. &#32477;&#19981;&#22312;&#26500;&#36896;&#21644;&#26512;&#26500;&#20989;&#25968;&#36807;&#31243;&#20013;&#35843;&#29992;virtual&#20989;&#25968; ###&#10;&#20808;&#30475;&#19968;&#20010;&#38169;&#35823;&#30340;&#20363;&#23376;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>class Transaction<br>{<br>public:<br>    Transaction();//构造函数<br>    virtual void log() const = 0;//virtual 函数</p>
+<p>};</p>
+<p>Transaction::Transaction() //构造函数<br>{<br>    …<br>    log();  //在构造函数中调用了virtual函数<br>}</p>
+<p>class Drived:public Transaction<br>{<br>public:<br>    virtual void log() const;<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#29616;&#22312;&#22768;&#26126;&#19968;&#20010; Drived &#31867;&#30340;&#23545;&#35937;&#65292;&#30475;&#19979;&#25191;&#34892;&#36807;&#31243;&#65306;&#10;1. &#39318;&#20808;&#35201;&#35843;&#29992; Drived &#31867;&#30340;&#26500;&#36896;&#20989;&#25968;&#65292;&#32780;&#22522;&#31867;Transcation&#30340;&#26500;&#36896;&#20989;&#25968;&#19968;&#23450;&#20250;&#34987;&#26356;&#26089;&#30340;&#35843;&#29992;;&#10;2. &#22312;&#35843;&#29992;&#22522;&#31867;&#30340;&#26500;&#36896;&#20989;&#25968;&#26102;&#65292;&#26500;&#36896;&#20989;&#25968;&#21253;&#21547;&#20102;virtual&#20989;&#25968;&#65292;&#36825;&#20010;&#26102;&#20505;&#21482;&#20250;&#35843;&#29992;&#22522;&#31867;&#30340;log()&#20989;&#25968;&#29256;&#26412;&#65292;&#32780;&#19981;&#26159;Drived&#31867;&#30340;&#29256;&#26412;(&#23613;&#31649;&#25105;&#20204;&#29616;&#22312;&#22768;&#26126;&#30340;&#26159;Drived&#31867;&#30340;&#23545;&#35937;)&#10;3. &#30001;&#27492;&#21487;&#35265;&#65292;&#22312;&#26500;&#36896;&#20989;&#25968;&#21644;&#26512;&#26500;&#20989;&#25968;&#20013;&#35843;&#29992;virtual&#20989;&#25968;&#26159;&#19981;&#26126;&#26234;&#30340;(&#21407;&#22240;&#22914;tips)&#10;&#10;#### Tips ####&#10;1. base class&#26500;&#36896;&#26399;&#38388;virtual&#20989;&#25968;&#32477;&#19981;&#20250;&#19979;&#38477;&#21040;derived classes&#38454;&#23618;&#12290;base class&#26500;&#36896;&#20989;&#25968;&#25191;&#34892;&#26102;&#65292;derived class&#25104;&#21592;&#21464;&#37327;&#23578;&#26410;&#21021;&#22987;&#21270;(base class&#37117;&#36824;&#27809;&#26500;&#36896;&#23436;&#21602;)&#12290;&#26159;&#35843;&#29992;&#30340;&#24403;&#21069;&#31867;&#30340;&#30456;&#24212;&#30340;&#20989;&#25968;&#12290;&#20250;&#34987;&#32534;&#35793;&#22120;&#35299;&#26512;(resolve to) base class.&#10;2. &#36816;&#34892;&#26399;&#38388;&#31867;&#22411;&#20449;&#24687;(runtime type infomation,&#22914;dynamic_cast, typeid)&#20063;&#20250;&#25226;&#23545;&#35937;&#35270;&#20026;base class&#31867;&#22411;.&#10;&#10;### 10. &#20196; operator = &#36820;&#22238;&#19968;&#20010;reference to *this ###&#10;&#20851;&#20110;&#36171;&#20540;&#65292;&#26377;&#36259;&#20363;&#23376;&#22914;&#19979;&#65306;&#10;`x=y=z=15`&#10;&#37027;&#20040;&#20026;&#20160;&#20040;&#21487;&#20197;&#20351;&#29992;&#36830;&#38145;&#30340;&#24418;&#24335;&#36827;&#34892;&#36171;&#20540;&#65311;&#10;&#20026;&#20102;&#23454;&#29616;&#36830;&#38145;&#36171;&#20540;&#65292;&#36171;&#20540;&#25805;&#20316;&#31526;&#24517;&#39035;&#36820;&#22238;&#19968;&#20010;&#24341;&#29992;&#26469;&#25351;&#21521;&#25805;&#20316;&#31526;&#30340;&#24038;&#20391;&#23454;&#21442;&#65292;&#20855;&#20307;&#23454;&#29616;&#22914;&#19979;:</span><br></pre></td></tr></table></figure></p>
+<p>class Widget<br>{<br>public:<br>    …<br>    Widget&amp; operator=(const Widget&amp; rhs)<br>    {<br>        …<br>        return *this;  //返回左侧对象<br>    }<br>};<br>```</p>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>对于大部分的操作符而言都应该遵循这样的协议</li>
+<li>返回值为 *this 的引用</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/18/effective_c++_11_20/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective C++ 读书笔记(11-20)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/09/c++_store/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ Primer Plus(第五版) 读书笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="effective_c++" data-title="Effective C++ 读书笔记(1-10)" data-url="http://liangkai.me/2014/08/16/effective_c++/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

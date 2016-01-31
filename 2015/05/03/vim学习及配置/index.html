@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>vim配置折腾记录 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近的一段时间以来，一直忙于学习、实习等其他事情，从年初到现在也没再写过博客;今天恰逢五一劳动节，没事便写一篇博客来劳动一下应景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim配置折腾记录">
+<meta property="og:url" content="http://liangkai.me/2015/05/03/vim学习及配置/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="最近的一段时间以来，一直忙于学习、实习等其他事情，从年初到现在也没再写过博客;今天恰逢五一劳动节，没事便写一篇博客来劳动一下应景。">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true">
+<meta property="og:image" content="https://camo.githubusercontent.com/bc559468e6623d18947ced1ef353f68f6116e45a/687474703a2f2f692e696d6775722e636f6d2f527565683743632e706e67">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/syntastic.png?raw=true">
+<meta property="og:image" content="https://camo.githubusercontent.com/1f3f922431d5363224b20e99467ff28b04e810e2/687474703a2f2f692e696d6775722e636f6d2f304f50346f6f642e676966">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/utilsnips.gif?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/delimate.gif?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/nerdcomment.gif?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/easymotion.gif?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/ctrlp.gif?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/bling/vim-airline/screenshots/demo.gif">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/rainbow_parentheses.png?raw=true">
+<meta property="og:image" content="https://camo.githubusercontent.com/06731bfb55ecf4dde74dbe56de11ad40d0a780c6/687474703a2f2f692e696d6775722e636f6d2f37744d426c2e706e67">
+<meta property="og:image" content="http://i4.tietuku.com/29aa613c69b1e5a4.png">
+<meta property="og:image" content="http://i4.tietuku.com/692694fc63e542bb.png">
+<meta property="og:updated_time" content="2015-11-28T02:19:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim配置折腾记录">
+<meta name="twitter:description" content="最近的一段时间以来，一直忙于学习、实习等其他事情，从年初到现在也没再写过博客;今天恰逢五一劳动节，没事便写一篇博客来劳动一下应景。">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-vim学习及配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/03/vim学习及配置/" class="article-date">
+  	<time datetime="2015-05-03T14:22:37.000Z" itemprop="datePublished">2015-05-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim配置折腾记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##从emacs到vim##<br>从自己开始使用linux以来，在实验室师兄的带动下一直都是使用emacs作为自己平时码字的工具，但从开始进入公司实习后越来越觉得emacs在服务端开发时的不便，我个人在使用emacs时主要碰到如下几点不便：</p>
+<ol>
+<li>服务器一般默认没有安装emacs编辑器，需要自己去安装</li>
+<li>服务器端开发一般是会连到各种远程的服务器操作，所以linux不可能有 X 的存在</li>
+<li>在终端下使用emacsclient时，自动提示插件autocomplete的配色和securecrt(一种远程连接工具)存在冲突<br>其实，除了以上几点，自己还是比较喜欢去接受和学习下所不了解的东西，因此便尝试去学习下vim，从个人的感受来说，vim和emacs两者没有谁更好之说，emacs一直被戏称为伪装成编辑器的操作系统，而vim则是每个linux发行版自带的，其在终端开发方面具有天生的优势(以上仅为个人观点)。<a id="more"></a>
+</li>
+</ol>
+<p>##vim介绍</p>
+<blockquote>
+<p>Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。和Emacs并列成为类Unix系统用户最喜欢的编辑器。 —百度百科</p>
+</blockquote>
+<p>##vim配置文件<br>vim之所以强大，关键在于其让每个人依据自己的使用场景去配置属于自己的一份vim，一般总的配置文件为.vimrc，将该文件置于Linux的home目下即可。个人的话比较推崇<a href="https://github.com/mathiasbynens/dotfiles" target="_blank" rel="external">mathiasbynens</a>这种的配置方法，将所有的配置文件存在固定的目录下，可以通过脚步来实现配置文件的安装，使用和管理起来更加方便。</p>
+<p>##如何入手<br>通过近两个月的折腾和使用经验，作为刚入门的vim使用者可以先去熟悉基本vim默认的操作方法，再去开始折腾为好。强烈推荐<a href="http://vim-adventures.com/" target="_blank" rel="external">vim adventures</a>，在游戏的过程中更快熟悉vim的相关使用方法。</p>
+<p>当对vim有了基本的了解后要做的就是去配置属于自己的vim。有句名言说的很好，“站在巨人的肩膀上，才能看的更远”，尽管我们不希望看的更远，但是在阅读别人配置的同时，我们却可以知道每句配置文件的作用，慢慢的也就知道了该从哪里入手去更改。在github上star比较多的当然是采用的首选，比如<a href="https://github.com/spf13/spf13-vim" target="_blank" rel="external">spf13</a>，<a href="https://github.com/wklken/k-vim" target="_blank" rel="external">k-vim</a>等。目前自己在工作中用到的比较多的编程语言为C++、python、golang，从方便的角度最终选择了k-vim。</p>
+<p>##我的配置介绍<br>如上节所言，<a href="https://github.com/lkpjj/vim-configs" target="_blank" rel="external">自己的配置</a>文件主要是依据<a href="https://github.com/wklken/k-vim" target="_blank" rel="external">k-vim</a>的配置文件做了一些修改，更详细的可以参见原文介绍。</p>
+<p>###最终配置的效果</p>
+<p>solarized主题</p>
+<p><img src="https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true" alt="solarized"></p>
+<p>molokai主题</p>
+<p><img src="https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true" alt="molokai"></p>
+<p>###界面配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#30028;&#38754;&#37197;&#32622;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34; Set extra options when running in GUI mode&#10;if has(&#34;gui_running&#34;)&#10;    set guifont=Monaco:h14&#10;    if has(&#34;gui_gtk2&#34;)   &#34;GTK2&#10;        set guifont=WenQuanYi\ Zen\ Hei\ Mono:style=Medium\ 11&#10;        &#34; set guifont=Liberation\ Mono:style=Medium\ 12&#10;        &#34; set guifont=Monospace\ 12&#10;    endif&#10;    set guioptions-=T&#10;    set guioptions+=e&#10;    set guioptions-=r&#10;    set guioptions-=L&#10;    set guitablabel=%M\ %t&#10;    set showtabline=1&#10;    set linespace=2&#10;    set noimd&#10;    set t_Co=256&#10;endif&#10;&#10;&#34; &#20027;&#39064;&#37197;&#32622; solarized&#10;let g:solarized_termcolors=256&#10;let g:solarized_termtrans=1&#10;let g:solarized_contrast=&#34;normal&#34;&#10;let g:solarized_visibility=&#34;normal&#34;&#10;&#34; &#37197;&#33394;&#26041;&#26696;&#10;set background=dark&#10;set t_Co=256&#10;colorscheme solarized&#10;&#34;&#35774;&#32622;&#26631;&#35760;&#19968;&#21015;&#30340;&#32972;&#26223;&#39068;&#33394;&#21644;&#25968;&#23383;&#19968;&#34892;&#39068;&#33394;&#19968;&#33268;&#10;hi! link SignColumn   LineNr&#10;hi! link ShowMarksHLl DiffAdd&#10;hi! link ShowMarksHLu DiffChange&#10;&#10;&#34;&#34; for error highlight&#65292;&#38450;&#27490;&#38169;&#35823;&#25972;&#34892;&#26631;&#32418;&#23548;&#33268;&#30475;&#19981;&#28165;&#10;highlight clear SpellBad&#10;highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline&#10;highlight clear SpellCap&#10;highlight SpellCap term=underline cterm=underline&#10;highlight clear SpellRare&#10;highlight SpellRare term=underline cterm=underline&#10;highlight clear SpellLocal&#10;highlight SpellLocal term=underline cterm=underline&#10;&#10;&#34; &#24635;&#26159;&#26174;&#31034;&#29366;&#24577;&#26639;&#10;set laststatus=2&#10;&#34; &#29366;&#24577;&#34892;&#39640;&#24230;&#20026;2(&#40664;&#35748;&#20026;1)&#10;set cmdheight=2&#10;&#34; &#26174;&#31034;&#20809;&#26631;&#24403;&#21069;&#20301;&#32622;&#10;set ruler&#10;&#34; &#24320;&#21551;&#34892;&#21495;&#26174;&#31034;&#10;set number&#10;&#34; &#39640;&#20142;&#26174;&#31034;&#24403;&#21069;&#34892;/&#21015;&#10;set cursorline&#10;set cursorcolumn&#10;&#34;&#34;&#22312;&#29366;&#24577;&#26639;&#26174;&#31034;&#27491;&#22312;&#36755;&#20837;&#30340;&#21629;&#20196;&#10;set showcmd&#34;&#10;set winwidth=79&#10;set magic                   &#34; &#35774;&#32622;&#39764;&#26415;&#10;set guioptions-=T           &#34; &#38544;&#34255;&#24037;&#20855;&#26639;&#10;set guioptions-=m           &#34; &#38544;&#34255;&#33756;&#21333;&#26639;&#10;set shortmess=atI</span><br></pre></td></tr></table></figure></p>
+<p>###插件管理<br>插件管理采用Vundle，可以通过Vundle方便的安装、清除以及更新vim中所使用的插件，实现自动的安装插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#20351;&#29992;Vundle&#23433;&#35013;&#31649;&#29702;&#25554;&#20214;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34;&#25554;&#20214;&#37197;&#32622;&#21644;&#20855;&#20307;&#35774;&#32622;&#22312;vimrc.bundles&#20013;&#10;&#34; &#24320;&#21551;&#35821;&#27861;&#39640;&#20142;&#10;syntax on&#10;&#10;&#34; install Vundle bundles&#10;if filereadable(expand(&#34;$HOME/.vim/vimrc.bundles&#34;))&#10;    source $HOME/.vim/vimrc.bundles&#10;endif</span><br></pre></td></tr></table></figure></p>
+<p>###常用功能设置<br>主要是一些编码格式、文本搜索、编码对齐等功能设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#24120;&#29992;&#21151;&#33021;&#35774;&#32622;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34;&#35821;&#35328;&#35774;&#32622;&#10;set langmenu=zh_CN.UTF-8&#10;set helplang=cn&#10;set iskeyword+=.&#10;set termencoding=utf-8&#10;set encoding=utf8&#10;set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030&#10;&#34; &#20851;&#38381;&#25991;&#20214;&#31867;&#22411;&#20390;&#27979;&#10;filetype off&#10;&#34; &#26681;&#25454;&#20390;&#27979;&#21040;&#30340;&#19981;&#21516;&#31867;&#22411;&#21152;&#36733;&#23545;&#24212;&#30340;&#25554;&#20214;&#10;filetype plugin on&#10;&#34; &#20026;&#29305;&#23450;&#25991;&#20214;&#31867;&#22411;&#36733;&#20837;&#30456;&#20851;&#32553;&#36827;&#25991;&#20214;&#10;filetype indent on&#10;&#34;required by Vundle&#10;filetype plugin indent on&#10;&#34; &#21462;&#28040;&#25442;&#34892;&#12290;&#10;set nowrap&#10;&#34; &#24320;&#21551;&#23454;&#26102;&#25628;&#32034;&#21151;&#33021;&#10;set incsearch&#10;set hlsearch&#10;&#34; &#25628;&#32034;&#26102;&#22823;&#23567;&#20889;&#25935;&#24863;&#10;set ignorecase&#10;&#34; &#26377;&#19968;&#20010;&#25110;&#20197;&#19978;&#22823;&#20889;&#23383;&#27597;&#26102;&#20173;&#22823;&#23567;&#20889;&#25935;&#24863;&#10;set smartcase&#10;&#34; &#20851;&#38381;&#20860;&#23481;&#27169;&#24335;&#10;set nocompatible&#10;&#34; Remember info about open buffers on close&#34;&#10;set viminfo^=%&#10;&#34;backspace&#35774;&#32622;&#10;set backspace=eol,start,indent&#10;&#34; vim &#33258;&#36523;&#21629;&#20196;&#34892;&#27169;&#24335;&#26234;&#33021;&#34917;&#20840;&#10;set wildmenu&#10;&#34; &#33258;&#21160;&#32553;&#36827;&#10;set autoindent&#10;set cindent&#10;&#34; Tab&#38190;&#30340;&#23485;&#24230;&#10;set tabstop=4&#10;&#34; &#32479;&#19968;&#32553;&#36827;&#20026;4&#10;set softtabstop=4&#10;set shiftwidth=4&#10;&#34; &#19981;&#35201;&#29992;&#31354;&#26684;&#20195;&#26367;&#21046;&#34920;&#31526;&#10;set expandtab&#10;&#34; &#22312;&#34892;&#21644;&#27573;&#24320;&#22987;&#22788;&#20351;&#29992;&#21046;&#34920;&#31526;&#10;set smarttab&#10;&#34; &#21382;&#21490;&#35760;&#24405;&#25968;&#10;set history=1000&#10;&#34; &#21435;&#25481;&#36755;&#20837;&#38169;&#35823;&#30340;&#25552;&#31034;&#22768;&#38899;&#10;set noeb&#10;&#34; &#22312;&#22788;&#29702;&#26410;&#20445;&#23384;&#25110;&#21482;&#35835;&#25991;&#20214;&#30340;&#26102;&#20505;&#65292;&#24377;&#20986;&#30830;&#35748;&#10;set confirm&#10;&#34;&#31105;&#27490;&#29983;&#25104;&#20020;&#26102;&#25991;&#20214;&#10;set nobackup&#10;set noswapfile&#10;&#34; &#20801;&#35768;backspace&#21644;&#20809;&#26631;&#38190;&#36328;&#36234;&#34892;&#36793;&#30028;&#10;set whichwrap+=&#60;,&#62;,h,l&#10;&#34; &#21487;&#20197;&#22312;buffer&#30340;&#20219;&#20309;&#22320;&#26041;&#20351;&#29992;&#40736;&#26631;&#65288;&#31867;&#20284;office&#20013;&#22312;&#24037;&#20316;&#21306;&#21452;&#20987;&#40736;&#26631;&#23450;&#20301;&#65289;&#10;set mouse=a&#10;set selection=exclusive&#10;set selectmode=mouse,key&#10;&#34; &#36890;&#36807;&#20351;&#29992;: commands&#21629;&#20196;&#65292;&#21578;&#35785;&#25105;&#20204;&#25991;&#20214;&#30340;&#21738;&#19968;&#34892;&#34987;&#25913;&#21464;&#36807;&#10;set report=0&#10;&#34; &#39640;&#20142;&#26174;&#31034;&#21305;&#37197;&#30340;&#25324;&#21495;&#10;set showmatch&#10;&#34; &#21305;&#37197;&#25324;&#21495;&#39640;&#20142;&#30340;&#26102;&#38388;&#65288;&#21333;&#20301;&#26159;&#21313;&#20998;&#20043;&#19968;&#31186;&#65289;&#10;set matchtime=1&#10;&#34; &#20809;&#26631;&#31227;&#21160;&#21040;buffer&#30340;&#39030;&#37096;&#21644;&#24213;&#37096;&#26102;&#20445;&#25345;3&#34892;&#36317;&#31163;&#10;set scrolloff=3&#10;&#34; &#35774;&#32622;&#24403;&#25991;&#20214;&#34987;&#25913;&#21160;&#26102;&#33258;&#21160;&#36733;&#20837;&#10;set autoread&#10;&#34;&#33258;&#21160;&#20445;&#23384;&#10;set autowrite&#10;if has(&#34;autocmd&#34;)&#10;    au BufReadPost * if line(&#34;&#39;\&#34;&#34;) &#62; 1 &#38;&#38; line(&#34;&#39;\&#34;&#34;) &#60;= line(&#34;$&#34;) | exe &#34;normal! g&#39;\&#34;&#34; | endif&#10;endif</span><br></pre></td></tr></table></figure></p>
+<p>###快捷键自定义<br>将常用的快捷键定义存放在配置文件的某一部分，因为vim的快捷键真的是有好多，不可能所有都记住，在配置文件中定义一些常用的快捷键，某些可能会与安装的插件有关，有些需要调用配置文件中自定义的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#24555;&#25463;&#38190;&#35774;&#32622;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#23450;&#20041;&#24555;&#25463;&#38190;&#30340;&#21069;&#32512;&#65292;&#21363;&#60;Leader&#62;&#10;let mapleader=&#34;,&#34;&#10;let g:mapleader=&#34;,&#34;&#10;&#34;&#23450;&#20197;&#24555;&#25463;&#38190;&#21040;&#34892;&#39318;&#21644;&#34892;&#23614;&#10;nmap &#60;Leader&#62;a 0&#10;nmap &#60;Leader&#62;e $&#10;&#34;&#20351;&#29992;&#26041;&#21521;&#38190;&#26469;&#36827;&#34892;buffer&#36339;&#36716;&#10;noremap &#60;left&#62; :bp&#60;CR&#62;&#10;noremap &#60;right&#62; :bn&#60;CR&#62;&#10;map &#60;Leader&#62;tn :tabnext&#60;cr&#62;&#10;map &#60;Leader&#62;tp :tabprev&#60;cr&#62;&#10;&#34; &#26032;&#24314;tab  Ctrl+t&#10;nnoremap &#60;C-t&#62; :tabnew&#60;CR&#62;&#10;inoremap &#60;C-t&#62; &#60;Esc&#62;:tabnew&#60;CR&#62;&#10;&#34; &#24555;&#36895;&#36873;&#20013;&#27573;&#33853;&#10;nnoremap &#60;Leader&#62;v V`&#125;&#10;&#34; &#20851;&#38381;&#26041;&#21521;&#38190;, &#24378;&#36843;&#33258;&#24049;&#29992; hjkl&#10;map &#60;Left&#62; &#60;Nop&#62;&#10;map &#60;Right&#62; &#60;Nop&#62;&#10;map &#60;Up&#62; &#60;Nop&#62;&#10;map &#60;Down&#62; &#60;Nop&#62;&#10;inoremap &#60;c-j&#62; &#60;ESC&#62;&#10;&#34;&#23450;&#20041;&#24555;&#25463;&#20445;&#23384;&#25991;&#20214;&#10;nmap &#60;Leader&#62;w :w&#60;CR&#62;&#10;&#34;&#20445;&#23384;&#24182;&#36864;&#20986;&#25991;&#20214;&#10;nmap &#60;Leader&#62;q :wq&#60;CR&#62;&#10;&#34;&#19981;&#20445;&#23384;&#65292;&#30452;&#25509;&#36864;&#20986;&#10;nmap &#60;Leader&#62;Q :qa!&#60;CR&#62;&#10;&#34;&#31383;&#21475;&#36339;&#36716;&#35774;&#32622;&#10;&#34; &#36339;&#36716;&#33267;&#21491;&#26041;&#30340;&#31383;&#21475;&#10;nnoremap&#60;Leader&#62;l &#60;C-W&#62;l&#10;&#34; &#36339;&#36716;&#33267;&#26041;&#30340;&#31383;&#21475;&#10;nnoremap&#60;Leader&#62;h &#60;C-W&#62;h&#10;&#34; &#36339;&#36716;&#33267;&#19978;&#26041;&#30340;&#23376;&#31383;&#21475;&#10;nnoremap&#60;Leader&#62;k &#60;C-W&#62;k&#10;&#34; &#36339;&#36716;&#33267;&#19979;&#26041;&#30340;&#23376;&#31383;&#21475;&#10;nnoremap&#60;Leader&#62;j &#60;C-W&#62;j&#10;&#34;&#24555;&#36895;&#25171;&#24320;&#30446;&#24405;&#65292;&#38656;&#23433;&#35013;nerdtree&#10;nnoremap &#60;F2&#62; :NERDTreeTabsToggle&#60;CR&#62;&#10;&#34;&#23450;&#20041;&#60;F3&#62;&#29992;&#20110;&#24320;&#21551;/&#20851;&#38381;&#34892;&#21495;&#10;nnoremap &#60;F3&#62; :call HideNumber()&#60;CR&#62;&#10;&#34;&#25353;&#60;F5&#62;&#36816;&#34892;&#24403;&#21069;&#20195;&#30721;&#65292;CompileRun()&#22312;&#19979;&#25991;&#23450;&#20041;&#10;map &#60;F5&#62; :call CompileRun()&#60;CR&#62;&#10;&#34;&#24555;&#36895;&#26684;&#24335;&#21270;&#20195;&#30721;&#65292;FormartSrc()&#22312;&#25991;&#20214;&#21518;&#38754;&#23450;&#20041;&#10;map &#60;F6&#62; :call FormartSrc()&#60;CR&#62;&#60;CR&#62;&#10;&#34;tagbar&#24555;&#25463;&#38190;&#65292;&#38656;&#23433;&#35013;tagbar&#25554;&#20214;&#10;nmap &#60;F8&#62; :TagbarToggle&#60;CR&#62;&#10;&#34;&#35774;&#32622;&#36827;&#20837;&#31896;&#36148;&#27169;&#24335;&#24555;&#25463;&#38190;&#10;set pastetoggle=&#60;F10&#62;&#10;au InsertLeave * set nopaste&#10;&#34;&#25171;&#24320;&#26368;&#36817;&#32534;&#36753;&#36807;&#30340;&#25991;&#20214;&#65292;&#20381;&#36182;&#25554;&#20214;ctrlp&#10;nnoremap &#60;Leader&#62;f :CtrlPMRUFiles&#60;CR&#62;&#10;&#34;&#36827;&#20837;&#23545;&#24212;&#30340;filetype&#32534;&#36753;&#65292;&#20381;&#36182;&#25554;&#20214;ultisnips&#10;map &#60;Leader&#62;us :UltiSnipsEdit&#60;CR&#62;&#10;&#34;&#24555;&#36895;&#36339;&#36716;&#65292;&#20381;&#36182;&#25554;&#20214;easymotion&#10;nmap &#60;Leader&#62;s &#60;Plug&#62;(easymotion-s2)&#10;nmap &#60;Leader&#62;t &#60;Plug&#62;(easymotion-t2)&#10;&#34;&#26597;&#30475;&#25991;&#20214;&#32534;&#36753;&#21382;&#21490;&#29366;&#24577;&#65292;&#20381;&#36182;&#25554;&#20214;gundo&#10;nnoremap &#60;Leader&#62;h :GundoToggle&#60;CR&#62;</span><br></pre></td></tr></table></figure></p>
+<p>###其他配置<br>例如自定义的函数，方便在文本处理时快速使用，如快速格式化代码，一键执行当前文件等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34;&#34;&#34;&#34;&#34;&#26032;&#25991;&#20214;&#26631;&#39064;&#10;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34;&#26032;&#24314;.c,.h,.sh,.java&#25991;&#20214;&#65292;&#33258;&#21160;&#25554;&#20837;&#25991;&#20214;&#22836; &#10;autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec &#34;:call SetTitle()&#34; &#10;&#34;&#34;&#23450;&#20041;&#20989;&#25968;SetTitle&#65292;&#33258;&#21160;&#25554;&#20837;&#25991;&#20214;&#22836; &#10;func SetTitle() &#10;    &#34;&#22914;&#26524;&#25991;&#20214;&#31867;&#22411;&#20026;.sh&#25991;&#20214; &#10;    if &#38;filetype == &#39;sh&#39; &#10;        call setline(1,&#34;\#!/bin/bash&#34;) &#10;        call append(line(&#34;.&#34;), &#34;&#34;) &#10;    elseif &#38;filetype == &#39;python&#39;&#10;        call setline(1,&#34;#!/usr/bin/env python&#34;)&#10;        call append(line(&#34;.&#34;),&#34;# coding=utf-8&#34;)&#10;        call append(line(&#34;.&#34;)+1, &#34;&#34;) &#10;&#10;    elseif &#38;filetype == &#39;ruby&#39;&#10;        call setline(1,&#34;#!/usr/bin/env ruby&#34;)&#10;        call append(line(&#34;.&#34;),&#34;# encoding: utf-8&#34;)&#10;        call append(line(&#34;.&#34;)+1, &#34;&#34;)&#10;&#10;        &#34;    elseif &#38;filetype == &#39;mkd&#39;&#10;        &#34;        call setline(1,&#34;&#60;head&#62;&#60;meta charset=\&#34;UTF-8\&#34;&#62;&#60;/head&#62;&#34;)&#10;    else &#10;        call setline(1, &#34;/*************************************************************************&#34;) &#10;        call append(line(&#34;.&#34;), &#34;    &#62; File Name: &#34;.expand(&#34;%&#34;)) &#10;        call append(line(&#34;.&#34;)+1, &#34;  &#62; Author: &#34;) &#10;        call append(line(&#34;.&#34;)+2, &#34;  &#62; Mail: &#34;) &#10;        call append(line(&#34;.&#34;)+3, &#34;  &#62; Created Time: &#34;.strftime(&#34;%c&#34;)) &#10;        call append(line(&#34;.&#34;)+4, &#34; ************************************************************************/&#34;) &#10;        call append(line(&#34;.&#34;)+5, &#34;&#34;)&#10;    endif&#10;    if expand(&#34;%:e&#34;) == &#39;cpp&#39;&#10;        call append(line(&#34;.&#34;)+6, &#34;#include&#60;iostream&#62;&#34;)&#10;        call append(line(&#34;.&#34;)+7, &#34;using namespace std;&#34;)&#10;        call append(line(&#34;.&#34;)+8, &#34;&#34;)&#10;    endif&#10;    if &#38;filetype == &#39;c&#39;&#10;        call append(line(&#34;.&#34;)+6, &#34;#include&#60;stdio.h&#62;&#34;)&#10;        call append(line(&#34;.&#34;)+7, &#34;&#34;)&#10;    endif&#10;    if expand(&#34;%:e&#34;) == &#39;h&#39;&#10;        call append(line(&#34;.&#34;)+6, &#34;#ifndef _&#34;.toupper(expand(&#34;%:r&#34;)).&#34;_H&#34;)&#10;        call append(line(&#34;.&#34;)+7, &#34;#define _&#34;.toupper(expand(&#34;%:r&#34;)).&#34;_H&#34;)&#10;        call append(line(&#34;.&#34;)+8, &#34;#endif&#34;)&#10;    endif&#10;    if &#38;filetype == &#39;java&#39;&#10;        call append(line(&#34;.&#34;)+6,&#34;public class &#34;.expand(&#34;%:r&#34;))&#10;        call append(line(&#34;.&#34;)+7,&#34;&#34;)&#10;    endif&#10;    &#34;&#26032;&#24314;&#25991;&#20214;&#21518;&#65292;&#33258;&#21160;&#23450;&#20301;&#21040;&#25991;&#20214;&#26411;&#23614;&#10;endfunc &#10;autocmd BufNewFile * normal G&#10;&#10;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#26684;&#24335;&#21270;&#20195;&#30721;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#10;&#34;&#20195;&#30721;&#26684;&#24335;&#20248;&#21270;&#21270;&#10;&#10;&#34;&#23450;&#20041;FormartSrc()&#10;func FormartSrc()&#10;    exec &#34;w&#34;&#10;    if &#38;filetype == &#39;c&#39;&#10;        exec &#34;!astyle --style=ansi -a --suffix=none %&#34;&#10;    elseif &#38;filetype == &#39;cpp&#39; || &#38;filetype == &#39;hpp&#39;&#10;        exec &#34;r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %&#62; /dev/null 2&#62;&#38;1&#34;&#10;    elseif &#38;filetype == &#39;perl&#39;&#10;        exec &#34;!astyle --style=gnu --suffix=none %&#34;&#10;    elseif &#38;filetype == &#39;py&#39;||&#38;filetype == &#39;python&#39;&#10;        exec &#34;r !autopep8 -i --aggressive %&#34;&#10;    elseif &#38;filetype == &#39;java&#39;&#10;        exec &#34;!astyle --style=java --suffix=none %&#34;&#10;    elseif &#38;filetype == &#39;jsp&#39;&#10;        exec &#34;!astyle --style=gnu --suffix=none %&#34;&#10;    elseif &#38;filetype == &#39;xml&#39;&#10;        exec &#34;!astyle --style=gnu --suffix=none %&#34;&#10;    else&#10;        exec &#34;normal gg=G&#34;&#10;        return&#10;    endif&#10;    exec &#34;e! %&#34;&#10;endfunc&#10;&#34;&#32467;&#26463;&#23450;&#20041;FormartSrc&#10;&#10;&#34;&#24555;&#36895;&#36816;&#34892;&#24403;&#21069;&#20195;&#30721;&#10;func! CompileRun()&#10;    exec &#34;w&#34;&#10;    if &#38;filetype == &#39;c&#39;&#10;        exec &#34;!g++ % -o %&#60;&#34;&#10;        exec &#34;!time ./%&#60;&#34;&#10;        exec &#34;!rm ./%&#60;&#34;&#10;    elseif &#38;filetype == &#39;cpp&#39;&#10;        exec &#34;!g++ % -o %&#60;&#34;&#10;        exec &#34;!time ./%&#60;&#34;&#10;        exec &#34;!rm ./%&#60;&#34;&#10;    elseif &#38;filetype == &#39;java&#39;&#10;        exec &#34;!javac %&#34;&#10;        exec &#34;!time java %&#60;&#34;&#10;        exec &#34;!rm ./%&#60;.class&#34;&#10;    elseif &#38;filetype == &#39;sh&#39;&#10;        exec &#34;!time bash %&#34;&#10;    elseif &#38;filetype == &#39;python&#39;&#10;        exec &#34;!time python %&#34;&#10;    elseif &#38;filetype == &#39;html&#39;&#10;        exec &#34;!chrome % &#38;&#34;&#10;    elseif &#38;filetype == &#39;go&#39;&#10;        exec &#34;!go build %&#60;&#34;&#10;        exec &#34;!time go run %&#34;&#10;    elseif &#38;filetype == &#39;mkd&#39; &#34;MarkDown &#35299;&#20915;&#26041;&#26696;&#20026;VIM + Chrome&#27983;&#35272;&#22120;&#30340;MarkDown Preview Plus&#25554;&#20214;&#65292;&#20445;&#23384;&#21518;&#23454;&#26102;&#39044;&#35272;&#10;        exec &#34;!chrome % &#38;&#34;&#10;    elseif &#38;filetype == &#39;javascript&#39;&#10;        exec &#34;!time node %&#34;&#10;    elseif &#38;filetype == &#39;coffee&#39;&#10;        exec &#34;!time coffee %&#34;&#10;    elseif &#38;filetype == &#39;ruby&#39;&#10;        exec &#34;!time ruby %&#34;&#10;    endif&#10;endfunc&#10;&#10;&#34;&#39640;&#20142;&#26576;&#20123;&#20851;&#38190;&#23383;&#10;if has(&#34;autocmd&#34;)&#10;    &#34; Highlight TODO, FIXME, NOTE, etc.&#10;    if v:version &#62; 701&#10;        autocmd Syntax * call matchadd(&#39;Todo&#39;,  &#39;\W\zs\(TODO\|FIXME\|CHANGED\|XXX\|BUG\|HACK\)&#39;)&#10;        autocmd Syntax * call matchadd(&#39;Debug&#39;, &#39;\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)&#39;)&#10;    endif&#10;endif&#10;&#10;&#34;&#34;&#20026;&#26041;&#20415;&#22797;&#21046;&#65292;&#24320;&#21551;/&#20851;&#38381;&#34892;&#21495;&#26174;&#31034;:&#10;function! HideNumber()&#10;  if(&#38;relativenumber == &#38;number)&#10;    set relativenumber! number!&#10;  elseif(&#38;number)&#10;    set number!&#10;  else&#10;    set relativenumber!&#10;  endif&#10;  set number?&#10;endfunc</span><br></pre></td></tr></table></figure></p>
+<p>###插件及效果预览<br>配置中主要使用的插件，图片主要借鉴<a href="https://github.com/wklken/k-vim" target="_blank" rel="external">k-vim</a>。</p>
+<ul>
+<li>管理插件<blockquote>
+<p>Bundle ‘gmarik/vundle’<br><img src="https://camo.githubusercontent.com/bc559468e6623d18947ced1ef353f68f6116e45a/687474703a2f2f692e696d6775722e636f6d2f527565683743632e706e67" alt="vundle"></p>
+</blockquote>
+</li>
+<li><p>多语言的语法检查插件</p>
+<blockquote>
+<p>Bundle ‘scrooloose/syntastic’<br><img src="https://github.com/wklken/gallery/blob/master/vim/syntastic.png?raw=true" alt="syntastic"></p>
+</blockquote>
+</li>
+<li><p>自动补全</p>
+<blockquote>
+<p>Bundle ‘Valloric/YouCompleteMe’<br><img src="https://camo.githubusercontent.com/1f3f922431d5363224b20e99467ff28b04e810e2/687474703a2f2f692e696d6775722e636f6d2f304f50346f6f642e676966" alt="ycm"></p>
+</blockquote>
+</li>
+<li><p>代码片段快速插入</p>
+<blockquote>
+<p>Bundle ‘SirVer/ultisnips’<br>Bundle ‘honza/vim-snippets’<br><img src="https://github.com/wklken/gallery/blob/master/vim/utilsnips.gif?raw=true" alt="ultisnips"></p>
+</blockquote>
+</li>
+<li><p>自动补全括号</p>
+<blockquote>
+<p>Bundle ‘Raimondi/delimitMate’<br><img src="https://github.com/wklken/gallery/blob/master/vim/delimate.gif?raw=true" alt="delimitmate"></p>
+</blockquote>
+</li>
+<li><p>自动补全html/xml标签</p>
+<blockquote>
+<p>Bundle ‘docunext/closetag.vim’</p>
+</blockquote>
+</li>
+<li><p>快速注释</p>
+<blockquote>
+<p>Bundle ‘scrooloose/nerdcommenter’<br><img src="https://github.com/wklken/gallery/blob/master/vim/nerdcomment.gif?raw=true" alt="nerdcommenter"></p>
+</blockquote>
+</li>
+<li><p>快速跳转</p>
+<blockquote>
+<p>Bundle ‘Lokaltog/vim-easymotion’<br><img src="https://github.com/wklken/gallery/blob/master/vim/easymotion.gif?raw=true" alt="easy_motion"></p>
+</blockquote>
+</li>
+<li><p>位置标签</p>
+<blockquote>
+<p>Bundle ‘vim-scripts/matchit.zip’</p>
+</blockquote>
+</li>
+<li><p>文件搜索</p>
+<blockquote>
+<p>Bundle ‘ctrlpvim/ctrlp.vim’<br><img src="https://github.com/wklken/gallery/blob/master/vim/ctrlp.gif?raw=true" alt="ctrip"></p>
+</blockquote>
+</li>
+<li><p>查看文件编辑历史</p>
+<blockquote>
+<p>Bundle ‘sjl/gundo.vim’</p>
+</blockquote>
+</li>
+<li><p>状态栏增强</p>
+<blockquote>
+<p>Bundle ‘bling/vim-airline’<br><img src="https://raw.githubusercontent.com/wiki/bling/vim-airline/screenshots/demo.gif" alt="airline"></p>
+</blockquote>
+</li>
+<li><p>括号显示增强</p>
+<blockquote>
+<p>Bundle ‘kien/rainbow_parentheses.vim’<br><img src="https://github.com/wklken/gallery/blob/master/vim/rainbow_parentheses.png?raw=true" alt="rainbow"></p>
+</blockquote>
+</li>
+<li><p>代码对齐指示插件</p>
+<blockquote>
+<p>Bundle ‘nathanaelkane/vim-indent-guides’<br><img src="https://camo.githubusercontent.com/06731bfb55ecf4dde74dbe56de11ad40d0a780c6/687474703a2f2f692e696d6775722e636f6d2f37744d426c2e706e67" alt="indent"></p>
+</blockquote>
+</li>
+<li><p>目录导航</p>
+<blockquote>
+<p>Bundle ‘scrooloose/nerdtree’<br>Bundle ‘jistr/vim-nerdtree-tabs’<br><img src="http://i4.tietuku.com/29aa613c69b1e5a4.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>标签导航(如函数结构等)</p>
+<blockquote>
+<p>Bundle ‘majutsushi/tagbar’<br><img src="http://i4.tietuku.com/692694fc63e542bb.png" alt=""></p>
+</blockquote>
+</li>
+<li><p>python语法检查</p>
+<blockquote>
+<p>Bundle ‘kevinw/pyflakes-vim’</p>
+</blockquote>
+</li>
+<li><p>golang补全</p>
+<blockquote>
+<p>Bundle ‘Blackrush/vim-gocode’</p>
+</blockquote>
+</li>
+<li><p>markdown编辑</p>
+<blockquote>
+<p>Bundle ‘plasticboy/vim-markdown’</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/31/hexo-with-qiniu-img/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          hexo中使用七牛插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/06/gsl_fft/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GNU Scientific Library -- FFT变换学习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="vim学习及配置" data-title="vim配置折腾记录" data-url="http://liangkai.me/2015/05/03/vim学习及配置/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

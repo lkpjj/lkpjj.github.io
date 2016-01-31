@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>初识cmake | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景知识cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识cmake">
+<meta property="og:url" content="http://liangkai.me/2014/01/08/cmake/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="背景知识cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识cmake">
+<meta name="twitter:description" content="背景知识cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-cmake" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/01/08/cmake/" class="article-date">
+  	<time datetime="2014-01-08T00:00:00.000Z" itemprop="datePublished">2014-01-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识cmake
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/">cmake</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u80CC_u666F_u77E5_u8BC6"><a href="#u80CC_u666F_u77E5_u8BC6" class="headerlink" title="背景知识"></a>背景知识</h2><p>cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可用性)，在KDE开发者使用了近10年autotools之后，他们终于决定为KDE4选择一个新的工程构建工具，其根本原因用KDE开发者的话来“ ” 说就是：只有少数几个 编译专家 能够掌握KDE现在的构建体系(admin/Makefile.common)，在经历了unsermake, scons以及cmake的选型和尝试之后，KDE4决定使用cmake作为自己的构建系统。在迁移过程中，进展异常的顺利，并获得了cmake开发者的支持。所以，目前的KDE4开发版本已经完全使用cmake来进行构建。像kdesvn,rosegarden等项目也开始使用cmake，这也注定了cmake必然会成为一个主流的构建体系。</p>
+<a id="more"></a>
+<p>##特点<br>cmake的特点主要有：</p>
+<ol>
+<li>开放源代码，使用类BSD许可发布。<a href="http://cmake.org/HTML/" target="_blank" rel="external">http://cmake.org/HTML/</a></li>
+<li>跨平台，并可生成native编译配置文件，在Linux/Unix平台，苹果平台，可以生成xcode，在Windows平台，可以生成MSVC的工程文件</li>
+<li>能够管理大型项目，KDE4就是最好的证明。</li>
+<li>简化编译构建过程和编译过程。Cmake的工具链非常简单：cmake+make</li>
+<li>高效虑，按照KDE官方说法，CMake构建KDE4的kdelibs要比使用autotools来构建KDE3.5.6的kdelibs快40%，主要是因为 Cmake在工具链中没有libtool</li>
+<li>可扩展，可以为cmake编写特定功能的模块，扩充cmake功能。</li>
+</ol>
+<p>##问题，难道就没有问题？</p>
+<ol>
+<li>cmake很简单，但绝对没有听起来或者想象中那么简单。</li>
+<li>cmake编写的过程实际上是编程的过程，跟以前使用autotools一样，不过你需要编写的是CMakeLists.txt(每个目录一个) ” ，使用的是 cmake ” 语言和语法 。</li>
+<li>cmake跟已有体系的配合并不是特别理想，比如pkgconfig，您在实际使用中会有所体会，虽然有一些扩展可以使用，但并不理想。</li>
+</ol>
+<p>##cmake的helloworld</p>
+<p>####准备<br>首先建立一个目录，然后在目录下面建立两个文件，分别为main.cpp 和 CMakeLists.txt;main.cpp 的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;int main(int argc, char *argv[])&#10;&#123;&#10;std::cout&#60;&#60;&#34;Hello World from t1 main!&#34;&#60;&#60;std::endl;&#10;return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>而CMakeLists.txt的内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PROJECT (HELLO)&#10;SET(SRC_LIST main.c)&#10;MESSAGE(STATUS &#34;This is BINARY dir &#34; $&#123;HELLO_BINARY_DIR&#125;)&#10;MESSAGE(STATUS &#34;This is SOURCE dir &#34;$&#123;HELLO_SOURCE_DIR&#125;)&#10;ADD_EXECUTABLE(hello $&#123;SRC_LIST&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>####开始构建<br>首先进入我们刚刚建立的目录，然后在目录下运行：<br><code>cmake . (注意命令后面的点号，代表本目录)。</code><br>输出大概如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- Check for working C compiler: /usr/bin/gcc&#10;-- Check for working C compiler: /usr/bin/gcc -- works&#10;-- Check size of void*&#10;-- Check size of void* - done&#10;-- Check for working CXX compiler: /usr/bin/c++&#10;-- Check for working CXX compiler: /usr/bin/c++ -- works&#10;-- This is BINARY dir /backup/cmake/t1&#10;-- This is SOURCE dir /backup/cmake/t1&#10;-- Configuring done&#10;-- Generating done&#10;-- Build files have been written to: /backup/cmake/t1</span><br></pre></td></tr></table></figure></p>
+<p>再让我们看一下目录中的内容：</p>
+<p>你会发现，系统自动生成了：CMakeFiles, CMakeCache.txt, cmake_install.cmake等文件，并且生成了Makefile.现在不需要理会这些文件的作用，以后你也可以不去理会。最关键的是，它自动生成了<br>Makefile.然后进行工程的实际构建，在这个目录输入make命令，大概会得到如下的彩色输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanning dependencies of target hello&#10;[100%] Building C object CMakeFiles/hello.dir/main.o&#10;Linking C executable hello&#10;[100%] Built target hello</span><br></pre></td></tr></table></figure></p>
+<p>如果你需要看到make构建的详细过程，可以使用make VERBOSE=1或者VERBOSE=1 make命令来进行构建。这时候，我们需要的目标文件hello已经构建完成，位于当前目录，尝试运行一下：<br><code>./hello</code><br>得到输出：<br><code>Hello World from Main</code></p>
+<p>####以上参考自 CMake Practice</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/01/09/vtk_cmake/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          VTK中Cmake文件的编写及其原理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/11/01/python-pyglet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于Python实现的定时闹铃</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cmake" data-title="初识cmake" data-url="http://liangkai.me/2014/01/08/cmake/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

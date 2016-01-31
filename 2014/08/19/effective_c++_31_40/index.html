@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective C++ 读书笔记(31-40) | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Effective C++中的一些记录点而已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ 读书笔记(31-40)">
+<meta property="og:url" content="http://liangkai.me/2014/08/19/effective_c++_31_40/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="Effective C++中的一些记录点而已">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ 读书笔记(31-40)">
+<meta name="twitter:description" content="Effective C++中的一些记录点而已">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-effective_c++_31_40" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/19/effective_c++_31_40/" class="article-date">
+  	<time datetime="2014-08-19T15:45:13.000Z" itemprop="datePublished">2014-08-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective C++ 读书笔记(31-40)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective-C/">Effective C++</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u7EE7_u627F_u4E0E_u9762_u5411_u5BF9_u8C61_u8BBE_u8BA1"><a href="#u7EE7_u627F_u4E0E_u9762_u5411_u5BF9_u8C61_u8BBE_u8BA1" class="headerlink" title="继承与面向对象设计"></a>继承与面向对象设计</h2><h3 id="31-__u5C06_u6587_u4EF6_u95F4_u7684_u7F16_u8BD1_u4F9D_u5B58_u5173_u7CFB_u964D_u81F3_u6700_u4F4E"><a href="#31-__u5C06_u6587_u4EF6_u95F4_u7684_u7F16_u8BD1_u4F9D_u5B58_u5173_u7CFB_u964D_u81F3_u6700_u4F4E" class="headerlink" title="31. 将文件间的编译依存关系降至最低"></a>31. 将文件间的编译依存关系降至最低</h3><p>常见的方法有两种：Handle class和Interface class.<br>1。 Handle class. main class内含一个指针成员，指向其实现类。这般设计常被称为pimpl idiom (pimpl 是”pointer to implementation” 的缩写，这种class称为“Handle class”。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#34;Person.h&#34;&#10; &#10;#include &#34;PersonImpl.h&#34; //&#25105;&#20204;&#20063;&#24517;&#39035;#include PersonImpl&#30340;class &#23450;&#20041;&#24335;&#65292;&#21542;&#21017;&#26080;&#27861;&#35843;&#29992;&#20854;&#25104;&#21592;&#20989;&#25968;:&#10;&#9;                    //&#27880;&#24847;&#65292; PersonImpl &#26377;&#30528;&#21644;Person&#23436;&#20840;&#30456;&#21516;&#30340;&#25104;&#21592;&#20989;&#25968;&#65292;&#20004;&#32773;&#25509;&#21475;&#23436;&#20840;&#30456;&#21516;&#12290;&#10; &#10;Person::Person(const std::string&#38; name , const Date&#38; birthday,const Address&#38; addr)&#10; : pImpl( new PersonImpl(name, birthday,  addr))&#10; &#123;&#125;&#10; &#10;std::string Person;;name() const &#123;&#10; &#10;  return p Impl-&#62;name( );&#10; &#10;&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Interface class. 实际上就是抽象基类</li>
+</ol>
+<h3 id="32-__u786E_u5B9A_u4F60_u7684public_u7EE7_u627F_u5851_u6A21_u51FA_is-a__u5173_u7CFB"><a href="#32-__u786E_u5B9A_u4F60_u7684public_u7EE7_u627F_u5851_u6A21_u51FA_is-a__u5173_u7CFB" class="headerlink" title="32. 确定你的public继承塑模出 is-a 关系"></a>32. 确定你的public继承塑模出 is-a 关系</h3><p>public继承意味着<strong>is-a</strong>,也就是说适用于 base classes身上的每一件事一定使用与 derived classes身上，因为每一个 derived classes 对象也都是 base classes对象。</p>
+<h3 id="33-__u907F_u514D_u906E_u63A9_u7EE7_u627F_u800C_u6765_u7684_u540D_u79F0"><a href="#33-__u907F_u514D_u906E_u63A9_u7EE7_u627F_u800C_u6765_u7684_u540D_u79F0" class="headerlink" title="33. 避免遮掩继承而来的名称"></a>33. 避免遮掩继承而来的名称</h3><p>在public inheritance 中，你将从你的base class继承所有的函数，否则就违反了public inheritance在基类和派生类之间的is-a关系。然而，private inheritance别有意义。例如，假设 Derived 从Base私有继承，而且Derived只想继承没有参数的那个mf1版本，使用using声明式会使得所有具有给定名称的函数在 derived class 中可见。你可以使用了一个简单的forwarding function（转交函数）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Base &#123;&#10;public:&#10;    virtual void mf1() = 0;&#10;    virtual void mf1(int); &#10;    ... // as before&#10;&#125;;&#10;&#10;class Derived: private Base &#123;&#10;public:&#10;    virtual void mf1() &#123; Base::mf1(); &#125; // &#36716;&#20132;&#20989;&#25968;&#65292;&#25104;&#20026;&#40664;&#35748;&#30340;inline&#10;    ...&#10;&#125;;&#10;&#10;Derived d;&#10;int x; &#10;d.mf1(); // fine, calls Derived::mf1&#10;d.mf1(x); // error! Base::mf1() is hidden</span><br></pre></td></tr></table></figure></p>
+<p>Inline转交函数的另一个作用是用于老式编译器，它们不支持用using声明式将“通过继承得到的名称”引入到derived class作用域。</p>
+<ol>
+<li>derived classes 内的名称会遮掩 base classes 内的名称。在public继承下从来没有人希望如此。</li>
+<li>为了让遮掩的名称再见天日，可使用 using 声明式或转交函数。</li>
+</ol>
+<h3 id="34-__u533A_u5206_u63A5_u53E3_u7EE7_u627F_u548C_u5B9E_u73B0_u7EE7_u627F"><a href="#34-__u533A_u5206_u63A5_u53E3_u7EE7_u627F_u548C_u5B9E_u73B0_u7EE7_u627F" class="headerlink" title="34. 区分接口继承和实现继承"></a>34. 区分接口继承和实现继承</h3><p>接口继承和函数实现继承，这两种差异很像函数声明与函数定义之间的差异。作为class设计者，我们有时候可能只希望继承成员函数的接口(也就是声明)，而有时希望同时继承函数的接口与实现。</p>
+<ol>
+<li>声明一个pure virtual 函数的目的是为了让 derived classes 只继承函数接口。</li>
+<li>声明 non-virtual 函数的目的是为了令 derived classes 继承函数的接口以及一份强制性实现。</li>
+</ol>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>接口继承和实现继承不同。在public继承下，derived classes总是继承base classes的接口。</li>
+<li>pure virtual函数只具体指定接口继承。</li>
+<li>简朴的impure virtual函数具体指定接口继承和<strong>缺省实现继承</strong>。</li>
+<li>no-virtual函数具体指定接口继承以及<strong>强制性实现继承</strong>。</li>
+</ol>
+<h3 id="35-__u8003_u8651virtual_u51FD_u6570_u4E4B_u5916_u7684_u5176_u4ED6_u9009_u62E9"><a href="#35-__u8003_u8651virtual_u51FD_u6570_u4E4B_u5916_u7684_u5176_u4ED6_u9009_u62E9" class="headerlink" title="35. 考虑virtual函数之外的其他选择"></a>35. 考虑virtual函数之外的其他选择</h3><h3 id="36-__u7EDD_u4E0D_u91CD_u65B0_u5B9A_u4E49_u7EE7_u627F_u800C_u6765_u7684non-virtual_u51FD_u6570"><a href="#36-__u7EDD_u4E0D_u91CD_u65B0_u5B9A_u4E49_u7EE7_u627F_u800C_u6765_u7684non-virtual_u51FD_u6570" class="headerlink" title="36. 绝不重新定义继承而来的non-virtual函数"></a>36. 绝不重新定义继承而来的non-virtual函数</h3><p>如果这样处理，那么这个函数的调用，将取决于指针的类型，而不是对象本身。因为no-virtual函数都是静态绑定的（在编译器绑定），而virtual函数是动态绑定（在运行期根据对象来绑定的）。<br>这样做违背两个原则：</p>
+<ol>
+<li>适用于基类对象的每一件事情，都要适用于其子类。</li>
+<li>基类的子类一定要继承non-virtual函数的接口和实现。</li>
+</ol>
+<h3 id="37-__u7EDD_u4E0D_u91CD_u65B0_u5B9A_u4E49_u7EE7_u627F_u800C_u6765_u7684_u7F3A_u7701_u53C2_u6570_u503C"><a href="#37-__u7EDD_u4E0D_u91CD_u65B0_u5B9A_u4E49_u7EE7_u627F_u800C_u6765_u7684_u7F3A_u7701_u53C2_u6570_u503C" class="headerlink" title="37. 绝不重新定义继承而来的缺省参数值"></a>37. 绝不重新定义继承而来的缺省参数值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;&#10;class B&#10;&#123;&#10; public:&#10;  virtual void fun(int i=10) = 0;&#10;&#125;;&#10;&#10;class C:public B&#10;&#123;&#10; public:&#10;  virtual void fun(int i=20)&#10;  &#123;&#10;    std::cout&#60;&#60;&#34;class C &#34;&#60;&#60;i&#60;&#60;endl;&#10;  &#125;&#10;&#125;;&#10;&#10;class D:public B                                                                             &#10;&#123;&#10;public:                                                                                       &#10;  virtual void fun(int i)                                                                   &#10;  &#123;                                                                                            &#10;    std::cout&#60;&#60;&#34;class D &#34;&#60;&#60;i&#60;&#60;endl;                                                            &#10;  &#125;&#10;&#125;;&#10;&#10;int main()&#10;&#123;&#10;  B* pb = NULL;&#10;  D* pd = new D();&#10;  C* pc = new C();&#10;  &#10;  pb = pd;&#10;  pb-&#62;fun(); //&#29992;&#22522;&#31867;&#25351;&#38024;&#35843;&#29992;&#27966;&#29983;&#31867;&#10;&#10;  pb= pc;&#10;  pb-&#62;fun();&#10;  &#10;  return 0;&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>程序结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class D 10&#10;class C 10</span><br></pre></td></tr></table></figure></p>
+<p>由以上程序的输出结果我们可以看到虽然调用了相应的派生类的成员函数，但给派生类对象传入的对象确实基类成员函数的默认变量 <strong>i=10</strong>,而并非派生类成员函数的默认参数，这一奇怪现象也就是本条款要告诉我们的：<em>绝对不要重新定义一个派生而来的(virtual函数)缺省参数值，因为参数值是静态绑定的</em>，而virtual函数–你唯一应该覆写的东西却是动态绑定的。</p>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>如果重新定义no-virtual函数的缺省参数，至少不会出现上面描述的诡异问题，因为他们都是静态绑定的。</li>
+<li>子类继承基类的virtual函数(有缺省参数)，但是子类可以不指定缺省参数。</li>
+<li>对于virtual函数，如果要继承，千万不要忘掉virtual关键字。</li>
+</ol>
+<h3 id="38-__u901A_u8FC7_u590D_u5408_u5851_u6A21_u51FA_has-a__u6216_u201C_u6839_u636E_u67D0_u7269_u5B9E_u73B0_u51FA_u201D"><a href="#38-__u901A_u8FC7_u590D_u5408_u5851_u6A21_u51FA_has-a__u6216_u201C_u6839_u636E_u67D0_u7269_u5B9E_u73B0_u51FA_u201D" class="headerlink" title="38. 通过复合塑模出 has-a 或“根据某物实现出”"></a>38. 通过复合塑模出 has-a 或“根据某物实现出”</h3><ol>
+<li>复合的意义和public继承完全不同</li>
+<li>在应用领域，复合意味 <strong>has-a</strong>(有一个)。在实现领域，复合意味着”根据某物实现出”</li>
+</ol>
+<h3 id="39-__u660E_u667A_u800C_u5BA1_u614E_u5730_u4F7F_u7528private_u7EE7_u627F"><a href="#39-__u660E_u667A_u800C_u5BA1_u614E_u5730_u4F7F_u7528private_u7EE7_u627F" class="headerlink" title="39. 明智而审慎地使用private继承"></a>39. 明智而审慎地使用private继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;...&#125;;&#10;class Student: private Person&#123;...&#125;;//&#20351;&#29992;private &#32487;&#25215;Person&#10;void eat(const Person&#38; p);&#10;void study(const Student&#38; s);&#10;&#10;Person p;&#10;Student s;&#10;eat(p);//&#27809;&#38382;&#39064;&#65292;p&#26159;&#20154;&#65292;&#20250;&#21507;&#10;eat(s);//&#38169;&#35823;&#65281;&#21523;&#65292;&#38590;&#36947;&#23398;&#29983;&#19981;&#26159;&#20154;&#65311;</span><br></pre></td></tr></table></figure>
+<p>由以上程序我们需要说明两个问题：</p>
+<ol>
+<li>如果classes之间的继承关系为private，编译器则不会自动将一个derived class 对象转换为一个base class 对象，这一点和public继承有着明显的不同。</li>
+<li>由private继承来的所有成员，在derived class中都会变成private属性，不论在base class中的属性是什么样的。</li>
+</ol>
+<h4 id="Tips-2"><a href="#Tips-2" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>private继承意味着”根据某物实现出“。它通常要比复合的级别低，但是当derived class 需要访问protected base class的成员，或需要重新定义继承而来的virtual函数时，这么设计是合理的。</li>
+<li>和复合不同，private继承可以造成empty base最优化。</li>
+</ol>
+<h3 id="40-__u660E_u667A_u5BA1_u614E_u7684_u4F7F_u7528_u591A_u91CD_u7EE7_u627F"><a href="#40-__u660E_u667A_u5BA1_u614E_u7684_u4F7F_u7528_u591A_u91CD_u7EE7_u627F" class="headerlink" title="40. 明智审慎的使用多重继承"></a>40. 明智审慎的使用多重继承</h3><p>多重继承的意思就是继承一个以上的 base classes，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;&#10;class IBase&#10;&#123;&#10; public:&#10;  IBase() : n(0) &#123;&#125;&#10;  virtual ~IBase() &#123;&#125;&#10;  void show() &#123; std::cout&#60;&#60;n&#60;&#60;std::endl; &#125;&#10;  int inc() &#123; return ++n; &#125;&#10;  int dec() &#123; return --n; &#125;&#10;&#10; protected:&#10;  int n;&#10;&#125;;&#10;&#10;class IA : public IBase&#10;&#123;&#10; public:&#10;  virtual ~IA() &#123;&#125;&#10;&#125;;&#10;&#10;class IB : public IBase&#10;&#123;&#10; public:&#10;  virtual ~IB() &#123;&#125;&#10;&#125;;&#10;&#10;class CImpl : public IA, public IB&#10;&#123;&#10; public:&#10;  virtual ~CImpl() &#123;&#125;&#10;&#125;;&#10;&#10;int main(int argc, char* argv[])&#10;&#123;&#10;  CImpl o;&#10;  IA *pA = &#38;o;&#10;  IB *pB = &#38;o;&#10;&#10;  pA-&#62;inc();&#10;  pA-&#62;show();&#10;&#10;  pB-&#62;dec();&#10;  pB-&#62;show();&#10;&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#10;-1</span><br></pre></td></tr></table></figure></p>
+<p>为什么是1和-1呢？明明n只在继承的一个类IBase里面有，一次加1，一次减一，结果不是应该是1和0么？是不是很奇怪？<br><strong>这便是使用多重继承的时候经常产生的第一个问题：多副本的数据存储</strong><br>解决办法：<br>只需要使用虚继承即可解决。只需要在IA和IB的定义中，在public IBase前加入virtual关键字即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class IA : virtual public IBase&#10;class IB : virtual public IBase</span><br></pre></td></tr></table></figure></p>
+<p>此时结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#10;0</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/23/剑指offer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          剑指offer 读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/19/effective_c++_21_30/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective C++ 读书笔记(21-30)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="effective_c++_31_40" data-title="Effective C++ 读书笔记(31-40)" data-url="http://liangkai.me/2014/08/19/effective_c++_31_40/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

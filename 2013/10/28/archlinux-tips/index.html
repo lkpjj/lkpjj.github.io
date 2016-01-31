@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>linux中问题记录 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录跟linux系统有关的一些小提示，以便日后查阅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux中问题记录">
+<meta property="og:url" content="http://liangkai.me/2013/10/28/archlinux-tips/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="记录跟linux系统有关的一些小提示，以便日后查阅">
+<meta property="og:updated_time" content="2015-11-28T03:27:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux中问题记录">
+<meta name="twitter:description" content="记录跟linux系统有关的一些小提示，以便日后查阅">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-archlinux-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/10/28/archlinux-tips/" class="article-date">
+  	<time datetime="2013-10-28T00:00:00.000Z" itemprop="datePublished">2013-10-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux中问题记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/problem/">problem</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">linux</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要是用于记载自己在使用arch过程中的各种小问题以及一些值得记载的小工具，以便下次重装系统的时候方便配置。</p>
+<h4 id="Networkmanager__u542F_u52A8"><a href="#Networkmanager__u542F_u52A8" class="headerlink" title="Networkmanager 启动"></a>Networkmanager 启动</h4><ul>
+<li>在公司实习的时候碰到一个问题，在无线使用的时候之前都是直接用wifi-menu来扫描无线，然后直接连接即可；然而到了公司发现原来他们把无线给隐藏起来了，那我这种方法就完全不能使用了，不得不装带有GUI的网络工具，一般有两个选择，<strong>NetworkManager</strong>和<strong>Wicd</strong>，开始的时候装了wicd，但是死活无法连上隐藏的无线，不得已又装了NetworkManager，这个就怪了，装了之后只要用systemctl enable Networkmanager启动之后就导致无法联网，看了好久的wiki才发现原来dhcpcd和NetworkManager存在一些冲突，用命令systemctl disable dhcpcd.service之后重启电脑就搞定了，界面工具的话装了一个<strong>nm-applet</strong>，然后我用的是slim启动X，所以在~/.xinitrc中添加 nm-applet –sm-disable &amp;,这样的话在X启动的时候就会直接启动界面网络管理工具；<a id="more"></a>
+</li>
+</ul>
+<h4 id="aweome_u4E2Dsynapse"><a href="#aweome_u4E2Dsynapse" class="headerlink" title="aweome中synapse"></a>aweome中synapse</h4><ul>
+<li>在之前使用awesome桌面的时候都是直接使用 Win+r然后输入要运行的程序来运行，最近才知道原来有一些启动工具还是挺好用的，比如<strong>gnome-do、synapse</strong>等，比较了之后使用了synapse，由于默认的快捷键被awesome给占用了，所以更改为Alt+space来快速启动它，用起来真的挺方便的。<br>我是在awesome的配置文件中启动synapse的，默认启动的程序都可以用这中方法来启动。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autorun = true&#10;autorunApps =&#10;&#123;&#10;&#34;fcitx&#34;,&#10;&#34;synapse&#34;,&#10;&#10;&#125;&#10;&#10;if autorun then&#10;for app = 1, #autorunApps do&#10;awful.util.spawn_with_shell(autorunApps[app])&#10;end&#10;end</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="dolphin_Trash_enable"><a href="#dolphin_Trash_enable" class="headerlink" title="dolphin Trash enable"></a>dolphin Trash enable</h4><ul>
+<li><p>解决dolphin垃圾箱不能用问题<br>在gentoo 中安装完dolphin之后发现Trash竟然没法使用，当删除文件到Trash时出现的提示如下:</p>
+</li>
+<li><p><code>Tips</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not start process Unable to create io-slave: &#10;klauncher said: Unknown protocol &#39;trash&#39;.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>经过一圈的查看终于找到了解决办法，安装一个依赖包既能解决</p>
+<ul>
+<li><code>emerge kdebase-kioslaves</code></li>
+</ul>
+<h4 id="gentoo_dropbox"><a href="#gentoo_dropbox" class="headerlink" title="gentoo dropbox"></a>gentoo dropbox</h4><ul>
+<li>gentoo 中安装dropbox步骤<ol>
+<li>通过链接下载dropbox软件<a href="http://dl.dropboxusercontent.com/u/17/dropbox-lnx.x86_64-2.4.10.tar.gz" target="_blank" rel="external">下载地址</a>，可能需要翻墙</li>
+<li>将下载的软件拷贝到 <code>/usr/portage/distfiles/</code>目录下</li>
+<li>emerge dropbox 安装软件</li>
+</ol>
+</li>
+</ul>
+<h4 id="goagent_Crypto-Cipher-ARC4_Failed"><a href="#goagent_Crypto-Cipher-ARC4_Failed" class="headerlink" title="goagent Crypto.Cipher.ARC4 Failed"></a>goagent Crypto.Cipher.ARC4 Failed</h4><ul>
+<li><p>在root权限下运行命令<code>python2.7 proxy.py</code>出现以下提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WARNING - [Jan 24 17:44:24] Load Crypto.Cipher.ARC4 Failed, Use Pure Python Instead.  &#10;WARNING - [Jan 24 17:44:24] please install *libnss3-tools* package to import GoAgent root ca</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决办法：<br>goagent会尝试调用python内置的Crypto.Cipher.ARC4进行RC4加密/解密，它属于pycrypto软件包。如果缺少这个软件包，则会产生一个调用失败的错误，这时goagent会使用自带的RC4加解密模块代替。后者在功能上与前者完全一致，在性能上略有损失，但在网速不是很快的时候几乎不会感觉到有差别。如果你的网速超过10Mbps或1MB/s，那么可能会体现为CPU占用率有所上升。直接安装 emerge  dev-python/pycrypto 就可以解决</p>
+</li>
+</ul>
+<h4 id="GoAgent__u5F00_u673A_u542F_u52A8"><a href="#GoAgent__u5F00_u673A_u542F_u52A8" class="headerlink" title="GoAgent 开机启动"></a>GoAgent 开机启动</h4><ul>
+<li>python /opt/goagent/local/proxy.py &amp; 即可，&amp; 是让goagent后台运行</li>
+</ul>
+<h4 id="stardict_emake_Failed"><a href="#stardict_emake_Failed" class="headerlink" title="stardict emake Failed"></a>stardict emake Failed</h4><p>在gentoo中装了几次stardict，总是出错，之前一直忙于其他的，又不急着使用就没太在意，今天在gentoo discussion forums 上找到了解决办法，有同样问题的同学可以试下，出错提示如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/gcc/x86_64-pc-linux-gnu/4.7.3/../../../../x86_64-pc-linux-gnu/bin/ld: note: &#39;g_module_symbol&#39; is defined in DSO /usr/lib64/libgmodule-2.0.so.0 so try adding it to the linker command line &#10;/usr/lib64/libgmodule-2.0.so.0: could not read symbols: Invalid operation &#10;collect2: error: ld returned 1 exit status &#10;make[4]: *** [stardict] Error 1 &#10;make[4]: Leaving directory `/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3/dict/src&#39; &#10;make[3]: *** [all-recursive] Error 1 &#10;make[3]: Leaving directory `/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3/dict/src&#39; &#10;make[2]: *** [all-recursive] Error 1 &#10;make[2]: Leaving directory `/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3/dict&#39; &#10;make[1]: *** [all] Error 2 &#10;make[1]: Leaving directory `/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3/dict&#39; &#10;make: *** [all-recursive] Error 1 &#10; * ERROR: app-text/stardict-3.0.3-r2::gentoo failed (compile phase): &#10; *   emake failed &#10; * &#10; * If you need support, post the output of `emerge --info &#39;=app-text/stardict-3.0.3-r2::gentoo&#39;`, &#10; * the complete build log and the output of `emerge -pqv &#39;=app-text/stardict-3.0.3-r2::gentoo&#39;`. &#10; * The complete build log is located at &#39;/var/tmp/portage/app-text/stardict-3.0.3-r2/temp/build.log&#39;. &#10; * The ebuild environment file is located at &#39;/var/tmp/portage/app-text/stardict-3.0.3-r2/temp/environment&#39;. &#10; * Working directory: &#39;/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3&#39; &#10; * S: &#39;/var/tmp/portage/app-text/stardict-3.0.3-r2/work/stardict-3.0.3&#39;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>解决办法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDFLAGS=&#39;-lgmodule-2.0&#39; emerge stardict</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="awesome-wm_eclipse__u95EA_u9000"><a href="#awesome-wm_eclipse__u95EA_u9000" class="headerlink" title="awesome-wm eclipse 闪退"></a>awesome-wm eclipse 闪退</h4><p>最近要用到java，于是便安装了eclipse，安装的时候出现各种奇葩问题，其中最让我无语的就是在 awesome-wm 的全屏布局下完全没有问题，但是在其他桌面布局下出现莫名的闪退，而且还直接将同一桌面下的所有终端给关闭，闪退后因为终端也别强制关闭，所以看不到任何的输出提示，尝试了半天发现有一种方法有效，解决方法如下：</p>
+<ol>
+<li>安装wmname<br><code>emerge -q wmname</code></li>
+<li>命名window manager<br><code>wmname LG3D</code><br>至于原因awesome的wiki上面也有提到：</li>
+</ol>
+<ul>
+<li>The X Window System integration in most modern implementations of the Java virtual machine (JVM) displays only empty, gray windows when used with many non-re-parenting window managers, such as Awesome. This is almost certainly a violation of ICCCM and has been reported to Sun Microsystems a number of times.</li>
+</ul>
+<h4 id="awesome+gentoo+dolphin_u65E0_u6CD5_u6302_u8F7Du_u76D8"><a href="#awesome+gentoo+dolphin_u65E0_u6CD5_u6302_u8F7Du_u76D8" class="headerlink" title="awesome+gentoo+dolphin无法挂载u盘"></a>awesome+gentoo+dolphin无法挂载u盘</h4><p>dolphin下可以显示盘符，但是无法自动挂载，挂载是提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">An error occurred while accessing &#39;Removable Media&#39; the system responded:&#10;An unspecified error has occurred : Not Authorized</span><br></pre></td></tr></table></figure></p>
+<p>经过一番的google发现产生错误的原因的三点：</p>
+<ol>
+<li>现在用的用户没有在 storage 用户组，但是升级之前都 OK 的，这个应该不是关键</li>
+<li>/usr/share/polkit-1/actions/org.freedesktop.udisks.policy 这个文件但是帖子里面没有给出有用的线索为什么是它惹的祸，我也没动它</li>
+<li>提到 ck-launch-session 这个，slim 和 ~/.xinitrc 文件都可以定义启动桌面管理器 session 前，启用这个这个进程，fcitx 也会依赖它<br>原来 slim 后来的版本默认已经内置启用了 ConsoleKit 不需要再手动在 slim.conf 或 ~/.xinitrc 中制定 ck-launch-session 了slim archwiki 中也在 NOTE 中标记了这个变化<br>之后在 ~/.xinitrc 中去掉 ck-launch-session 后，启动后 dolphin 可以自动挂载了</li>
+</ol>
+<h4 id="gentoo_xeCJK__u5B8F_u5305_u4F7F_u7528"><a href="#gentoo_xeCJK__u5B8F_u5305_u4F7F_u7528" class="headerlink" title="gentoo xeCJK 宏包使用"></a>gentoo xeCJK 宏包使用</h4><p>最近要做一个slide,想要用 latex 来做，于是便安装了 texlive ,打算使用 xeCJK来排版中文，但在gentoo中出现了一个比较 bug 的问题，当使用该宏包的时候，只要有中文出现就会出现 plus.08 这种恶心的结果，最终结果许久的苦比终于找到原因，原来是 texlive-latexrecommended和xetexn兼容的问题，建议使用 texlive-latexrecommended-2012,不要使用 texlive-latexrecommended-2012-R1(该版本为默认版本)，可以用版本控制来实现。</p>
+<h4 id="gentoo_integrate_webcam"><a href="#gentoo_integrate_webcam" class="headerlink" title="gentoo integrate webcam"></a>gentoo integrate webcam</h4><p>今天写了个程序，用到opencv中打开摄像头的函数，但是始终无法打开成功;开始以为是自己的程序出了问题，但拿之前的一些程序作为测试依然不行，就想到会不会是摄像头驱动的问题，经过一番命令查看，更加肯定了是这个原因，于是便又要重新编译内核，也不知道自己的电脑使用的是哪个芯片，就知道可能是V4L2相关的，于是便全都编译了，重启之后果然好用了，泪奔……<br><a href="http://www.thinkwiki.org/wiki/Integrated_camera" target="_blank" rel="external">T430参考链接</a></p>
+<h4 id="gentoo_u4E2Dmysql_u914D_u7F6E"><a href="#gentoo_u4E2Dmysql_u914D_u7F6E" class="headerlink" title="gentoo中mysql配置"></a>gentoo中mysql配置</h4><p>在配置mysql时，如果按照gentoo wiki 上配置的话会发现找不到<em>mysql_install_db</em>命令，其实 <em>mysql_install_db</em>是作为一个脚本放在系统文件夹中的，具体配置步骤如下:</p>
+<ol>
+<li>执行 <code>/usr/share/mysql/scripts/mysql_install_db --basedir=/usr</code></li>
+<li><code>/etc/init.d/mysql start</code></li>
+<li><code>/usr/bin/mysql_secure_installation</code></li>
+<li><code>mysql -u root -p -h localhost</code></li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/10/29/python-self/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          python中self的作用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/10/25/python-html/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python爬虫小程序</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="archlinux-tips" data-title="linux中问题记录" data-url="http://liangkai.me/2013/10/28/archlinux-tips/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

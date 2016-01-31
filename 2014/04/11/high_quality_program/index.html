@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>高质量编程读书笔记 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="读 林锐-高质量编程指南-V1.0 的读书笔记，都是一些繁琐的tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高质量编程读书笔记">
+<meta property="og:url" content="http://liangkai.me/2014/04/11/high_quality_program/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="读 林锐-高质量编程指南-V1.0 的读书笔记，都是一些繁琐的tips">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高质量编程读书笔记">
+<meta name="twitter:description" content="读 林锐-高质量编程指南-V1.0 的读书笔记，都是一些繁琐的tips">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-high_quality_program" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/04/11/high_quality_program/" class="article-date">
+  	<time datetime="2014-04-10T19:42:24.000Z" itemprop="datePublished">2014-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      高质量编程读书笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="u8868_u8FBE_u5F0F_u548C_u57FA_u672C_u8BED_u53E5"><a href="#u8868_u8FBE_u5F0F_u548C_u57FA_u672C_u8BED_u53E5" class="headerlink" title="表达式和基本语句"></a>表达式和基本语句</h4><ul>
+<li>tip 1: 布尔变量与零值比较<ul>
+<li>if(flag)</li>
+<li>if(!flag)</li>
+</ul>
+</li>
+<li>tip 2: 浮点型变量与零值比较<ul>
+<li>if(x &gt;= EPSION)</li>
+<li>if(x &lt;= EPSION)   EPSION 为允许的误差，即精度<br>-tip 3: 指针变量与零值的比较</li>
+<li>if(p == NULL)</li>
+<li>if(p != NULL)</li>
+</ul>
+</li>
+</ul>
+<h4 id="u5E38_u91CF"><a href="#u5E38_u91CF" class="headerlink" title="常量"></a>常量</h4><ul>
+<li>tip 1: const 与 #define<ul>
+<li>const 常量有数据类型，而宏常量没有数据类型，编译器可以对前者进行类型检查，而对后者进行的是字符替换</li>
+<li>有些集成化的调试工具可以对const常量进行调试，但是不能对宏常量进行调试</li>
+</ul>
+</li>
+<li>tip 2: 类中的常量<ul>
+<li>不要在类声明中初始化 const 数据成员，因为类的对象没有创建时，编译器不知道该成员的具体值</li>
+<li>const 数据成员的初始化只能在类构造函数的初始化表中进行</li>
+<li>可以使用枚举 enum { SIZE = 1};来定义在整个类中都是恒定的常量</li>
+<li>枚举常量不会占用对象的存储空间，他们在编译时被全部求值，枚举常量隐含的类型为整数，不能表示浮点数<a id="more"></a>
+<h4 id="u7A0B_u5E8F_u8BBE_u8BA1"><a href="#u7A0B_u5E8F_u8BBE_u8BA1" class="headerlink" title="程序设计"></a>程序设计</h4></li>
+</ul>
+</li>
+<li><p>tip 1: 传递</p>
+<ul>
+<li>对于赋值函数，应当用 “引用传递” 的方式，这样省去了值传递需要的开销，可以提高效率</li>
+</ul>
+</li>
+<li><p>tip 2: 断言</p>
+<ul>
+<li>应在函数的入口的必要地方使用断言 assert ，这样可以对参数的有效性进行检查</li>
+</ul>
+</li>
+<li><p>tip 3: 栈内存</p>
+<ul>
+<li>return 语句不可返回指向 “栈内存” 的 指针 或者 引用，因为该内存在函数体结束时被自动销毁</li>
+<li>example :<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char *Func(void)&#10;&#123;&#10;   char str[]=&#34;hello world&#34;;//str &#30340;&#20869;&#23384;&#20301;&#20110;&#26632;&#19978;&#10;&#10;   return str; //&#23548;&#33268;&#38169;&#35823;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>tip 4: 引用的一些规则</p>
+<ul>
+<li>引用被创建的同时必须要初始化</li>
+<li>不能有 NULL 引用，引用必须与合法的内存相联系</li>
+<li>一旦引用被初始化，就不能再改变引用的关系</li>
+</ul>
+</li>
+<li><p>tip 5: 三种传递方式</p>
+<ul>
+<li><p>值传递<br>由于Func1函数体内的 X 是外部变量的一份拷贝，因此改变 X 的值不会影响 n</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Fun1(int X)&#10;&#123;&#10; X = X + 10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针传递<br>由于指针直接指向的是内存中的地址，因此改变指针的内容将导致 n 的改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Fun1(int *X)&#10;&#123;&#10; *X = *X + *10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用传递<br>引用实际上就是变量的别名，是一个变量的另一种叫法，但是实际上都是同一个变量，因此引用传递可以导致 n 的改变</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="u5185_u5B58_u7BA1_u7406"><a href="#u5185_u5B58_u7BA1_u7406" class="headerlink" title="内存管理"></a>内存管理</h4><ul>
+<li><p>tip 1: 内存分配的三种方式</p>
+<ul>
+<li>从静态存储区分配<br>内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在，如全局变量，static 变量</li>
+<li>在栈上创建<br>在函数执行时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些内存单元被自动释放，效率高，但分配的容量有限</li>
+<li>在堆上分配<br>亦称为动态内存分配。程序在运行的时候用 malloc 或 new 申请任意大小的内存，然后自己负责用 free 或 delete 释放内存，使用灵活，但导致的问题也多</li>
+</ul>
+</li>
+<li><p>tip 2: 常见内存错误及对策</p>
+<ul>
+<li>内存分配未成功，却使用了它<br>在使用内存之前使用断言 assert 检查指针是否为 NULL ,assert( p != NULL)</li>
+<li>内存一定要记得初始化</li>
+<li>忘记释放，内存泄露<br>每次函数调用占据一块内存，直到程序耗尽内存，才发现错误；new/delete malloc/free 配对使用</li>
+<li>释放后仍使用<br>使用 free 或 delete 释放内存后，没有将指针设置为 NULL ,导致产生了野指针，个人觉得释放之后应避免再次使用，也可以在使用之前最好重新再次分配内存</li>
+</ul>
+</li>
+<li><p>tip 3: 常量字符串</p>
+<ul>
+<li>常量字符串的内容是不可被更改的，编译时无法发现，但运行会导致出错</li>
+<li>example<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char *p = &#34;hello world&#34;;&#10;p[0] = &#39;X&#39;;//&#23548;&#33268;&#38169;&#35823;,&#20294;&#32534;&#35793;&#36890;&#36807;&#10;cout&#60;&#60; p &#60;&#60;endl;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>tip 4: free delete</p>
+<ul>
+<li>他们只是把指针所指的内存给h释放掉，但并没有把指针本身干掉，在指针 p 被 free 掉之后其地址仍然不变，只是该地址对应的内存为垃圾，p 成了”野指针”，如果不把 p 设置为NULL 会让人误以为 p 是个合法的指针。</li>
+</ul>
+</li>
+<li><p>tip 5: “似是而非”的指针</p>
+<ul>
+<li>指针消亡了，但并不代表它所指向的内存会被自动释放</li>
+<li>内存释放了，但并不表示指针会消亡或者自动成 NULL 指针</li>
+</ul>
+</li>
+<li>tip 6: malloc/free<ul>
+<li>在c++ 程序中一律使用 new/delete ,这是因为malloc/free 不能调用类的构造和析构函数</li>
+<li>malloc 返回值的类型是 void<em> ,因此在申请内存后要进行显示类型转换，将 void</em> 转换为需要的指针类型</li>
+</ul>
+</li>
+</ul>
+<h4 id="c++__u7684_u9AD8_u7EA7_u7279_u6027"><a href="#c++__u7684_u9AD8_u7EA7_u7279_u6027" class="headerlink" title="c++ 的高级特性"></a>c++ 的高级特性</h4><ul>
+<li><p>tip 1: 重载、覆盖</p>
+<ul>
+<li>成员函数重载的特征<ul>
+<li>相同的范围(在同一个类中)</li>
+<li>相同的函数名</li>
+<li>参数不同</li>
+<li>virtual关键字可有可无</li>
+</ul>
+</li>
+<li>成员函数被覆盖的特征<ul>
+<li>覆盖是值派生类函数覆盖基类函数</li>
+<li>不同的范围(分别位于派生类和基类)</li>
+<li>函数名字相同</li>
+<li>参数相同</li>
+<li>基类函数必须有virtual关键字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>tip 2:函数缺省值</p>
+<ul>
+<li>参数缺省值只能出现在函数的声明中，而不能出现在函数的定义体中<ul>
+<li>void Foo(int x=0, int y=0) //正确</li>
+<li>void Foo(int x=0, int y=0) //错误<br>{…}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/04/13/system/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          操作系统相关知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/04/06/gentoo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正式转向gentoo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="high_quality_program" data-title="高质量编程读书笔记" data-url="http://liangkai.me/2014/04/11/high_quality_program/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

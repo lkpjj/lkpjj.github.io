@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective C++ 读书笔记(21-30) | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Effective C++中的一些记录点而已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ 读书笔记(21-30)">
+<meta property="og:url" content="http://liangkai.me/2014/08/19/effective_c++_21_30/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="Effective C++中的一些记录点而已">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective C++ 读书笔记(21-30)">
+<meta name="twitter:description" content="Effective C++中的一些记录点而已">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-effective_c++_21_30" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/19/effective_c++_21_30/" class="article-date">
+  	<time datetime="2014-08-18T20:53:36.000Z" itemprop="datePublished">2014-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective C++ 读书笔记(21-30)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective-C/">Effective C++</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="21-__u5FC5_u987B_u8FD4_u56DE_u5BF9_u8C61_u65F6_uFF0C_u522B_u5984_u60F3_u8FD4_u56DE_u5176reference"><a href="#21-__u5FC5_u987B_u8FD4_u56DE_u5BF9_u8C61_u65F6_uFF0C_u522B_u5984_u60F3_u8FD4_u56DE_u5176reference" class="headerlink" title="21. 必须返回对象时，别妄想返回其reference"></a>21. 必须返回对象时，别妄想返回其reference</h3><p>本条款告诫程序员：绝不要返回pointer 或 reference指向一个local stack 对象，或返回reference 指向一个heap-allocated对象，或返回pointer 或reference指向一个local static 对象而有可能同时需要多个这样的对象。<br>下面一一举例说明。<br><a id="more"></a><br>&gt;</p>
+<ol>
+<li>如果返回pointer 或reference指向一个local stack 对象:<br>1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Rational&#38; operator* (const Rational&#38; lhs,const Rational&#38; rhs)&#10;&#123;&#10;&#9;Rational result(lhs.n * rhs.n, lhs.d * rhs.d); //&#35686;&#21578;!&#31967;&#31957;&#30340;&#20195;&#30721;!&#10;&#10;&#9;return result;&#10; &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>解释：result是local对象，而local 对象在函数退出前被销毁，这导致返回值坠入”无定义行为”。</p>
+<ol>
+<li>返回reference 指向一个heap-allocated对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Rational&#38; operator* (const Rational&#38; lhs,const Rational&#38; rhs)&#10;&#123;&#10;&#9;Rational* result = new Rational(lhs.n * rhs.n, lhs.d * rhs.d);&#10;&#10;&#9;return *result;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这种方式很容易造成内存泄露，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rational w, x, y , z; &#10;w = x * y * z; //&#19982;operator*(operator*(x&#65292; y) , z) &#30456;&#21516;&#65292;&#20869;&#23384;&#27844;&#38706;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>返回pointer 或reference指向一个local static<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Rational&#38; operator* (const Rational&#38; lhs, const Rational&#38; rhs)&#10;&#123;&#10;&#9;static Rational result;&#10;&#10;&#9;result = ... ;&#10;&#10;&#9;return result;&#10;&#125;&#10; &#10;if((a * b) == (c * d))&#10;&#123;&#10;   //&#24403;&#20056;&#31215;&#30456;&#31561;&#26102;&#65292;&#20570;&#36866;&#24403;&#30340;&#30456;&#24212;&#21160;&#20316;;&#10;&#125; else &#123;&#10; &#10;  //&#24403;&#20056;&#31215;&#19981;&#31561;&#26102;&#65292;&#20570;&#36866;&#24403;&#30340;&#30456;&#24212;&#21160;&#20316;;&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样做的问题是，(a <em> b) == (c </em> d)永远为true。<br>正确的方法即不要返回局部变量的引用，返回值则可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Rational operator* (const Rational&#38; lhs,const Rational&#38; rhs)&#10;&#123;&#10;&#9;return  Rational(lhs.n * rhs.n, lhs.d * rhs.d);&#10;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="22-__u5C06_u6210_u5458_u53D8_u91CF_u58F0_u660E_u4E3Aprivate"><a href="#22-__u5C06_u6210_u5458_u53D8_u91CF_u58F0_u660E_u4E3Aprivate" class="headerlink" title="22. 将成员变量声明为private"></a>22. 将成员变量声明为private</h3><h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>切记将成员变量声明为private。这可赋予客户访问数据的一致性、可细微划分访问控制、允许约束条件获得保证，并提供class作者以充分的实现弹性</li>
+<li>pretected并不比public更具有封装性(当一个protected成员变量被破坏，那么所有使用它的derived classes都会被破坏)。</li>
+</ol>
+<h3 id="23-__u5B81_u4EE5non-member__u3001non-friend__u66FF_u6362member__u51FD_u6570"><a href="#23-__u5B81_u4EE5non-member__u3001non-friend__u66FF_u6362member__u51FD_u6570" class="headerlink" title="23. 宁以non-member 、non-friend 替换member 函数"></a>23. 宁以non-member 、non-friend 替换member 函数</h3><p>先看以下member方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class WebBrowser&#10;&#123;&#10;public:&#10;&#9;void clearCache();&#10;&#9;void clearHistory();&#10;&#9;void removeCookies();&#10;&#10;&#9;...&#10;&#9;void clearEverything();//&#35843;&#29992;&#20197;&#19978;&#19977;&#20010;&#20989;&#25968;&#10;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>相比与上面这种方法，条款更加提倡下面这种non-member方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void clearBrowser(WebBrowser&#38; wb)&#10;&#123;&#10;&#9;wb.clearCache();&#10;&#9;wb.clearHistory();&#10;&#9;wb.removeCookies();&#10;&#9;...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="24-__u82E5_u6240_u6709_u53C2_u6570_u7686_u9700_u7C7B_u578B_u8F6C_u6362_uFF0C_u8BF7_u4E3A_u6B64_u91C7_u7528non-member__u51FD_u6570"><a href="#24-__u82E5_u6240_u6709_u53C2_u6570_u7686_u9700_u7C7B_u578B_u8F6C_u6362_uFF0C_u8BF7_u4E3A_u6B64_u91C7_u7528non-member__u51FD_u6570" class="headerlink" title="24. 若所有参数皆需类型转换，请为此采用non-member 函数"></a>24. 若所有参数皆需类型转换，请为此采用non-member 函数</h3><p>当类的构造函数（未声明为explicit）中包含参数时，该参数类型的对象或者数可隐式转换为该对象。如果多个这样的对象之间进行加减乘除，且要让他们全部进行类型转换，需要定义non-member函数（如友元函数）。</p>
+<h3 id="25-__u8003_u8651_u5199_u51FA_u4E00_u4E2A_u4E0D_u629B_u5F02_u5E38_u7684swap_u51FD_u6570"><a href="#25-__u8003_u8651_u5199_u51FA_u4E00_u4E2A_u4E0D_u629B_u5F02_u5E38_u7684swap_u51FD_u6570" class="headerlink" title="25. 考虑写出一个不抛异常的swap函数"></a>25. 考虑写出一个不抛异常的swap函数</h3><ol>
+<li>当std::swap 对你的类型效率不高时，提供一个swap成员函数，并确定这个函数部抛出异常</li>
+<li>如果你提供一个member swap，也该提供一个non-member swap用来调用前者，对于classes(而非templates)，也请特化std::swap</li>
+<li>调用swap时应针对std::swap使用using声明式，然后调用swap并且不带很合命名空间资格修饰</li>
+<li>为用户定义类型进行std templates全特化是好的但千万不要尝试在std假如某些std而言全新的东西。</li>
+</ol>
+<h2 id="u5B9E_u73B0"><a href="#u5B9E_u73B0" class="headerlink" title="实现"></a>实现</h2><h3 id="26-__u5C3D_u53EF_u80FD_u5EF6_u540E_u53D8_u91CF_u5B9A_u4E49_u5F0F_u7684_u51FA_u73B0_u65F6_u95F4"><a href="#26-__u5C3D_u53EF_u80FD_u5EF6_u540E_u53D8_u91CF_u5B9A_u4E49_u5F0F_u7684_u51FA_u73B0_u65F6_u95F4" class="headerlink" title="26. 尽可能延后变量定义式的出现时间"></a>26. 尽可能延后变量定义式的出现时间</h3><p>本条款告诉程序员，如果你定义了一个变量且该类型带一个构造函数或析构函数，当程序到达该变量时，你要承受构造成本，而离开作用域时，你要承受析构成本。为了减少这个成本，最好尽可能延后变量定义式的出现时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// &#27492;&#20989;&#25968;&#22826;&#26089;&#23450;&#20041;&#20102;&#21464;&#37327;&#34;encrypted&#34;&#10; &#10;string encryptPassword(const string&#38; password)&#10; &#10;&#123;&#10; &#10;  string encrypted;&#10; &#10;  if (password.length() &#60; MINIMUM_PASSWORD_LENGTH) &#123;&#10; &#10;   throw logic_error(&#34;Password is too short&#34;);&#10; &#10; &#125;&#10; &#10; //&#36827;&#34892;&#24517;&#35201;&#30340;&#25805;&#20316;&#65292;&#23558;&#21475;&#20196;&#30340;&#21152;&#23494;&#29256;&#26412;&#25918;&#36827;encrypted&#20043;&#20013;;&#10; &#10;  return encrypted;&#10; &#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果该函数抛出异常，变量encrypted便不会被使用。较好的做法是将变量”encrypted”的定义放到要用它的前一句或者能够给它初值实参。</p>
+<h3 id="27-__u5C3D_u91CF_u5C11_u505A_u8F6C_u578B"><a href="#27-__u5C3D_u91CF_u5C11_u505A_u8F6C_u578B" class="headerlink" title="27. 尽量少做转型"></a>27. 尽量少做转型</h3><p>常见的有三种类型转换方式：</p>
+<ol>
+<li>C风格：(T)expression</li>
+<li>函数风格：T(expression)</li>
+<li>C++ style cast<br>c++中的四种新式类型转换：</li>
+<li>const_cast<t>(expression) : 移除变量的const属性</t></li>
+<li>dynamic_cast<t>(expression) : 安全向下转型，即：基类指针/引用到派生类指针/引用的转换。如果源和目标类型没有继承/被继承关系，编译器会报错；否则必须在代码里判断返回值是否为NULL来确认转换是否成功。</t></li>
+<li>reinterpret_cast<t>(expression)：底层转换</t></li>
+<li>static_cast<t>(expression)：强迫隐式转换，如，将non-const对象转换为const对象，将int转换为double类型。</t></li>
+</ol>
+<h4 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h4><ol>
+<li>如果可以，尽量避免转型，特别是在注重效率的代码中避免dynamic_cast</li>
+<li>宁可使用C++ style转型，不要使用旧式转型。前者容易识别出来，而且也比较有分门别类的指掌。</li>
+</ol>
+<h3 id="28-__u907F_u514D_u8FD4_u56DEhandles_u6307_u5411_u5BF9_u8C61_u5185_u90E8_u6210_u5206"><a href="#28-__u907F_u514D_u8FD4_u56DEhandles_u6307_u5411_u5BF9_u8C61_u5185_u90E8_u6210_u5206" class="headerlink" title="28. 避免返回handles指向对象内部成分"></a>28. 避免返回handles指向对象内部成分</h3><p>handles：号码牌，用来取得某个对象。返回一个代表内部数据的handle，随之而来的是可以通过引用/指针/迭代器来改变内部的数据，那么就降低了对象的封装性。<br>避免返回handles(包括引用、指针、迭代器)指向对象内部。遵守这个条款可增加封装性，帮助const成员函数的行为像个const,并将发生”虚吊号码牌”的可能性降至最低。</p>
+<h3 id="29-__u4E3A_u201C_u5F02_u5E38_u5B89_u5168_u201C_u52AA_u529B_u662F_u503C_u5F97_u7684"><a href="#29-__u4E3A_u201C_u5F02_u5E38_u5B89_u5168_u201C_u52AA_u529B_u662F_u503C_u5F97_u7684" class="headerlink" title="29. 为“异常安全“努力是值得的"></a>29. 为“异常安全“努力是值得的</h3><h3 id="30-__u900F_u5F7B_u4E86_u89E3inlining_u7684_u91CC_u91CC_u5916_u5916"><a href="#30-__u900F_u5F7B_u4E86_u89E3inlining_u7684_u91CC_u91CC_u5916_u5916" class="headerlink" title="30. 透彻了解inlining的里里外外"></a>30. 透彻了解inlining的里里外外</h3><p>Inline函数可免除函数调用成本，提高程序执行效率，但它也会带来负面影响：</p>
+<ol>
+<li>增大目标代码的大小，有时候会非常庞大，需要动用虚存，这将大大降低程序执行速度。</li>
+<li>inline 函数无法随着程序库的升级而升级。换句话说如果f 是程序库内的一个inline 函数，客户将”f 函数本体”编进其程序中，一旦程序库设计者决定改变f ，所有用到f 的客户端程序都必须重新编译。<br>总之，将大多数inlining 限制在小型、被频繁调用的函数身上才是最明智的选择（根据80-20经验准则，一个程序往往将80%的执行时间花在20%的代码上）。因此作为开发者，我们的目标应该是找出这可以增加程序整体效率的20%代码，然后将它inline或者竭尽所能的将它瘦身。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/08/19/effective_c++_31_40/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective C++ 读书笔记(31-40)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/08/18/effective_c++_11_20/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective C++ 读书笔记(11-20)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="effective_c++_21_30" data-title="Effective C++ 读书笔记(21-30)" data-url="http://liangkai.me/2014/08/19/effective_c++_21_30/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

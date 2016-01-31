@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>GNU Scientific Library -- FFT变换学习 | 奔跑的蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GSL 库中的傅里叶变换学习记载，本来是想用中文来记载这篇博客，仔细想想还是觉得原文说的比较透彻、比较容易理解，所以还是直接用英文拿来记载得了，这篇博客只是作为一个记载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GNU Scientific Library -- FFT变换学习">
+<meta property="og:url" content="http://liangkai.me/2014/11/06/gsl_fft/index.html">
+<meta property="og:site_name" content="奔跑的蜗牛">
+<meta property="og:description" content="GSL 库中的傅里叶变换学习记载，本来是想用中文来记载这篇博客，仔细想想还是觉得原文说的比较透彻、比较容易理解，所以还是直接用英文拿来记载得了，这篇博客只是作为一个记载。">
+<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GNU Scientific Library -- FFT变换学习">
+<meta name="twitter:description" content="GSL 库中的傅里叶变换学习记载，本来是想用中文来记载这篇博客，仔细想想还是觉得原文说的比较透彻、比较容易理解，所以还是直接用英文拿来记载得了，这篇博客只是作为一个记载。">
+  
+    <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/blog_img/images/favicon.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">liangkai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">每天进步一点点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective-C/" style="font-size: 20px;">Effective C++</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binaryTree/" style="font-size: 10px;">binaryTree</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/cmake/" style="font-size: 13.33px;">cmake</a> <a href="/tags/core-dump/" style="font-size: 10px;">core dump</a> <a href="/tags/define-const-sizeof/" style="font-size: 10px;">define  const sizeof</a> <a href="/tags/gsl/" style="font-size: 10px;">gsl</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i/" style="font-size: 10px;">i++</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/list/" style="font-size: 13.33px;">list</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/opencv/" style="font-size: 13.33px;">opencv</a> <a href="/tags/pelican/" style="font-size: 10px;">pelican</a> <a href="/tags/problem/" style="font-size: 13.33px;">problem</a> <a href="/tags/pyglet/" style="font-size: 10px;">pyglet</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/system/" style="font-size: 13.33px;">system</a> <a href="/tags/tcp-ip/" style="font-size: 10px;">tcp/ip</a> <a href="/tags/thinkpad/" style="font-size: 10px;">thinkpad</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wavelet/" style="font-size: 10px;">wavelet</a> <a href="/tags/yaourt/" style="font-size: 10px;">yaourt</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/赋值/" style="font-size: 10px;">赋值</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">liangkai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/blog_img/images/favicon.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">liangkai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">每天进步一点点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="http://github.com/lkpjj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lkkzm" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/liang-kai-29" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/kevin.scnu@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-gsl_fft" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/06/gsl_fft/" class="article-date">
+  	<time datetime="2014-11-06T15:09:48.000Z" itemprop="datePublished">2014-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GNU Scientific Library -- FFT变换学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gsl/">gsl</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####Introduction####</p>
+<p>The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License.</p>
+<p>The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.</p>
+<a id="more"></a>
+<p>#####Download#####</p>
+<ul>
+<li>GSL can be found in the gsl subdirectory on your nearest GNU mirror: <a href="http://ftpmirror.gnu.org/gsl/" target="_blank" rel="external">http://ftpmirror.gnu.org/gsl/</a></li>
+<li>Main GNU ftp site:<a href="ftp://ftp.gnu.org/gnu/gsl/" target="_blank" rel="external">ftp://ftp.gnu.org/gnu/gsl/</a>,Installation instructions can be found in the included README and INSTALL files.Precompiled binary packages are included in most GNU/Linux distributions.</li>
+<li>A compiled version of GSL is available as part of <a href="http://www.cygwin.com/" target="_blank" rel="external">Cygwin</a> on Windows (but we recommend using GSL on a free operating system, such as GNU/Linux).</li>
+</ul>
+<p>#####Documentation#####<br>GSL includes a 500 page reference manual in Texinfo format. You can print the manual in postscript or read it on your system using the shell command info gsl-ref (if the library is installed).</p>
+<p>The GSL Reference Manual is available online,</p>
+<ul>
+<li><a href="http://www.gnu.org/software/gsl/manual/html_node/" target="_blank" rel="external">GSL Reference Manual - HTML</a></li>
+<li><a href="http://www.gnu.org/software/gsl/manual/gsl-ref.ps.gz" target="_blank" rel="external">GSL Reference Manual - Gzipped Postscript</a></li>
+</ul>
+<p>The manual has been published as a printed book (under the GNU Free Documentation License), the latest edition is GNU Scientific Library Reference Manual - Third Edition (January 2009),M. Galassi et al, ISBN 0954612078 (paperback) RRP $39.95.</p>
+<p>####Supported Platforms####<br>GSL is developed on the following platform:</p>
+<ul>
+<li>GNU/Linux with gcc</li>
+</ul>
+<p>It has been reported to compile on the following other platforms:</p>
+<ul>
+<li>SunOS 4.1.3 &amp; Solaris 2.x (Sparc)</li>
+<li>Alpha GNU/Linux, gcc</li>
+<li>HP-UX 9/10/11, PA-RISC, gcc/cc</li>
+<li>IRIX 6.5, gcc</li>
+<li>m68k NeXTSTEP, gcc</li>
+<li>Compaq Alpha Tru64 Unix, gcc</li>
+<li>FreeBSD, OpenBSD &amp; NetBSD, gcc</li>
+<li>Cygwin</li>
+<li>Apple Darwin 5.4</li>
+<li>Hitachi SR8000 Super Technical Server, cc</li>
+</ul>
+<p>We require that GSL should build on any UNIX-like system with an ANSI C compiler, so if doesn’t, that’s a bug and we would love a patch! The complete library should also pass “make check”.</p>
+<p>####FFT(Real data)####</p>
+<ul>
+<li><p>header files: <em>gsl_fft_real.h</em> &amp;&amp; <em>gsl_fft_halfcomplex.h</em></p>
+</li>
+<li><p>Function: <em>gsl_fft_real_wavetable </em> gsl_fft_real_wavetable_alloc (size_t n)*</p>
+</li>
+<li><p>Function: <em>gsl_fft_halfcomplex_wavetable </em> gsl_fft_halfcomplex_wavetable_alloc (size_t n)*</p>
+<ul>
+<li><p>These functions prepare trigonometric lookup tables for an FFT of size n real elements. The functions return a pointer to the newly allocated struct if no errors were detected, and a null pointer in the case of error. The length n is factorized into a product of subtransforms, and the factors and their trigonometric coefficients are stored in the wavetable. The trigonometric coefficients are computed using direct calls to sin and cos, for accuracy. Recursion relations could be used to compute the lookup table faster, but if an application performs many FFTs of the same length then computing the wavetable is a one-off overhead which does not affect the final throughput.</p>
+</li>
+<li><p>The wavetable structure can be used repeatedly for any transform of the same length. The table is not modified by calls to any of the other FFT functions. The appropriate type of wavetable must be used for forward real or inverse half-complex transforms.</p>
+</li>
+</ul>
+</li>
+<li><p>Function: <em>void gsl_fft_real_wavetable_free (gsl_fft_real_wavetable </em> wavetable)*</p>
+</li>
+<li><p>Function: <em>void gsl_fft_halfcomplex_wavetable_free (gsl_fft_halfcomplex_wavetable </em> wavetable)*</p>
+<ul>
+<li>These functions free the memory associated with the wavetable wavetable. The wavetable can be freed if no further FFTs of the same length will be needed.The mixed radix algorithms require additional working space to hold the intermediate steps of the transform</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Function: <em>gsl_fft_real_workspace </em> gsl_fft_real_workspace_alloc (size_t n)*</p>
+<ul>
+<li>This function allocates a workspace for a real transform of length n. The same workspace can be used for both forward real and inverse halfcomplex transforms.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Function: <em>void gsl_fft_real_workspace_free (gsl_fft_real_workspace </em> workspace)*</p>
+<ul>
+<li>This function frees the memory associated with the workspace workspace. The workspace can be freed if no further FFTs of the same length will be needed.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Function: <em>int gsl_fft_real_transform (double data[], size_t stride, size_t n, const gsl_fft_real_wavetable </em> wavetable, gsl_fft_real_workspace <em> work)</em></li>
+<li><p>Function: <em>int gsl_fft_halfcomplex_transform (double data[], size_t stride, size_t n, const gsl_fft_halfcomplex_wavetable </em> wavetable, gsl_fft_real_workspace <em> work)</em></p>
+<ul>
+<li>These functions compute the FFT of data, a real or half-complex array of length n, using a mixed radix decimation-in-frequency algorithm. For gsl_fft_real_transform data is an array of time-ordered real data. For gsl_fft_halfcomplex_transform data contains Fourier coefficients in the half-complex ordering described above. There is no restriction on the length n. Efficient modules are provided for subtransforms of length 2, 3, 4 and 5. Any remaining factors are computed with a slow, O(n^2), general-n module. The caller must supply a wavetable containing trigonometric lookup tables and a workspace work.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Function: <em>int gsl_fft_real_unpack (const double real_coefficient[], gsl_complex_packed_array complex_coefficient, size_t stride, size_t n)</em></p>
+<ul>
+<li>This function converts a single real array, real_coefficient into an equivalent complex array, complex_coefficient, (with imaginary part set to zero), suitable for gsl_fft_complex routines. The algorithm for the conversion is simply.</li>
+</ul>
+</li>
+<li><p>Function: <em>int gsl_fft_halfcomplex_unpack (const double halfcomplex_coefficient[], gsl_complex_packed_array complex_coefficient, size_t stride, size_t n)</em></p>
+<ul>
+<li>This function converts halfcomplex_coefficient, an array of half-complex coefficients as returned by gsl_fft_real_transform, into an ordinary complex array, complex_coefficient. It fills in the complex array using the symmetry z<em>k = z</em>{n-k}^* to reconstruct the redundant elements. </li>
+</ul>
+</li>
+</ul>
+<p>###Example####<br>Here is an example program using gsl_fft_real_transform and gsl_fft_halfcomplex_inverse. It generates a real signal in the shape of a square pulse. The pulse is Fourier transformed to frequency space, and all but the lowest ten frequency components are removed from the array of Fourier coefficients returned by gsl_fft_real_transform.</p>
+<p>The remaining Fourier coefficients are transformed back to the time-domain, to give a filtered version of the square pulse. Since Fourier coefficients are stored using the half-complex symmetry both positive and negative frequencies are removed and the final filtered signal is also real.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;stdio.h&#62;&#10;#include &#60;math.h&#62;&#10;#include &#60;gsl/gsl_errno.h&#62;&#10;#include &#60;gsl/gsl_fft_real.h&#62;&#10;#include &#60;gsl/gsl_fft_halfcomplex.h&#62;&#10;&#10;int&#10;main (void)&#10;&#123;&#10;  int i, n = 100;&#10;  double data[n];&#10;&#10;  gsl_fft_real_wavetable * real;&#10;  gsl_fft_halfcomplex_wavetable * hc;&#10;  gsl_fft_real_workspace * work;&#10;&#10;  for (i = 0; i &#60; n; i++)&#10;    &#123;&#10;      data[i] = 0.0;&#10;    &#125;&#10;&#10;  for (i = n / 3; i &#60; 2 * n / 3; i++)&#10;    &#123;&#10;      data[i] = 1.0;&#10;    &#125;&#10;&#10;  for (i = 0; i &#60; n; i++)&#10;    &#123;&#10;      printf (&#34;%d: %e\n&#34;, i, data[i]);&#10;    &#125;&#10;  printf (&#34;\n&#34;);&#10;&#10;  work = gsl_fft_real_workspace_alloc (n);&#10;  real = gsl_fft_real_wavetable_alloc (n);&#10;&#10;  gsl_fft_real_transform (data, 1, n, &#10;                          real, work);&#10;&#10;  gsl_fft_real_wavetable_free (real);&#10;&#10;  for (i = 11; i &#60; n; i++)&#10;    &#123;&#10;      data[i] = 0;&#10;    &#125;&#10;&#10;  hc = gsl_fft_halfcomplex_wavetable_alloc (n);&#10;&#10;  gsl_fft_halfcomplex_inverse (data, 1, n, &#10;                               hc, work);&#10;  gsl_fft_halfcomplex_wavetable_free (hc);&#10;&#10;  for (i = 0; i &#60; n; i++)&#10;    &#123;&#10;      printf (&#34;%d: %e\n&#34;, i, data[i]);&#10;    &#125;&#10;&#10;  gsl_fft_real_workspace_free (work);&#10;  return 0;&#10;&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/03/vim学习及配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          vim配置折腾记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/09/22/c++_face_question/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 面试问题汇总</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="gsl_fft" data-title="GNU Scientific Library -- FFT变换学习" data-url="http://liangkai.me/2014/11/06/gsl_fft/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016-01-31 <a href="http://github.com/lkpjj">liangkai</a> <a href="http://liangkai.me">奔跑的蜗牛</a>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-44990781-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
