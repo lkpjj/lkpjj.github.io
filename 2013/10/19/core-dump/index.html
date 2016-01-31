@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>段错误问题 | 奔跑的蜗牛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##首先看下面的程序1#include &amp;#60;iostream&amp;#62;&amp;#10;using namespace std;&amp;#10;int main(void)&amp;#10;&amp;#123;&amp;#10;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#1">
+  <meta name="description" content="##首先看下面的程序12345678910#include &amp;lt;iostream&amp;gt;using namespace std;int main(void)&amp;#123;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#123;7, 8&amp;#125">
 <meta property="og:type" content="article">
 <meta property="og:title" content="段错误问题">
 <meta property="og:url" content="http://liangkai.me/2013/10/19/core-dump/index.html">
 <meta property="og:site_name" content="奔跑的蜗牛">
-<meta property="og:description" content="##首先看下面的程序1#include &amp;#60;iostream&amp;#62;&amp;#10;using namespace std;&amp;#10;int main(void)&amp;#10;&amp;#123;&amp;#10;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#1">
+<meta property="og:description" content="##首先看下面的程序12345678910#include &amp;lt;iostream&amp;gt;using namespace std;int main(void)&amp;#123;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#123;7, 8&amp;#125">
 <meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="段错误问题">
-<meta name="twitter:description" content="##首先看下面的程序1#include &amp;#60;iostream&amp;#62;&amp;#10;using namespace std;&amp;#10;int main(void)&amp;#10;&amp;#123;&amp;#10;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#1">
+<meta name="twitter:description" content="##首先看下面的程序12345678910#include &amp;lt;iostream&amp;gt;using namespace std;int main(void)&amp;#123;int a[2][2][2] = &amp;#123; &amp;#123; &amp;#123;1, 2&amp;#125;, &amp;#123;3, 4&amp;#125; &amp;#125;, &amp;#123; &amp;#123;5, 6&amp;#125;, &amp;#123;7, 8&amp;#125">
   
     <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
   
@@ -244,15 +244,15 @@
       
 		<!-- Table of Contents -->
         
-        <p>##首先看下面的程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;int main(void)&#10;&#123;&#10;int a[2][2][2] = &#123; &#123; &#123;1, 2&#125;, &#123;3, 4&#125; &#125;, &#123; &#123;5, 6&#125;, &#123;7, 8&#125; &#125; &#125;;&#10;int ***p;&#10;p= (int***)a;&#10;cout&#60;&#60; ***p &#60;&#60;endl;&#10;return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>##具体问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -g -Wall test.cpp -o test&#10;./test</span><br></pre></td></tr></table></figure></p>
+        <p>##首先看下面的程序<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>] = &#123; &#123; &#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">4</span>&#125; &#125;, &#123; &#123;<span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>&#125; &#125; &#125;;</span><br><span class="line"><span class="keyword">int</span> ***p;</span><br><span class="line">p= (<span class="keyword">int</span>***)a;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; ***p &lt;&lt;endl;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##具体问题<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">g</span>++ -<span class="keyword">g</span> -Wall <span class="keyword">test</span>.cpp -o <span class="keyword">test</span></span><br><span class="line">./<span class="keyword">test</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>然后就出现了如下问题：<code>zsh:segmentation fault (core dumped) ./test</code></p>
 <p>core dump又是什么东东？ 我们在开发（或使用）一个程序时，最怕的就是程序莫明其妙地挂掉。虽然系统没事，但我们下次仍可能遇到相同的问题。于是，这时操作系统就会把程序挂掉时的 内存内容写入一个叫做core的文件里（这个写入的动作就叫dump，dump的英语意思是垃圾、倾倒。从这里来看，这些内存的内容是程序错误运行的结果，所以算是垃圾，把他弄出来就好比从大的内存池里“倾倒”。），以便于我们调试。这个过程，因此叫做core dump。</p>
 <p>在一般Linux系统中，默认是不会产生core dump文件的，通过ulimit -c来查看core dump文件的大小，一般开始是0，可以设置core文件大小，ulimit -c 1024(kbytes单位)或者ulimit -c unlimited。</p>
 <p>用gdb查看core文件:<br>下面我们可以在发生运行时信号引起的错误时发生core dump了.编译时加上-g<br>发生core dump之后, 用gdb进行查看core文件的内容, 以定位文件中引发core dump的行.<br>    gdb [exec file] [core file]<br>如:<br>    gdb ./test test.core<br>在进入gdb后, 用bt命令查看backtrace以检查发生程序运行到哪里, 来定位core dump的文件行.</p>
 <p>core dump 永久有效的方法<br><strong>可以通过修改 /etc/security/limits.conf</strong>文件来实现，在文件中添加如下的一行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#60;domain&#62;      &#60;type&#62;  &#60;item&#62;         &#60;value&#62;  &#10;*                soft    core            1000</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="title">&lt;domain&gt;</span>      <span class="title">&lt;type&gt;</span>  <span class="title">&lt;item&gt;</span>         <span class="title">&lt;value&gt;</span>  </span></span><br><span class="line">*                soft    core            <span class="number">1000</span></span><br></pre></td></tr></table></figure>
 <p>具体的每个参数可以参看文件中的说明来添加，这里只提供一个修改的建议，当然也可以通过修改.bash_profile文件来实现</p>
 
       

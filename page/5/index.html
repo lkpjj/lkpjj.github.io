@@ -202,6 +202,70 @@
 
       <div class="body-wrap">
   
+    <article id="post-cmake" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/01/08/cmake/" class="article-date">
+  	<time datetime="2014-01-08T00:00:00.000Z" itemprop="datePublished">2014-01-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/08/cmake/">初识cmake</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u80CC_u666F_u77E5_u8BC6"><a href="#u80CC_u666F_u77E5_u8BC6" class="headerlink" title="背景知识"></a>背景知识</h2><p>cmake是kitware公司以及一些开源开发者在开发几个工具套件(VTK)的过程中衍生品，最终形成体系，成为一个独立的开放源代码项目。项目的诞生时间是2001年。其官方网站是www.cmake.org，可以通过访问官方网站获得更多关于cmake的信息。cmake的流行其实要归功于KDE4的开发(似乎跟当年的svn一样，KDE将代码仓库从CVS迁移到SVN，同时证明了SVN管理大型项目的可用性)，在KDE开发者使用了近10年autotools之后，他们终于决定为KDE4选择一个新的工程构建工具，其根本原因用KDE开发者的话来“ ” 说就是：只有少数几个 编译专家 能够掌握KDE现在的构建体系(admin/Makefile.common)，在经历了unsermake, scons以及cmake的选型和尝试之后，KDE4决定使用cmake作为自己的构建系统。在迁移过程中，进展异常的顺利，并获得了cmake开发者的支持。所以，目前的KDE4开发版本已经完全使用cmake来进行构建。像kdesvn,rosegarden等项目也开始使用cmake，这也注定了cmake必然会成为一个主流的构建体系。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmake/">cmake</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/c/">c++</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2014/01/08/cmake/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-python-pyglet" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -356,7 +420,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>无意间看到Stackoverflow网站上的一个问题，让我也更懂了一点关于python，贴出来跟大家分享一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">How do these 2 classes differ?&#10;&#10;class A():&#10;x=3&#10;&#10;class B():&#10;def __init__(self):&#10;self.x=3&#10;&#10;Is there any significant difference?</span><br></pre></td></tr></table></figure></p>
+        <p>无意间看到Stackoverflow网站上的一个问题，让我也更懂了一点关于python，贴出来跟大家分享一下：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">How</span> <span class="keyword">do</span> these <span class="number">2</span> classes differ?</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>():</span></span><br><span class="line">x=<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>():</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span>:</span></span><br><span class="line"><span class="keyword">self</span>.x=<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="constant">Is</span> there any significant difference?</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -551,8 +615,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##首先看下面的程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &#60;iostream&#62;&#10;using namespace std;&#10;int main(void)&#10;&#123;&#10;int a[2][2][2] = &#123; &#123; &#123;1, 2&#125;, &#123;3, 4&#125; &#125;, &#123; &#123;5, 6&#125;, &#123;7, 8&#125; &#125; &#125;;&#10;int ***p;&#10;p= (int***)a;&#10;cout&#60;&#60; ***p &#60;&#60;endl;&#10;return 0;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>##具体问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -g -Wall test.cpp -o test&#10;./test</span><br></pre></td></tr></table></figure></p>
+        <p>##首先看下面的程序<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>] = &#123; &#123; &#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">4</span>&#125; &#125;, &#123; &#123;<span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>&#125; &#125; &#125;;</span><br><span class="line"><span class="keyword">int</span> ***p;</span><br><span class="line">p= (<span class="keyword">int</span>***)a;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; ***p &lt;&lt;endl;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##具体问题<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">g</span>++ -<span class="keyword">g</span> -Wall <span class="keyword">test</span>.cpp -o <span class="keyword">test</span></span><br><span class="line">./<span class="keyword">test</span></span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -782,78 +846,9 @@
 
 
   
-    <article id="post-yaourt" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2013/01/07/yaourt/" class="article-date">
-  	<time datetime="2013-01-07T00:00:00.000Z" itemprop="datePublished">2013-01-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/01/07/yaourt/">yaourt错误</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>之前使用命令 yaourt software 时总是莫名其妙的碰到一些很不常见的问题，比如</li>
-</ol>
-<p>错误： 在 build() 中发生一个错误。<br>    正在放弃…<br>==&gt; ERROR: Makepkg was unable to build 。。。</p>
-<p>经过一番查询google才发现问题的解决办法，原来是没有装 linux-header</p>
-<p>sudo pacman -S linux-header解决该问题.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yaourt/">yaourt</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/linux/">linux</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2013/01/07/yaourt/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 </div>

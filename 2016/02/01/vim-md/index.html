@@ -4,24 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>opencv中的内存释放 | 奔跑的蜗牛</title>
+  <title>vim.md | 奔跑的蜗牛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###问题引出最近在做一个有关视频中的运动检测小实验，用的是opencv + qt,之前一直没有在意内存的管理问题，昨天在实验的时候看到内存在不停的增长，但是自己明明已经释放了内存了的，于是搜索了一圈终于明白了之所以这样的原因，这里做一个记录，算是对自己犯的小错误以及编程不规范的一个提醒吧。
-###例子剖析
-先看一个简单的例子来说明">
+  <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="opencv中的内存释放">
-<meta property="og:url" content="http://liangkai.me/2014/02/28/opencv_memory/index.html">
+<meta property="og:title" content="vim.md">
+<meta property="og:url" content="http://liangkai.me/2016/02/01/vim-md/index.html">
 <meta property="og:site_name" content="奔跑的蜗牛">
-<meta property="og:description" content="###问题引出最近在做一个有关视频中的运动检测小实验，用的是opencv + qt,之前一直没有在意内存的管理问题，昨天在实验的时候看到内存在不停的增长，但是自己明明已经释放了内存了的，于是搜索了一圈终于明白了之所以这样的原因，这里做一个记录，算是对自己犯的小错误以及编程不规范的一个提醒吧。
-###例子剖析
-先看一个简单的例子来说明">
-<meta property="og:updated_time" content="2015-10-01T12:08:48.000Z">
+<meta property="og:description">
+<meta property="og:image" content="http://testdp.qiniudn.com/blog_img/images/test/demo.png?imageView2/2/w/600">
+<meta property="og:updated_time" content="2016-01-31T10:11:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv中的内存释放">
-<meta name="twitter:description" content="###问题引出最近在做一个有关视频中的运动检测小实验，用的是opencv + qt,之前一直没有在意内存的管理问题，昨天在实验的时候看到内存在不停的增长，但是自己明明已经释放了内存了的，于是搜索了一圈终于明白了之所以这样的原因，这里做一个记录，算是对自己犯的小错误以及编程不规范的一个提醒吧。
-###例子剖析
-先看一个简单的例子来说明">
+<meta name="twitter:title" content="vim.md">
+<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
   
@@ -207,11 +202,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-opencv_memory" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vim-md" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/02/28/opencv_memory/" class="article-date">
-  	<time datetime="2014-02-27T22:58:01.000Z" itemprop="datePublished">2014-02-27</time>
+      <a href="/2016/02/01/vim-md/" class="article-date">
+  	<time datetime="2016-01-31T18:11:56.000Z" itemprop="datePublished">2016-01-31</time>
 </a>
     </div>
   
@@ -224,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      opencv中的内存释放
+      vim.md
     </h1>
   
 
@@ -232,15 +227,7 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv/">opencv</a></li></ul>
-	</div>
-
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/opencv/">opencv</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -250,10 +237,9 @@
       
 		<!-- Table of Contents -->
         
-        <p>###问题引出<br>最近在做一个有关视频中的运动检测小实验，用的是opencv + qt,之前一直没有在意内存的管理问题，昨天在实验的时候看到内存在不停的增长，但是自己明明已经释放了内存了的，于是搜索了一圈终于明白了之所以这样的原因，这里做一个记录，算是对自己犯的小错误以及编程不规范的一个提醒吧。</p>
-<p>###例子剖析</p>
-<p>先看一个简单的例子来说明<br><a id="more"></a><br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">void MainWindow<span class="number">::F</span>rameDiff()</span><br><span class="line">&#123;</span><br><span class="line">ui-&gt;alpha_slider-&gt;setDisabled(true)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">cvReleaseCapture(&amp;pCapture)<span class="comment">;</span></span><br><span class="line">pCapture=cvCaptureFromCAM(0)<span class="comment">;</span></span><br><span class="line">IplImage* frame=NULL<span class="comment">;</span></span><br><span class="line">nFrameNum=0<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">while(frame = cvQueryFrame(pCapture))</span><br><span class="line">&#123;</span><br><span class="line">/*cvCvtColor(frame,frame,CV_BGR2RGB)<span class="comment">;*/</span></span><br><span class="line">   nFrameNum++<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">cvReleaseImage(&amp;src)<span class="comment">;//memory control</span></span><br><span class="line"></span><br><span class="line">src=cvCreateImage(cvSize(frame-&gt;width,frame-&gt;height),IPL_DEPTH_8U,3)<span class="comment">;</span></span><br><span class="line">cvCopy(frame,src)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">if( nFrameNum==1 )</span><br><span class="line">&#123;</span><br><span class="line">last_img=cvCreateImage(cvSize(src-&gt;width,src-&gt;height),IPL_DEPTH_8U,3)<span class="comment">;</span></span><br><span class="line">img_diff=cvCreateImage(cvSize(src-&gt;width,src-&gt;height),IPL_DEPTH_8U,3)<span class="comment">;</span></span><br><span class="line">gray_diff=cvCreateImage(cvSize(src-&gt;width,src-&gt;height),IPL_DEPTH_8U,1)<span class="comment">;</span></span><br><span class="line">binary_img=cvCreateImage(cvSize(src-&gt;width,src-&gt;height),IPL_DEPTH_8U,1)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">cvCopy(src,last_img)<span class="comment">;</span></span><br><span class="line">cvZero(binary_img)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">cvAbsDiff(src,last_img,img_diff)<span class="comment">;</span></span><br><span class="line">cvCvtColor(img_diff,gray_diff,CV_BGR2GRAY)<span class="comment">;</span></span><br><span class="line">cvSmooth(gray_diff,gray_diff,CV_GAUSSIAN,3,0,0)<span class="comment">;//gaussian smooth</span></span><br><span class="line">cvThreshold(gray_diff,binary_img,lowThreshold,255,CV_THRESH_BINARY)<span class="comment">;</span></span><br><span class="line">cvDilate(binary_img,binary_img)<span class="comment">;</span></span><br><span class="line">cvErode(binary_img,binary_img)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">cvCopy(src,last_img)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">if(27==cvWaitKey(33))</span><br><span class="line">    break<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">MainWindow<span class="number">::D</span>isplay(src,img_diff,binary_img)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">// MainWindow<span class="number">::</span>releaseMemory()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里有一句 <code>cvReleaseImage(&amp;src);//memory control</code>;之所以添加这一句就是为了内存释放，如果没有这句的话就会发现内存在快速的被耗尽;    <code>src=cvCreateImage(cvSize(frame-&gt;width,frame-&gt;height),IPL_DEPTH_8U,3)</code>;这句是向内存申请一片空间，用于存放目的图像的空间。造成内存泄露的真正原因是这句。    因为自己这里每次循环的时候都申请了一片内存，但是最后释放又出现了问题，所以之前申请的内存就没有得到释放，因此在申请新的内存的时候我们加上<code>cvReleaseImage(&amp;src)</code>来释放之前的内存;    之前一直没有怎么在意内存的问题，经过这次的小实验明白了内存管理的重要性，一定要记得释放内存，尤其是在视频处理中。</p>
+        <blockquote>
+<img title="图片标题" alt="图片说明" class="class1" src="http://testdp.qiniudn.com/blog_img/images/test/demo.png?imageView2/2/w/600">
+</blockquote>
 
       
     </div>
@@ -263,18 +249,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/03/10/latex_cjk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          latex中使用中文
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/01/10/thinkpad/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">T430 中 thinkfan以及电源阈值的控制</div>
+    <a href="/2016/01/31/hexo-with-qiniu-img/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo中使用七牛插件</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -309,7 +286,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="opencv_memory" data-title="opencv中的内存释放" data-url="http://liangkai.me/2014/02/28/opencv_memory/"></div>
+	<div class="ds-thread" data-thread-key="vim-md" data-title="vim.md" data-url="http://liangkai.me/2016/02/01/vim-md/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

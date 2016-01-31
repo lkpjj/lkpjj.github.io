@@ -290,7 +290,7 @@
 <li><p>tip 3: 栈内存</p>
 <ul>
 <li>return 语句不可返回指向 “栈内存” 的 指针 或者 引用，因为该内存在函数体结束时被自动销毁</li>
-<li>example :<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char *Func(void)&#10;&#123;&#10;   char str[]=&#34;hello world&#34;;//str &#30340;&#20869;&#23384;&#20301;&#20110;&#26632;&#19978;&#10;&#10;   return str; //&#23548;&#33268;&#38169;&#35823;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<li>example :<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *Func(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">char</span> <span class="keyword">str</span>[]=<span class="string">"hello world"</span>;<span class="comment">//str 的内存位于栈上</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">str</span>; <span class="comment">//导致错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -304,10 +304,10 @@
 <li><p>tip 5: 三种传递方式</p>
 <ul>
 <li><p>值传递<br>由于Func1函数体内的 X 是外部变量的一份拷贝，因此改变 X 的值不会影响 n</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Fun1(int X)&#10;&#123;&#10; X = X + 10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Fun1</span><span class="params">(<span class="keyword">int</span> X)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> X = X + <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>指针传递<br>由于指针直接指向的是内存中的地址，因此改变指针的内容将导致 n 的改变</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Fun1(int *X)&#10;&#123;&#10; *X = *X + *10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Fun1</span><span class="params">(<span class="keyword">int</span> *X)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> *X = *X + *<span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>引用传递<br>引用实际上就是变量的别名，是一个变量的另一种叫法，但是实际上都是同一个变量，因此引用传递可以导致 n 的改变</p>
 </li>
@@ -333,7 +333,7 @@
 <li><p>tip 3: 常量字符串</p>
 <ul>
 <li>常量字符串的内容是不可被更改的，编译时无法发现，但运行会导致出错</li>
-<li>example<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char *p = &#34;hello world&#34;;&#10;p[0] = &#39;X&#39;;//&#23548;&#33268;&#38169;&#35823;,&#20294;&#32534;&#35793;&#36890;&#36807;&#10;cout&#60;&#60; p &#60;&#60;endl;</span><br></pre></td></tr></table></figure>
+<li>example<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p = <span class="string">"hello world"</span>;</span><br><span class="line">p[<span class="number">0</span>] = <span class="string">'X'</span>;<span class="comment">//导致错误,但编译通过</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt; p &lt;&lt;endl;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
