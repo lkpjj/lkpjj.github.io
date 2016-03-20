@@ -3,15 +3,40 @@
 
     
   <url>
-    <loc>http://liangkai.me/2016/02/01/vim-md/</loc>
-    <lastmod>2016-01-31T10:11:56.000Z</lastmod>
+    <loc>http://liangkai.me/2015/05/03/vim%E5%AD%A6%E4%B9%A0%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-02-01T15:42:30.000Z</lastmod>
     <data>
         <display>
-        <title>vim.md</title>
-        <pubTime>2016-01-31T18:11:56.000Z</pubTime>
+        <title>vim配置折腾记录</title>
+        <pubTime>2015-05-03T14:22:37.000Z</pubTime>
         
+        <tag>vim </tag>
+         
          
            
+             
+              <breadCrumb title="tool" url="http://liangkai.me/categories/tool/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://liangkai.me/2014/11/06/gsl_fft/</loc>
+    <lastmod>2016-02-01T14:48:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>GNU Scientific Library -- FFT变换学习</title>
+        <pubTime>2014-11-06T15:09:48.000Z</pubTime>
+        
+        <tag>gsl </tag>
+         
+         
+           
+             
+              <breadCrumb title="c++" url="http://liangkai.me/categories/c/"/>
+          
         </display>
     </data>
     </url>
@@ -40,26 +65,6 @@
     
     
     
-  <url>
-    <loc>http://liangkai.me/2016/01/31/hexo-with-qiniu-img/</loc>
-    <lastmod>2016-01-30T15:00:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>hexo中使用七牛插件</title>
-        <pubTime>2016-01-30T22:50:54.000Z</pubTime>
-        
-        <tag>hexo </tag>
-         
-         
-           
-             
-              <breadCrumb title="blog" url="http://liangkai.me/categories/blog/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
     
   <url>
     <loc>http://liangkai.me/2013/10/28/archlinux-tips/</loc>
@@ -70,26 +75,6 @@
         <pubTime>2013-10-28T00:00:00.000Z</pubTime>
         
         <tag>problem </tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://liangkai.me/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liangkai.me/2015/05/03/vim%E5%AD%A6%E4%B9%A0%E5%8F%8A%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2015-11-28T02:19:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>vim配置折腾记录</title>
-        <pubTime>2015-05-03T14:22:37.000Z</pubTime>
-        
-        <tag>vim </tag>
          
          
            
@@ -456,6 +441,26 @@
 
     
   <url>
+    <loc>http://liangkai.me/2013/01/07/yaourt/</loc>
+    <lastmod>2015-10-01T12:08:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>yaourt错误</title>
+        <pubTime>2013-01-07T00:00:00.000Z</pubTime>
+        
+        <tag>yaourt </tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://liangkai.me/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liangkai.me/2014/03/14/wavelet-enhancement/</loc>
     <lastmod>2015-10-01T12:08:48.000Z</lastmod>
     <data>
@@ -469,46 +474,6 @@
            
              
               <breadCrumb title="matlab" url="http://liangkai.me/categories/matlab/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liangkai.me/2014/01/09/vtk_cmake/</loc>
-    <lastmod>2015-10-01T12:08:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>VTK中Cmake文件的编写及其原理</title>
-        <pubTime>2014-01-09T00:00:00.000Z</pubTime>
-        
-        <tag>cmake </tag>
-         
-         
-           
-             
-              <breadCrumb title="c++" url="http://liangkai.me/categories/c/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liangkai.me/2014/11/06/gsl_fft/</loc>
-    <lastmod>2015-10-01T12:08:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>GNU Scientific Library -- FFT变换学习</title>
-        <pubTime>2014-11-06T15:09:48.000Z</pubTime>
-        
-        <tag>gsl </tag>
-         
-         
-           
-             
-              <breadCrumb title="c++" url="http://liangkai.me/categories/c/"/>
           
         </display>
     </data>
@@ -910,6 +875,26 @@
 
     
   <url>
+    <loc>http://liangkai.me/2014/01/09/vtk_cmake/</loc>
+    <lastmod>2015-10-01T12:08:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>VTK中Cmake文件的编写及其原理</title>
+        <pubTime>2014-01-09T00:00:00.000Z</pubTime>
+        
+        <tag>cmake </tag>
+         
+         
+           
+             
+              <breadCrumb title="c++" url="http://liangkai.me/categories/c/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://liangkai.me/2014/09/02/%E7%BA%B8%E4%B8%8A%E8%B0%88%E5%85%B5%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2015-10-01T12:08:48.000Z</lastmod>
     <data>
@@ -923,26 +908,6 @@
            
              
               <breadCrumb title="c++" url="http://liangkai.me/categories/c/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://liangkai.me/2013/01/07/yaourt/</loc>
-    <lastmod>2015-10-01T12:08:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>yaourt错误</title>
-        <pubTime>2013-01-07T00:00:00.000Z</pubTime>
-        
-        <tag>yaourt </tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://liangkai.me/categories/linux/"/>
           
         </display>
     </data>
